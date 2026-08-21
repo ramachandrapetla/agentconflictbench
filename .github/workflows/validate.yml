@@ -21,7 +21,12 @@ jobs:
           python-version: "3.11"
 
       - name: Compile validation scripts
-        run: python -m py_compile scripts/validate_metadata.py scripts/validate_dataset.py scripts/run_instance.py
+        run: python -m py_compile scripts/validate_metadata.py scripts/validate_dataset.py scripts/run_instance.py scripts/dataset_stats.py
 
       - name: Validate metadata
         run: python scripts/validate_metadata.py
+
+      - name: Validate generated dataset summary
+        run: |
+          python scripts/dataset_stats.py --output analysis/dataset_summary.md
+          git diff --exit-code -- analysis/dataset_summary.md
