@@ -42,13 +42,14 @@ The pilot gate is how we make sure a repository fits the benchmark, instead of a
 | pallets/click | Python | 5 | 5 | 5 | 5 | 5 | BSD-3-Clause | 5 | Primary |
 | fastapi/typer | Python | 4 | 4 | 5 | 5 | 4 | MIT | 5 | Primary |
 | encode/httpx | Python | 5 | 4 | 5 | 5 | 4 | BSD-3-Clause | 5 | Primary |
+| Textualize/rich | Python | 5 | 5 | 5 | 5 | 5 | MIT | 5 | Primary |
 | colinhacks/zod | TypeScript | 5 | 4 | 5 | 5 | 4 | MIT | 5 | Primary |
 | tj/commander.js | TypeScript/JavaScript | 5 | 5 | 5 | 5 | 5 | MIT | 5 | Primary |
 | pydantic/pydantic | Python | 5 | 2 | 5 | 5 | 3 | MIT | 5 | Alternate |
 | dotenvx/dotenvx | JavaScript | 4 | 3 | 5 | 5 | 4 | BSD-3-Clause | 4 | Alternate |
 | sindresorhus/meow | TypeScript/JavaScript | 4 | 4 | 4 | 4 | 5 | MIT | 4 | Alternate |
 
-## Recommended First Five Repositories
+## Recommended Seed Repositories
 
 ### 1. pallets/click
 
@@ -100,6 +101,21 @@ Example conflict directions:
 - Patch A changes subcommand parsing while Patch B changes unknown-option handling.
 - Patch A changes TypeScript typings while Patch B changes runtime API behavior.
 
+### 6. Textualize/rich
+
+Rich is a Python terminal-rendering library. It is a strong expansion fit
+because rendering behavior depends on text spans, markup, padding, console
+options, emoji handling, wrapping, measurement, and metadata propagation. These
+surfaces produce compact, realistic semantic interactions with low setup cost.
+
+Example conflict directions:
+
+- Patch A changes styled text padding while Patch B refactors truncation to use
+  the padding helper.
+- Patch A changes low-level text metadata inheritance while Patch B delegates a
+  public API to that helper.
+- Patch A changes markup escaping while Patch B changes emoji or tag parsing.
+
 ## Why These Fit AgentConflictBench
 
 These repositories share the properties we need:
@@ -112,17 +128,21 @@ These repositories share the properties we need:
 
 ## Initial Seed Plan
 
-Start with two seed instances per primary repository:
+Start with two seed instances per primary repository, then expand with
+additional repositories that pass the pilot gate:
 
 | Repository | Seed Instances | Target Conflict Categories |
 | --- | ---: | --- |
 | pallets/click | 2 | configuration, behavioral |
 | fastapi/typer | 2 | API-contract, behavioral |
 | encode/httpx | 2 | behavioral, security-policy |
+| Textualize/rich | 2 | behavioral, API-contract |
 | colinhacks/zod | 2 | schema, API-contract |
 | tj/commander.js | 2 | configuration, test-assumption |
 
-This gives 10 initial instances across 5 repositories and at least 5 conflict categories.
+The initial five-repository plan provided 10 target instances. The current seed
+dataset has expanded to 15 reproduced instances across 6 repositories while
+preserving the same inclusion gate.
 
 ## Validation Before Inclusion
 

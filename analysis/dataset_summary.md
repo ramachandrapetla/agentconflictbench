@@ -6,12 +6,12 @@
 
 | Metric | Value |
 | --- | --- |
-| Total instances | 13 |
-| Upstream repositories | 5 |
+| Total instances | 15 |
+| Upstream repositories | 6 |
 | Languages | 3 |
 | Conflict categories | 5 |
-| Researcher-constructed instances | 13 |
-| Reproduced instances | 13 |
+| Researcher-constructed instances | 15 |
+| Reproduced instances | 15 |
 
 ## Instances
 
@@ -29,12 +29,15 @@
 | `httpx__001` | `encode/httpx` | Python | api_contract | researcher_constructed | reproduced |
 | `httpx__002` | `encode/httpx` | Python | security_policy | researcher_constructed | reproduced |
 | `httpx__003` | `encode/httpx` | Python | state_invariant | researcher_constructed | reproduced |
+| `rich__001` | `Textualize/rich` | Python | behavioral | researcher_constructed | reproduced |
+| `rich__002` | `Textualize/rich` | Python | api_contract | researcher_constructed | reproduced |
 | `zod__001` | `colinhacks/zod` | TypeScript | api_contract | researcher_constructed | reproduced |
 
 ## By Repository
 
 | Value | Instances |
 | --- | --- |
+| `Textualize/rich` | 2 |
 | `colinhacks/zod` | 1 |
 | `encode/httpx` | 3 |
 | `fastapi/typer` | 2 |
@@ -46,15 +49,15 @@
 | Value | Instances |
 | --- | --- |
 | `JavaScript` | 3 |
-| `Python` | 9 |
+| `Python` | 11 |
 | `TypeScript` | 1 |
 
 ## By Conflict Type
 
 | Value | Instances |
 | --- | --- |
-| `api_contract` | 4 |
-| `behavioral` | 5 |
+| `api_contract` | 5 |
+| `behavioral` | 6 |
 | `configuration` | 2 |
 | `security_policy` | 1 |
 | `state_invariant` | 1 |

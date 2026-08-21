@@ -1,0 +1,22 @@
+diff --git a/rich/text.py b/rich/text.py
+index 7e087a4e..163e52d0 100644
+--- a/rich/text.py
++++ b/rich/text.py
+@@ -939,7 +939,17 @@ class Text(JupyterMixin):
+         """
+         assert len(character) == 1, "Character must be a string of length 1"
+         if count:
++            original_length = len(self)
+             self.plain = f"{self.plain}{character * count}"
++            _Span = Span
++            self._spans[:] = [
++                (
++                    _Span(start, end + count, style)
++                    if end == original_length
++                    else _Span(start, end, style)
++                )
++                for start, end, style in self._spans
++            ]
+ 
+     def align(self, align: AlignMethod, width: int, character: str = " ") -> None:
+         """Align text to a given width.
