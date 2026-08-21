@@ -139,9 +139,9 @@ def render_report(results: list[RunResult]) -> str:
     lines.extend(
         [
             "",
-            "A PASS means Patch A passed alone, Patch B passed alone, and the "
-            "A+B composition oracle failed as expected.",
-            "",
+        "A PASS means Patch A passed alone, Patch B passed alone, and the "
+        "A+B composition oracle matched the instance's composition_expected value.",
+        "",
         ]
     )
 

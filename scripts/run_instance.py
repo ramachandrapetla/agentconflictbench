@@ -143,6 +143,11 @@ def main() -> int:
     composition_test = str(instance_dir / "oracle" / "test_composition.py")
     if "composition_oracle" in metadata:
         composition_test = str(instance_dir / metadata["composition_oracle"])
+    composition_expected = metadata["composition_expected"]
+    if composition_expected not in {"fail", "pass"}:
+        raise SystemExit(
+            "metadata field composition_expected must be one of: fail, pass"
+        )
 
     try:
         print(f"Running {metadata['id']} against {repo_dir}")
@@ -162,9 +167,16 @@ def main() -> int:
         print("\n[3/3] Composition validation")
         apply_patch(repo_dir, patch_a)
         apply_patch(repo_dir, patch_b)
-        run_oracle(repo_dir, composition_test, expect_failure=True)
+        run_oracle(
+            repo_dir,
+            composition_test,
+            expect_failure=composition_expected == "fail",
+        )
 
-        print("\nPASS: instance reproduces expected silent semantic conflict.")
+        if composition_expected == "fail":
+            print("\nPASS: instance reproduces expected silent semantic conflict.")
+        else:
+            print("\nPASS: instance reproduces expected clean composition control.")
         return 0
     finally:
         restore_repo(repo_dir)

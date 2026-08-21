@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.ts",
+  "composition_expected": "fail",
   "conflict_type": "api_contract",
   "failure_summary": "Patch A changes registry metadata inheritance so id fields are inherited. Patch B changes optional wrappers to inherit metadata from their inner schema. Together, optional wrappers inherit inner registration IDs, violating the metadata contract that IDs should not bubble into derived wrapper schemas.",
   "difficulty": "easy",

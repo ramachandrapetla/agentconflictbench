@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "test_assumption",
   "failure_summary": "Patch A changes the old-style formatting helper so None is silently escaped as an empty string. Patch B routes simple new-style format fields through that helper. Together, Markup.format(None) stops rendering the literal text None, violating an existing formatting assumption that new-style formatting preserves Python's None stringification.",
   "difficulty": "easy",

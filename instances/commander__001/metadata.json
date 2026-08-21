@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.mjs",
+  "composition_expected": "fail",
   "conflict_type": "behavioral",
   "failure_summary": "Patch A introduces unique-prefix subcommand lookup. Patch B introduces lowercase fallback before dispatch. Together, an uppercase prefix such as STA is lowercased to sta and then resolved as a unique prefix for status, admitting a command spelling neither patch independently intended.",
   "difficulty": "easy",

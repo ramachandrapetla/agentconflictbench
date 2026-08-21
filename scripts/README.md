@@ -10,6 +10,7 @@ This directory contains setup, validation, composition, and benchmark-running sc
 - `check_instance_completeness.py`: verify reproduced instances include the required tasks, patches, combined patch, oracles, scripts, logs, and docs.
 - `dataset_stats.py`: generate Markdown dataset summary statistics from `instances/index.json`.
 - `generate_dataset_table.py`: generate a paper-facing instance table from `instances/index.json` and per-instance metadata.
+- `validate_generated_artifacts.py`: regenerate generated CSV/Markdown artifacts and fail if they are stale.
 - `validate_metadata.py`: validate instance metadata, index consistency, enum values, and referenced files.
 - `validate_dataset.py`: validate every reproduced instance listed in `instances/index.json` and write `analysis/validation_report.md`.
 
@@ -45,6 +46,16 @@ python scripts/generate_dataset_table.py --output paper/dataset_table.md
 This table is intended for paper drafting and reviewer-facing summaries. Keep
 full per-instance detail in `../instances/` rather than expanding the root
 README.
+
+## Validate generated artifacts
+
+```bash
+python scripts/validate_generated_artifacts.py
+```
+
+This regenerates `analysis/baseline_features.csv`,
+`analysis/dataset_summary.md`, and `paper/dataset_table.md`, then fails if any
+of those generated files differ from the committed versions.
 
 ## Bootstrap upstream repositories
 
@@ -87,7 +98,7 @@ A dataset validation pass means each included instance reproduces the expected A
 1. Patch A passes alone.
 2. Patch B passes alone.
 3. Patch A + Patch B applies cleanly.
-4. The composition oracle fails as expected.
+4. The composition oracle matches `composition_expected`.
 
 Python oracles are run with `pytest`. JavaScript oracles using `.js`, `.mjs`,
 or `.cjs` are run with Node's built-in `node --test` runner. TypeScript

@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.mjs",
+  "composition_expected": "fail",
   "conflict_type": "behavioral",
   "failure_summary": "Patch A broadens Option.isBoolean() to include negated options. Patch B checks isBoolean() before the negate-specific branch. Together, --no-cache is interpreted as a regular boolean flag and becomes true instead of false.",
   "difficulty": "easy",

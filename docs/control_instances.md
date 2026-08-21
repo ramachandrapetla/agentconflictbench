@@ -35,10 +35,10 @@ The key semantic difference is the composition expectation:
 - Conflict instance: Patch A passes, Patch B passes, A+B composition fails.
 - Control instance: Patch A passes, Patch B passes, A+B composition passes.
 
-## Metadata Recommendation
+## Metadata
 
-Keep one canonical metadata schema, and add a required field only when controls
-are introduced:
+All instances use one canonical metadata schema. The `composition_expected`
+field declares whether the composition oracle should pass or fail:
 
 ```json
 "composition_expected": "fail"
@@ -50,9 +50,9 @@ Allowed values should be:
 - `pass`: a control instance with clean semantic composition.
 
 This is cleaner than maintaining a separate control schema because all artifacts
-and validation logic remain shared. Until controls are added, existing conflict
-instances can be treated as conventionally equivalent to
-`composition_expected = "fail"`.
+and validation logic remain shared. Existing conflict instances use
+`composition_expected = "fail"`; future controls should use
+`composition_expected = "pass"`.
 
 ## Selection Criteria
 
@@ -79,10 +79,10 @@ that direction:
 
 ## Validation Policy
 
-The reproduction runner should eventually accept both outcomes:
+The reproduction runner accepts both outcomes:
 
 - `composition_expected = "fail"`: expect composition oracle failure.
 - `composition_expected = "pass"`: expect composition oracle success.
 
-Until then, controls should live as candidate instances or in a separate design
-branch so they do not weaken the current reproduced-positive validation signal.
+Controls should be matched and documented with the same care as conflict
+instances so they do not become trivial negatives.

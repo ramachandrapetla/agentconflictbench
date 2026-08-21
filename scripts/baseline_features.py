@@ -103,6 +103,7 @@ def render_rows(root: Path, instances: list[dict[str, object]]) -> list[dict[str
                 "repo": repo_slug(str(instance.get("repo", ""))),
                 "language": instance.get("language", ""),
                 "conflict_type": instance.get("conflict_type", ""),
+                "composition_expected": metadata.get("composition_expected", ""),
                 "difficulty": metadata.get("difficulty", ""),
                 "patch_a_files": len(patch_a.files),
                 "patch_b_files": len(patch_b.files),
@@ -141,7 +142,7 @@ def main() -> int:
     args.output.parent.mkdir(parents=True, exist_ok=True)
 
     with args.output.open("w", newline="") as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(csv_file, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 

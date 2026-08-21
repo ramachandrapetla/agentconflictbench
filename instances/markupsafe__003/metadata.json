@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "api_contract",
   "failure_summary": "Patch A makes escape prefer __html_format__(\"\") over __html__ when both are present. Patch B makes Markup construction delegate HTML-aware objects through escape. Together, Markup(obj) changes from using obj.__html__() to using obj.__html_format__(\"\"), violating the constructor's established HTML protocol contract.",
   "difficulty": "easy",

@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "state_invariant",
   "failure_summary": "Patch A makes Headers.keys() expose original-case header names. Patch B optimizes Headers.update() by directly comparing incoming keys against normalized lookup keys. Together, an update with different casing fails to remove the old logical header and leaves duplicate values in the internal header list.",
   "difficulty": "easy",

@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.mjs",
+  "composition_expected": "fail",
   "conflict_type": "api_contract",
   "failure_summary": "Patch A normalizes flag spellings in conflicts(). Patch B normalizes flag spellings in implies(). Together, an option that both conflicts with and implies the same flag spelling converts the implied value into the canonical option key, so Commander reports a user-facing conflict even though the user only supplied the implying option.",
   "difficulty": "easy",

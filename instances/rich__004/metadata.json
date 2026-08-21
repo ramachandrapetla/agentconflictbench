@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "behavioral",
   "failure_summary": "Patch A changes divide([]) to return a metadata-only segment without inline spans. Patch B routes split's no-separator branch through divide([]). Together, split on a missing separator drops spans, violating the public split behavior expected for unsplit text.",
   "difficulty": "easy",

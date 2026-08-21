@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "state_invariant",
   "failure_summary": "Patch A makes blank_copy preserve spans when plain text is supplied. Patch B refactors copy through blank_copy and then copy_styles. Together, copy duplicates every inline span, violating the invariant that copying preserves spans exactly once.",
   "difficulty": "easy",

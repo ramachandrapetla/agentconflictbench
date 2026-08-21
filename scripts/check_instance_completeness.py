@@ -126,6 +126,14 @@ def check_metadata_references(
             )
         )
 
+    if metadata.get("composition_expected") not in {"fail", "pass"}:
+        errors.append(
+            CompletenessError(
+                instance_id,
+                "metadata field composition_expected must be one of: fail, pass",
+            )
+        )
+
 
 def check_reproduced_instance(
     instance: dict[str, Any],
