@@ -127,3 +127,15 @@ python scripts/validate_dataset.py \
 
 Repository keys may be the repo name (`click`), owner/name (`pallets/click`),
 or full GitHub URL.
+
+## Bootstrap Upstream Repositories
+
+Use `scripts/bootstrap_repos.py` to clone all upstream repositories referenced
+by `instances/index.json` into a standard directory.
+
+```bash
+python scripts/bootstrap_repos.py --target-dir /tmp/agentconflictbench-repos --print-installs
+```
+
+The script clones repositories only. It prints dependency-installation notes so
+reviewers can choose virtual environments and package managers explicitly.
