@@ -49,8 +49,8 @@ changes `debug` to `true`.
 
 ## Files
 
-- `patch_a.diff`: parse false-like boolean env values as `false`.
-- `patch_b.diff`: allow implied values to override env/config values.
+- `patch_a.patch`: parse false-like boolean env values as `false`.
+- `patch_b.patch`: allow implied values to override env/config values.
 - `oracle/test_patch_a.mjs`: Patch A validation oracle.
 - `oracle/test_patch_b.mjs`: Patch B validation oracle.
 - `oracle/test_composition.mjs`: composition failure oracle.

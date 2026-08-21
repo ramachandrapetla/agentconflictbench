@@ -42,8 +42,8 @@ The composition oracle expects the duplicate-name error to be raised. Instead, t
 
 ## Files
 
-- `patch_a.diff`: synchronize command object name with explicit registered name.
-- `patch_b.diff`: reject duplicate public command names after registration.
+- `patch_a.patch`: synchronize command object name with explicit registered name.
+- `patch_b.patch`: reject duplicate public command names after registration.
 - `oracle/test_patch_a.py`: Patch A validation oracle.
 - `oracle/test_patch_b.py`: Patch B validation oracle.
 - `oracle/test_composition.py`: composition failure oracle.

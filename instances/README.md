@@ -10,8 +10,8 @@ Each accepted instance uses this layout:
 instances/<instance_id>/
   task_a.md
   task_b.md
-  patch_a.diff
-  patch_b.diff
+  patch_a.patch
+  patch_b.patch
   combined.patch
   oracle/
     test_patch_a.*
@@ -30,7 +30,7 @@ instances/<instance_id>/
 ```
 
 `task_a.md` and `task_b.md` describe the independent development intents.
-`patch_a.diff` and `patch_b.diff` are the reference implementations for those
+`patch_a.patch` and `patch_b.patch` are the reference implementations for those
 tasks. `combined.patch` is the clean textual composition of Patch A and Patch B
 from the pinned base commit.
 

@@ -55,8 +55,8 @@ casing.
 
 ## Files
 
-- `patch_a.diff`: preserve original header casing in `Headers.keys()`.
-- `patch_b.diff`: optimize update deduplication through direct lookup-key matching.
+- `patch_a.patch`: preserve original header casing in `Headers.keys()`.
+- `patch_b.patch`: optimize update deduplication through direct lookup-key matching.
 - `oracle/test_patch_a.py`: Patch A validation oracle.
 - `oracle/test_patch_b.py`: Patch B validation oracle.
 - `oracle/test_composition.py`: composition failure oracle.

@@ -55,8 +55,8 @@ provided by the user.
 
 - `task_a.md`: standalone intent for Patch A.
 - `task_b.md`: standalone intent for Patch B.
-- `patch_a.diff`: normalize long flag spellings in `conflicts()`.
-- `patch_b.diff`: normalize long flag spellings in `implies()`.
+- `patch_a.patch`: normalize long flag spellings in `conflicts()`.
+- `patch_b.patch`: normalize long flag spellings in `implies()`.
 - `combined.patch`: clean textual composition of Patch A and Patch B.
 - `oracle/test_patch_a.mjs`: Patch A validation oracle.
 - `oracle/test_patch_b.mjs`: Patch B validation oracle.

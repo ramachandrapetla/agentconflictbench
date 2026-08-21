@@ -53,8 +53,8 @@ it.
 
 ## Files
 
-- `patch_a.diff`: preserve auth on loopback HTTPS upgrades.
-- `patch_b.diff`: treat loopback host aliases as same-origin.
+- `patch_a.patch`: preserve auth on loopback HTTPS upgrades.
+- `patch_b.patch`: treat loopback host aliases as same-origin.
 - `oracle/test_patch_a.py`: Patch A validation oracle.
 - `oracle/test_patch_b.py`: Patch B validation oracle.
 - `oracle/test_composition.py`: composition failure oracle.

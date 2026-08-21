@@ -52,8 +52,8 @@ bubble into derived wrappers.
 
 ## Files
 
-- `patch_a.diff`: inherited metadata keeps `id` fields.
-- `patch_b.diff`: optional wrappers inherit metadata from their inner schema.
+- `patch_a.patch`: inherited metadata keeps `id` fields.
+- `patch_b.patch`: optional wrappers inherit metadata from their inner schema.
 - `oracle/test_patch_a.ts`: Patch A validation oracle.
 - `oracle/test_patch_b.ts`: Patch B validation oracle.
 - `oracle/test_composition.ts`: composition failure oracle.

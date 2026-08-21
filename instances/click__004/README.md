@@ -48,8 +48,8 @@ Instead, the composed program succeeds and invokes `status`.
 
 ## Files
 
-- `patch_a.diff`: unique-prefix command lookup.
-- `patch_b.diff`: lowercase command lookup fallback.
+- `patch_a.patch`: unique-prefix command lookup.
+- `patch_b.patch`: lowercase command lookup fallback.
 - `oracle/test_patch_a.py`: Patch A validation oracle.
 - `oracle/test_patch_b.py`: Patch B validation oracle.
 - `oracle/test_composition.py`: composition failure oracle.

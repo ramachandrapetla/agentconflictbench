@@ -65,8 +65,8 @@ from-map
 
 ## Files
 
-- `patch_a.diff`: dashed `default_map` alias support.
-- `patch_b.diff`: default-map-before-auto-envvar precedence change.
+- `patch_a.patch`: dashed `default_map` alias support.
+- `patch_b.patch`: default-map-before-auto-envvar precedence change.
 - `oracle/test_patch_a.py`: Patch A validation oracle.
 - `oracle/test_patch_b.py`: Patch B validation oracle.
 - `oracle/test_composition.py`: composition failure oracle.
