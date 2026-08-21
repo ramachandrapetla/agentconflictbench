@@ -1,0 +1,10 @@
+Command:
+node --import ./node_modules/tsx/dist/loader.mjs --conditions @zod/source oracle/test_composition.ts
+
+Runner result:
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+actual: "UserName"
+expected: undefined
+
+Runner summary:
+PASS: instance reproduces expected silent semantic conflict.

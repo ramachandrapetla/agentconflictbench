@@ -55,6 +55,21 @@ def run_oracle(repo_dir: Path, test_path: str, expect_failure: bool = False) -> 
         cmd = [sys.executable, "-m", "pytest", test_path, "-q"]
     elif suffix in {".js", ".mjs", ".cjs"}:
         cmd = ["node", "--test", test_path]
+    elif suffix in {".ts", ".tsx"}:
+        tsx_loader = repo_dir / "node_modules" / "tsx" / "dist" / "loader.mjs"
+        if not tsx_loader.exists():
+            raise SystemExit(
+                "TypeScript oracles require a repo-local tsx install at "
+                f"{tsx_loader}"
+            )
+        cmd = [
+            "node",
+            "--import",
+            str(tsx_loader),
+            "--conditions",
+            "@zod/source",
+            test_path,
+        ]
     else:
         raise SystemExit(f"Unsupported oracle file extension: {test_path}")
 

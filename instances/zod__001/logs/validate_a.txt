@@ -1,0 +1,5 @@
+Command:
+node --import ./node_modules/tsx/dist/loader.mjs --conditions @zod/source oracle/test_patch_a.ts
+
+Result:
+Patch A oracle completed successfully.
