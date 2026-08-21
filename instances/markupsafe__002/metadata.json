@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "api_contract",
   "failure_summary": "Patch A makes soft_str decode bytes to text. Patch B makes escape use soft_str for fallback conversion. Together, escape(bytes) stops escaping Python's bytes representation and instead escapes decoded byte content, changing a public conversion contract.",
   "difficulty": "easy",

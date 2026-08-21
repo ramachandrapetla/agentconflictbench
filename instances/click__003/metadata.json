@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "api_contract",
   "failure_summary": "Patch A mutates a command object's public name to the explicit registration alias. Patch B rejects duplicate public command names after registration. Together, Patch A changes the name before Patch B checks for duplicates, allowing a duplicate original command name to bypass the new API-contract check.",
   "difficulty": "easy",

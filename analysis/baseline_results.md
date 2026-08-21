@@ -45,6 +45,6 @@ recall, ROC-AUC, and calibration experiments.
 
 ## Next Baseline Step
 
-Add matched control instances and introduce `composition_expected` metadata.
-Then train or evaluate simple oracle-free baselines against both positive and
-control instances.
+Add matched control instances using `composition_expected = "pass"`. Then train
+or evaluate simple oracle-free baselines against both positive and control
+instances.

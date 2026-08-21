@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "configuration",
   "failure_summary": "Patch A broadens default_map lookup to treat dashed keys as aliases. Patch B gives default_map higher precedence than auto envvars. Together, a dashed default_map alias unexpectedly overrides APP_API_KEY, changing the composed command output from from-env to from-map.",
   "difficulty": "easy",

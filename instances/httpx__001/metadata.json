@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "api_contract",
   "failure_summary": "Patch A makes QueryParams.__contains__ case-insensitive without changing __getitem__. Patch B changes QueryParams.get to depend on __contains__ and __getitem__ agreeing. Together, a case-insensitive membership hit can be followed by exact-key item access, raising KeyError instead of returning the provided default.",
   "difficulty": "easy",

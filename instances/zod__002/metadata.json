@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.ts",
+  "composition_expected": "fail",
   "conflict_type": "state_invariant",
   "failure_summary": "Patch A changes catchall() so object-level checks are cleared. Patch B refactors loose() to delegate through catchall(). Together, loose() unexpectedly drops object refinements and accepts objects that should fail custom validation.",
   "difficulty": "easy",

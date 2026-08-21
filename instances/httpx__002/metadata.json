@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "security_policy",
   "failure_summary": "Patch A preserves Authorization on loopback HTTP-to-HTTPS redirects. Patch B treats localhost and 127.0.0.1 as same-origin aliases for matching scheme and port. Together, the composed client preserves Authorization across both a scheme change and host-alias change, violating the redirect credential-forwarding policy encoded by the composition oracle.",
   "difficulty": "medium",

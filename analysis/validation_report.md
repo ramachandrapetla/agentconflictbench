@@ -29,4 +29,4 @@ Failed reproductions: 0
 | `rich__004` | `https://github.com/Textualize/rich` | PASS |
 | `zod__001` | `https://github.com/colinhacks/zod` | PASS |
 
-A PASS means Patch A passed alone, Patch B passed alone, and the A+B composition oracle failed as expected.
+A PASS means Patch A passed alone, Patch B passed alone, and the A+B composition oracle matched the instance's `composition_expected` value.

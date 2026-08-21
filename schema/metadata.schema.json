@@ -15,6 +15,7 @@
     "validation_b",
     "merge_result",
     "composition_oracle",
+    "composition_expected",
     "conflict_type",
     "failure_summary",
     "source"
@@ -32,6 +33,10 @@
     "validation_b": { "type": "string" },
     "merge_result": { "type": "string" },
     "composition_oracle": { "type": "string" },
+    "composition_expected": {
+      "type": "string",
+      "enum": ["fail", "pass"]
+    },
     "conflict_type": {
       "type": "string",
       "enum": [

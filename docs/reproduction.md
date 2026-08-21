@@ -18,7 +18,7 @@ A successful run means:
 1. Patch A passes independently.
 2. Patch B passes independently.
 3. Patch A + Patch B apply without a textual Git conflict.
-4. The composition oracle fails as expected.
+4. The composition oracle matches `composition_expected`.
 
 ## Upstream Setup
 

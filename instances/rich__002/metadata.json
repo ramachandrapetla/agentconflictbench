@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.py",
+  "composition_expected": "fail",
   "conflict_type": "api_contract",
   "failure_summary": "Patch A changes append_text so it copies the appended Text object's end metadata. Patch B changes public append(Text) to delegate to append_text. Together, public append(Text) unexpectedly inherits the appended object's line-ending metadata, violating the public append contract that the receiver's end value is preserved.",
   "difficulty": "easy",

@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.mjs",
+  "composition_expected": "fail",
   "conflict_type": "configuration",
   "failure_summary": "Patch A turns DEBUG=false into an explicit env-derived false value. Patch B lets implied option values override env/config-derived values. Together, --trace can override DEBUG=false via an implied debug=true value, violating the intended configuration precedence contract.",
   "difficulty": "easy",

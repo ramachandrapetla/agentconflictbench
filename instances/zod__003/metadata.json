@@ -11,6 +11,7 @@
   "validation_b": "scripts/validate_b.sh",
   "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
   "composition_oracle": "oracle/test_composition.ts",
+  "composition_expected": "fail",
   "conflict_type": "state_invariant",
   "failure_summary": "Patch A changes array min() so it clears existing checks. Patch B refactors nonempty() to call min(1). Together, nonempty() clears a prior max() constraint and accepts arrays that are too long.",
   "difficulty": "easy",

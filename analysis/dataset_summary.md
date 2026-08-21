@@ -74,6 +74,12 @@
 | `state_invariant` | 5 |
 | `test_assumption` | 1 |
 
+## By Composition Expected
+
+| Value | Instances |
+| --- | --- |
+| `fail` | 25 |
+
 ## Notes
 
 All current seed instances satisfy the AgentConflictBench acceptance rule:

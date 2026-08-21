@@ -58,6 +58,14 @@ def render_summary(instances: list[dict[str, object]]) -> str:
     conflict_counts = count_values(instances, "conflict_type")
     source_counts = count_values(instances, "source")
     status_counts = count_values(instances, "status")
+    composition_counts = Counter(
+        str(
+            json.loads(
+                (ROOT / str(instance.get("path", "")) / "metadata.json").read_text()
+            ).get("composition_expected", "")
+        )
+        for instance in instances
+    )
 
     rows = [
         ["Total instances", str(len(instances))],
@@ -102,6 +110,7 @@ def render_summary(instances: list[dict[str, object]]) -> str:
         *render_count_table("By Repository", Counter(repo_slugs)),
         *render_count_table("By Language", language_counts),
         *render_count_table("By Conflict Type", conflict_counts),
+        *render_count_table("By Composition Expected", composition_counts),
         "## Notes",
         "",
         "All current seed instances satisfy the AgentConflictBench acceptance rule:",
