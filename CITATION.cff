@@ -1,12 +1,12 @@
 cff-version: 1.2.0
-title: AgentConflictBench: A Benchmark for Silent Semantic Conflicts in Concurrent AI-Generated Code Changes
-message: If you use this benchmark, please cite this repository and the associated paper when available.
+title: "AgentConflictBench: A Benchmark for Silent Semantic Conflicts in Concurrent AI-Generated Code Changes"
+message: "If you use this benchmark, please cite this repository and the associated paper when available."
 type: software
 authors:
   - family-names: Petla
     given-names: Ramachandra
 repository-code: https://github.com/ramachandrapetla/agentconflictbench
-abstract: AgentConflictBench is a benchmark for evaluating silent semantic conflicts among independently valid AI-generated code changes that merge cleanly but fail when composed.
+abstract: "AgentConflictBench is a benchmark for evaluating silent semantic conflicts among independently valid AI-generated code changes that merge cleanly but fail when composed."
 keywords:
   - ai coding agents
   - software engineering
