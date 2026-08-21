@@ -72,6 +72,16 @@
       "path": "instances/commander__001"
     },
     {
+      "id": "commander__002",
+      "repo": "https://github.com/tj/commander.js",
+      "base_commit": "ba6d13ddb4243e5913367734f8c159089ffe7834",
+      "language": "JavaScript",
+      "conflict_type": "configuration",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/commander__002"
+    },
+    {
       "id": "httpx__001",
       "repo": "https://github.com/encode/httpx",
       "base_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",

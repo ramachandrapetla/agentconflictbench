@@ -1,0 +1,9 @@
+Command:
+node --test oracle/test_patch_b.mjs
+
+Result:
+ok 1 - implied value can override env-derived configuration
+
+1..1
+# pass 1
+# fail 0

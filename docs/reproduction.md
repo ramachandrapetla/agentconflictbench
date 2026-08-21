@@ -65,6 +65,7 @@ Instances:
 
 ```bash
 python scripts/run_instance.py instances/commander__001 --repo-dir /tmp/commander
+python scripts/run_instance.py instances/commander__002 --repo-dir /tmp/commander
 ```
 
 ### HTTPX
