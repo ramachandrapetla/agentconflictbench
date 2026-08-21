@@ -1,0 +1,21 @@
+{
+  "id": "commander__003",
+  "repo": "https://github.com/tj/commander.js",
+  "base_commit": "ba6d13ddb4243e5913367734f8c159089ffe7834",
+  "language": "JavaScript",
+  "task_a": "Allow Option.conflicts() to accept long option flag spellings, such as --cache-dir, as aliases for Commander option attribute names, such as cacheDir.",
+  "task_b": "Allow Option.implies() to accept long option flag spellings, such as --cache-dir, and normalize them to Commander option attribute names when setting implied option values.",
+  "patch_a": "patch_a.diff",
+  "patch_b": "patch_b.diff",
+  "validation_a": "scripts/validate_a.sh",
+  "validation_b": "scripts/validate_b.sh",
+  "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
+  "composition_oracle": "oracle/test_composition.mjs",
+  "conflict_type": "api_contract",
+  "failure_summary": "Patch A normalizes flag spellings in conflicts(). Patch B normalizes flag spellings in implies(). Together, an option that both conflicts with and implies the same flag spelling converts the implied value into the canonical option key, so Commander reports a user-facing conflict even though the user only supplied the implying option.",
+  "difficulty": "easy",
+  "source": "researcher_constructed",
+  "agent_or_model": "Codex",
+  "human_modified": true,
+  "notes": "Third JavaScript seed instance. It captures an API-contract interaction between two helper APIs that each accept user-facing long flag spellings."
+}

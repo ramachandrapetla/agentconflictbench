@@ -6,12 +6,12 @@
 
 | Metric | Value |
 | --- | --- |
-| Total instances | 12 |
+| Total instances | 13 |
 | Upstream repositories | 5 |
 | Languages | 3 |
 | Conflict categories | 5 |
-| Researcher-constructed instances | 12 |
-| Reproduced instances | 12 |
+| Researcher-constructed instances | 13 |
+| Reproduced instances | 13 |
 
 ## Instances
 
@@ -25,6 +25,7 @@
 | `typer__002` | `fastapi/typer` | Python | behavioral | researcher_constructed | reproduced |
 | `commander__001` | `tj/commander.js` | JavaScript | behavioral | researcher_constructed | reproduced |
 | `commander__002` | `tj/commander.js` | JavaScript | configuration | researcher_constructed | reproduced |
+| `commander__003` | `tj/commander.js` | JavaScript | api_contract | researcher_constructed | reproduced |
 | `httpx__001` | `encode/httpx` | Python | api_contract | researcher_constructed | reproduced |
 | `httpx__002` | `encode/httpx` | Python | security_policy | researcher_constructed | reproduced |
 | `httpx__003` | `encode/httpx` | Python | state_invariant | researcher_constructed | reproduced |
@@ -38,13 +39,13 @@
 | `encode/httpx` | 3 |
 | `fastapi/typer` | 2 |
 | `pallets/click` | 4 |
-| `tj/commander.js` | 2 |
+| `tj/commander.js` | 3 |
 
 ## By Language
 
 | Value | Instances |
 | --- | --- |
-| `JavaScript` | 2 |
+| `JavaScript` | 3 |
 | `Python` | 9 |
 | `TypeScript` | 1 |
 
@@ -52,7 +53,7 @@
 
 | Value | Instances |
 | --- | --- |
-| `api_contract` | 3 |
+| `api_contract` | 4 |
 | `behavioral` | 5 |
 | `configuration` | 2 |
 | `security_policy` | 1 |

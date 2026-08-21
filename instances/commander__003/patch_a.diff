@@ -1,0 +1,22 @@
+diff --git a/lib/option.js b/lib/option.js
+index 4b4daaf..caa8325 100644
+--- a/lib/option.js
++++ b/lib/option.js
+@@ -80,7 +80,16 @@ export class Option {
+    */
+ 
+   conflicts(names) {
+-    this.conflictsWith = this.conflictsWith.concat(names);
++    const normaliseName = (name) => {
++      if (name.startsWith('--no-')) {
++        return camelcase(name.slice(5));
++      }
++      if (name.startsWith('--')) {
++        return camelcase(name.slice(2));
++      }
++      return name;
++    };
++    this.conflictsWith = this.conflictsWith.concat(names).map(normaliseName);
+     return this;
+   }
+ 
