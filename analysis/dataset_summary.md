@@ -4,12 +4,12 @@
 
 | Metric | Value |
 | --- | ---: |
-| Total instances | 7 |
-| Upstream repositories | 3 |
+| Total instances | 8 |
+| Upstream repositories | 4 |
 | Languages | 2 |
 | Conflict categories | 3 |
-| Researcher-constructed instances | 7 |
-| Reproduced instances | 7 |
+| Researcher-constructed instances | 8 |
+| Reproduced instances | 8 |
 
 ## Instances
 
@@ -22,6 +22,7 @@
 | `typer__001` | `fastapi/typer` | Python | behavioral | researcher_constructed | reproduced |
 | `typer__002` | `fastapi/typer` | Python | behavioral | researcher_constructed | reproduced |
 | `commander__001` | `tj/commander.js` | JavaScript | behavioral | researcher_constructed | reproduced |
+| `httpx__001` | `encode/httpx` | Python | api_contract | researcher_constructed | reproduced |
 
 ## Notes
 
@@ -32,4 +33,4 @@ All current seed instances satisfy the AgentConflictBench acceptance rule:
 3. Patch A and Patch B apply cleanly to the same base commit.
 4. The composed patch pair fails a composition-level oracle.
 
-The next target is a schema/API-contract instance from `colinhacks/zod` or a behavioral HTTP-client instance from `encode/httpx`, so the benchmark broadens beyond CLI parsers.
+The next target is a schema/API-contract instance from `colinhacks/zod` or another JavaScript/TypeScript library, so the benchmark continues broadening beyond Python-heavy CLI and HTTP-client cases.

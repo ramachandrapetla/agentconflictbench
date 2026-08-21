@@ -1,0 +1,15 @@
+diff --git a/httpx/_urls.py b/httpx/_urls.py
+index 8f261c7..81411cc 100644
+--- a/httpx/_urls.py
++++ b/httpx/_urls.py
+@@ -521,8 +521,8 @@ class QueryParams(typing.Mapping[str, str]):
+         q = httpx.QueryParams("a=123&a=456&b=789")
+         assert q.get("a") == "123"
+         """
+-        if key in self._dict:
+-            return self._dict[str(key)][0]
++        if key in self:
++            return self[key]
+         return default
+ 
+     def get_list(self, key: str) -> list[str]:

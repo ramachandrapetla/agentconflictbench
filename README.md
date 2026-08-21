@@ -30,10 +30,10 @@ This repository is an early research artifact. The initial goal is to build a sm
 
 Current seed dataset:
 
-- 7 benchmark instances
-- 3 upstream repositories: `pallets/click`, `fastapi/typer`, `tj/commander.js`
+- 8 benchmark instances
+- 4 upstream repositories: `pallets/click`, `fastapi/typer`, `tj/commander.js`, `encode/httpx`
 - 3 conflict categories: `configuration`, `behavioral`, `api_contract`
-- 7 reproduced clean-merge semantic failures
+- 8 reproduced clean-merge semantic failures
 
 Planned first milestone:
 
@@ -92,6 +92,20 @@ Then run:
 python scripts/run_instance.py instances/commander__001 --repo-dir /tmp/commander
 ```
 
+For the HTTPX seed:
+
+```bash
+git clone https://github.com/encode/httpx.git /tmp/httpx
+cd /tmp/httpx
+python -m pip install -e . pytest
+```
+
+Then run:
+
+```bash
+python scripts/run_instance.py instances/httpx__001 --repo-dir /tmp/httpx
+```
+
 A successful benchmark reproduction means Patch A passes alone, Patch B passes alone, and the composed oracle fails as expected.
 
 ## Validating The Dataset
@@ -104,7 +118,8 @@ If the upstream projects share the same Python environment:
 python scripts/validate_dataset.py \
   --repo click=/tmp/click \
   --repo typer=/tmp/typer \
-  --repo commander.js=/tmp/commander
+  --repo commander.js=/tmp/commander \
+  --repo httpx=/tmp/httpx
 ```
 
 If each upstream checkout has its own virtual environment, pass the Python executable for each repo:
@@ -114,8 +129,10 @@ python scripts/validate_dataset.py \
   --repo click=/tmp/click \
   --repo typer=/tmp/typer \
   --repo commander.js=/tmp/commander \
+  --repo httpx=/tmp/httpx \
   --python click=/tmp/click/.venv/bin/python \
-  --python typer=/tmp/typer/.venv/bin/python
+  --python typer=/tmp/typer/.venv/bin/python \
+  --python httpx=/tmp/httpx/.venv/bin/python
 ```
 
 Repository keys may be the repo name (`click`), owner/name (`pallets/click`), or full GitHub URL.

@@ -1,9 +1,9 @@
 # Dataset Validation Report
 
-Generated: `2026-08-21T04:16:06+00:00`
+Generated: `2026-08-21T04:25:21+00:00`
 
-Validated instances: 7
-Passed reproductions: 7
+Validated instances: 8
+Passed reproductions: 8
 Failed reproductions: 0
 
 | Instance | Repository | Status |
@@ -15,5 +15,6 @@ Failed reproductions: 0
 | `typer__001` | `https://github.com/fastapi/typer` | PASS |
 | `typer__002` | `https://github.com/fastapi/typer` | PASS |
 | `commander__001` | `https://github.com/tj/commander.js` | PASS |
+| `httpx__001` | `https://github.com/encode/httpx` | PASS |
 
 A PASS means Patch A passed alone, Patch B passed alone, and the A+B composition oracle failed as expected.
