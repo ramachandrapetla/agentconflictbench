@@ -6,12 +6,12 @@
 
 | Metric | Value |
 | --- | --- |
-| Total instances | 11 |
+| Total instances | 12 |
 | Upstream repositories | 5 |
 | Languages | 3 |
-| Conflict categories | 4 |
-| Researcher-constructed instances | 11 |
-| Reproduced instances | 11 |
+| Conflict categories | 5 |
+| Researcher-constructed instances | 12 |
+| Reproduced instances | 12 |
 
 ## Instances
 
@@ -27,6 +27,7 @@
 | `commander__002` | `tj/commander.js` | JavaScript | configuration | researcher_constructed | reproduced |
 | `httpx__001` | `encode/httpx` | Python | api_contract | researcher_constructed | reproduced |
 | `httpx__002` | `encode/httpx` | Python | security_policy | researcher_constructed | reproduced |
+| `httpx__003` | `encode/httpx` | Python | state_invariant | researcher_constructed | reproduced |
 | `zod__001` | `colinhacks/zod` | TypeScript | api_contract | researcher_constructed | reproduced |
 
 ## By Repository
@@ -34,7 +35,7 @@
 | Value | Instances |
 | --- | --- |
 | `colinhacks/zod` | 1 |
-| `encode/httpx` | 2 |
+| `encode/httpx` | 3 |
 | `fastapi/typer` | 2 |
 | `pallets/click` | 4 |
 | `tj/commander.js` | 2 |
@@ -44,7 +45,7 @@
 | Value | Instances |
 | --- | --- |
 | `JavaScript` | 2 |
-| `Python` | 8 |
+| `Python` | 9 |
 | `TypeScript` | 1 |
 
 ## By Conflict Type
@@ -55,6 +56,7 @@
 | `behavioral` | 5 |
 | `configuration` | 2 |
 | `security_policy` | 1 |
+| `state_invariant` | 1 |
 
 ## Notes
 

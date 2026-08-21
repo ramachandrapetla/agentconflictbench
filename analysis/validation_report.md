@@ -1,9 +1,9 @@
 # Dataset Validation Report
 
-Generated: `2026-08-21T05:08:27+00:00`
+Generated: `2026-08-21T05:25:57+00:00`
 
-Validated instances: 11
-Passed reproductions: 11
+Validated instances: 12
+Passed reproductions: 12
 Failed reproductions: 0
 
 | Instance | Repository | Status |
@@ -18,6 +18,7 @@ Failed reproductions: 0
 | `commander__002` | `https://github.com/tj/commander.js` | PASS |
 | `httpx__001` | `https://github.com/encode/httpx` | PASS |
 | `httpx__002` | `https://github.com/encode/httpx` | PASS |
+| `httpx__003` | `https://github.com/encode/httpx` | PASS |
 | `zod__001` | `https://github.com/colinhacks/zod` | PASS |
 
 A PASS means Patch A passed alone, Patch B passed alone, and the A+B composition oracle failed as expected.

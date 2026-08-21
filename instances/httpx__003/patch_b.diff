@@ -1,0 +1,17 @@
+diff --git a/httpx/_models.py b/httpx/_models.py
+index 2cc8632..ec3837f 100644
+--- a/httpx/_models.py
++++ b/httpx/_models.py
+@@ -274,8 +274,10 @@ class Headers(typing.MutableMapping[str, str]):
+     def update(self, headers: HeaderTypes | None = None) -> None:  # type: ignore
+         headers = Headers(headers)
+         for key in headers.keys():
+-            if key in self:
+-                self.pop(key)
++            lookup_key = key.encode(self.encoding)
++            self._list = [
++                item for item in self._list if item[1] != lookup_key
++            ]
+         self._list.extend(headers._list)
+ 
+     def copy(self) -> Headers:

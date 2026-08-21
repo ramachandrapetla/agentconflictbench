@@ -30,10 +30,10 @@ This repository is an early research artifact. The initial goal is to build a sm
 
 Current seed dataset:
 
-- 11 benchmark instances
+- 12 benchmark instances
 - 5 upstream repositories: `pallets/click`, `fastapi/typer`, `tj/commander.js`, `encode/httpx`, `colinhacks/zod`
-- 4 conflict categories: `configuration`, `behavioral`, `api_contract`, `security_policy`
-- 11 reproduced clean-merge semantic failures
+- 5 conflict categories: `configuration`, `behavioral`, `api_contract`, `security_policy`, `state_invariant`
+- 12 reproduced clean-merge semantic failures
 
 Planned first milestone:
 
