@@ -4,12 +4,12 @@
 
 | Metric | Value |
 | --- | ---: |
-| Total instances | 9 |
+| Total instances | 10 |
 | Upstream repositories | 5 |
 | Languages | 3 |
 | Conflict categories | 3 |
-| Researcher-constructed instances | 9 |
-| Reproduced instances | 9 |
+| Researcher-constructed instances | 10 |
+| Reproduced instances | 10 |
 
 ## Instances
 
@@ -22,6 +22,7 @@
 | `typer__001` | `fastapi/typer` | Python | behavioral | researcher_constructed | reproduced |
 | `typer__002` | `fastapi/typer` | Python | behavioral | researcher_constructed | reproduced |
 | `commander__001` | `tj/commander.js` | JavaScript | behavioral | researcher_constructed | reproduced |
+| `commander__002` | `tj/commander.js` | JavaScript | configuration | researcher_constructed | reproduced |
 | `httpx__001` | `encode/httpx` | Python | api_contract | researcher_constructed | reproduced |
 | `zod__001` | `colinhacks/zod` | TypeScript | api_contract | researcher_constructed | reproduced |
 

@@ -1,0 +1,14 @@
+Command:
+node --test oracle/test_composition.mjs
+
+Runner result:
+not ok 1 - explicit false boolean env value is not overwritten by implication
+error: 'true !== false'
+code: 'ERR_ASSERTION'
+
+1..1
+# pass 0
+# fail 1
+
+Runner summary:
+PASS: instance reproduces expected silent semantic conflict.

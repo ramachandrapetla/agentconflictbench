@@ -1,0 +1,16 @@
+diff --git a/lib/command.js b/lib/command.js
+index 9a3d03e..14f364a 100644
+--- a/lib/command.js
++++ b/lib/command.js
+@@ -1992,8 +1992,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
+             this.emit(`optionEnv:${option.name()}`, process.env[option.envVar]);
+           } else {
+             // boolean
+-            // keep very simple, only care that envVar defined and not the value
+-            this.emit(`optionEnv:${option.name()}`);
++            const envValue = process.env[option.envVar];
++            const booleanValue = !/^(0|false|no)$/i.test(envValue);
++            this.setOptionValueWithSource(optionKey, booleanValue, 'env');
+           }
+         }
+       }

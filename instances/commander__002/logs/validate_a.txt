@@ -1,0 +1,9 @@
+Command:
+node --test oracle/test_patch_a.mjs
+
+Result:
+ok 1 - boolean env false is parsed as false
+
+1..1
+# pass 1
+# fail 0

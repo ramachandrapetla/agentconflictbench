@@ -1,0 +1,15 @@
+diff --git a/lib/command.js b/lib/command.js
+index 9a3d03e..e8794d7 100644
+--- a/lib/command.js
++++ b/lib/command.js
+@@ -2010,7 +2010,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
+     const hasCustomOptionValue = (optionKey) => {
+       return (
+         this.getOptionValue(optionKey) !== undefined &&
+-        !['default', 'implied'].includes(this.getOptionValueSource(optionKey))
++        !['default', 'env', 'config', 'implied'].includes(
++          this.getOptionValueSource(optionKey),
++        )
+       );
+     };
+     this.options
