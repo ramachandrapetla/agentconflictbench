@@ -9,19 +9,19 @@
 
 ## Milestone 2: Seeded Micro-Benchmark
 
-- Build 10 to 20 controlled benchmark instances. The repository currently has
-  20 reproduced instances.
-- Cover at least 5 conflict categories. The current seed dataset covers 6.
+- Build 25 to 30 controlled benchmark instances. The repository currently has
+  28 reproduced instances: 25 positive conflicts and 3 controls.
+- Cover at least 5 conflict categories. The current seed dataset covers 7,
+  including the `control` category for clean-composition examples.
 - Package each instance with patches, scripts, logs, and oracle.
 - Validate instance reproducibility.
 
 ## Current Near-Term Priorities
 
-- Add more `test_assumption` instances beyond the first seed.
-- Expand TypeScript coverage beyond one Zod seed.
-- Grow from 20 to 25 reproduced instances while keeping the root README clean.
-- Add at least one additional upstream repository before or during the next
-  five-instance expansion.
+- Grow clean-composition controls from 3 to at least 10.
+- Expand beyond supported repositories with one carefully selected additional
+  JavaScript/TypeScript repository.
+- Add dependency and performance/resource examples.
 - Begin running baseline feature analysis over every new dataset snapshot.
 - Maintain a near-duplicate rejection record for every new accepted instance.
 

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Reproduction guide
+    url: https://github.com/ramachandrapetla/agentconflictbench/blob/main/docs/reproduction.md
+    about: Start here for local reproduction setup.
+  - name: Contributor instance guide
+    url: https://github.com/ramachandrapetla/agentconflictbench/blob/main/docs/contributor_instance_guide.md
+    about: Read this before proposing or submitting a new benchmark instance.

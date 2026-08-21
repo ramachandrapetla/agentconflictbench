@@ -1,0 +1,26 @@
+name: Baseline or tooling task
+description: Suggest an analysis, baseline, reproduction, or tooling improvement.
+title: "[Tooling]: "
+labels: ["tooling"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should this tooling or baseline accomplish?
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: Suggested approach
+      description: Optional implementation notes, files, or commands.
+    validations:
+      required: false
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation
+      description: How should we know this is working?
+    validations:
+      required: false
