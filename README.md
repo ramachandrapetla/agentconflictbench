@@ -103,6 +103,21 @@ python scripts/validate_dataset.py \
 
 Repository keys may be the repo name (`click`), owner/name (`pallets/click`), or full GitHub URL.
 
+## Validating Metadata
+
+Run the dependency-free metadata checker before adding or modifying benchmark
+instances:
+
+```bash
+python scripts/validate_metadata.py
+```
+
+This verifies instance metadata, index consistency, enum values, commit SHA
+format, and referenced patch/oracle/script files.
+
+The same metadata and script-syntax checks run in GitHub Actions on pull
+requests and pushes to `main`.
+
 ## Structure
 
 ```text

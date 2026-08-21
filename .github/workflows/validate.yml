@@ -1,0 +1,27 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  metadata:
+    name: Metadata and script checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile validation scripts
+        run: python -m py_compile scripts/validate_metadata.py scripts/validate_dataset.py scripts/run_instance.py
+
+      - name: Validate metadata
+        run: python scripts/validate_metadata.py
