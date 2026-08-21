@@ -18,6 +18,11 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
+CONVENTIONAL_INSTANCE_FILES = [
+    "task_a.md",
+    "task_b.md",
+    "combined.patch",
+]
 
 
 @dataclass(frozen=True)
@@ -117,6 +122,15 @@ def validate_metadata_file(
         errors.append(ValidationError(metadata_path, "human_modified must be boolean"))
 
     instance_dir = metadata_path.parent
+    for relative_path in CONVENTIONAL_INSTANCE_FILES:
+        if not (instance_dir / relative_path).exists():
+            errors.append(
+                ValidationError(
+                    metadata_path,
+                    f"missing conventional instance file: {relative_path}",
+                )
+            )
+
     for field in [
         "patch_a",
         "patch_b",

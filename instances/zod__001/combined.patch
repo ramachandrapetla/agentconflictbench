@@ -1,0 +1,30 @@
+diff --git a/packages/zod/src/v4/classic/schemas.ts b/packages/zod/src/v4/classic/schemas.ts
+index e4ab7a7f..f46c3af5 100644
+--- a/packages/zod/src/v4/classic/schemas.ts
++++ b/packages/zod/src/v4/classic/schemas.ts
+@@ -2262,10 +2262,12 @@ export const ZodOptional: core.$constructor<ZodOptional> = /*@__PURE__*/ core.$c
+ );
+ 
+ export function optional<T extends core.SomeType>(innerType: T): ZodOptional<T> {
+-  return new ZodOptional({
++  const inst = new ZodOptional({
+     type: "optional",
+     innerType: innerType as any as core.$ZodType,
+   }) as any;
++  inst._zod.parent = innerType as any;
++  return inst;
+ }
+ 
+ // ZodExactOptional
+diff --git a/packages/zod/src/v4/core/registries.ts b/packages/zod/src/v4/core/registries.ts
+index cdd19e79..6a456b8e 100644
+--- a/packages/zod/src/v4/core/registries.ts
++++ b/packages/zod/src/v4/core/registries.ts
+@@ -64,7 +64,6 @@ export class $ZodRegistry<Meta extends MetadataType = MetadataType, Schema exten
+     const p = schema._zod.parent as Schema;
+     if (p) {
+       const pm: any = { ...(this.get(p) ?? {}) };
+-      delete pm.id; // do not inherit id
+       const f = { ...pm, ...this._map.get(schema) } as any;
+       return Object.keys(f).length ? f : undefined;
+     }

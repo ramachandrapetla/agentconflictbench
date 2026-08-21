@@ -6,7 +6,7 @@ This directory contains setup, validation, composition, and benchmark-running sc
 
 - `run_instance.py`: validate one benchmark instance against a local upstream checkout.
 - `bootstrap_repos.py`: clone upstream repositories referenced by the instance index.
-- `check_instance_completeness.py`: verify reproduced instances include the required patches, oracles, scripts, logs, and docs.
+- `check_instance_completeness.py`: verify reproduced instances include the required tasks, patches, combined patch, oracles, scripts, logs, and docs.
 - `dataset_stats.py`: generate Markdown dataset summary statistics from `instances/index.json`.
 - `validate_metadata.py`: validate instance metadata, index consistency, enum values, and referenced files.
 - `validate_dataset.py`: validate every reproduced instance listed in `instances/index.json` and write `analysis/validation_report.md`.

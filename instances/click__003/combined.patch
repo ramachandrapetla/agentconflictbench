@@ -1,0 +1,22 @@
+diff --git a/src/click/core.py b/src/click/core.py
+index de129ec..8f929cc 100644
+--- a/src/click/core.py
++++ b/src/click/core.py
+@@ -1785,8 +1785,17 @@ class Group(Command):
+         name = name or cmd.name
+         if name is None:
+             raise TypeError("Command has no name.")
++        if cmd.name != name:
++            cmd.name = name
++
+         _check_nested_chain(self, name, cmd, register=True)
+         self.commands[name] = cmd
++        if (
++            cmd.name is not None
++            and cmd.name in self.commands
++            and self.commands[cmd.name] is not cmd
++        ):
++            raise TypeError(f"Command name {cmd.name!r} is already registered.")
+ 
+     @t.overload
+     def command(self, __func: t.Callable[..., t.Any]) -> Command: ...

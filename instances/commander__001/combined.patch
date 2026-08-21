@@ -1,0 +1,40 @@
+diff --git a/lib/command.js b/lib/command.js
+index 9a3d03e..1bb74e3 100644
+--- a/lib/command.js
++++ b/lib/command.js
+@@ -1567,6 +1567,14 @@ Expecting one of '${allowedValues.join("', '")}'`);
+     unknown = parsed.unknown;
+     this.args = operands.concat(unknown);
+ 
++    if (operands.length && !this._findCommand(operands[0])) {
++      const lowerCommandName = operands[0].toLowerCase();
++
++      if (lowerCommandName !== operands[0] && this._findCommand(lowerCommandName)) {
++        operands[0] = lowerCommandName;
++      }
++    }
++
+     if (operands && this._findCommand(operands[0])) {
+       return this._dispatchSubcommand(operands[0], operands.slice(1), unknown);
+     }
+@@ -1660,9 +1668,19 @@ Expecting one of '${allowedValues.join("', '")}'`);
+    */
+   _findCommand(name) {
+     if (!name) return undefined;
+-    return this.commands.find(
++    const exact = this.commands.find(
+       (cmd) => cmd._name === name || cmd._aliases.includes(name),
+     );
++    if (exact) return exact;
++
++    const matches = this.commands.filter(
++      (cmd) =>
++        cmd._name.startsWith(name) ||
++        cmd._aliases.some((alias) => alias.startsWith(name)),
++    );
++    if (matches.length === 1) return matches[0];
++
++    return undefined;
+   }
+ 
+   /**
