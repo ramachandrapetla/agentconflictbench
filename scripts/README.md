@@ -5,7 +5,19 @@ This directory contains setup, validation, composition, and benchmark-running sc
 ## Available scripts
 
 - `run_instance.py`: validate one benchmark instance against a local upstream checkout.
+- `validate_metadata.py`: validate instance metadata, index consistency, enum values, and referenced files.
 - `validate_dataset.py`: validate every reproduced instance listed in `instances/index.json` and write `analysis/validation_report.md`.
+
+## Validate metadata
+
+```bash
+python scripts/validate_metadata.py
+```
+
+This check is intentionally dependency-free. It verifies that every
+`instances/*/metadata.json` file follows `schema/metadata.schema.json`, that
+`instances/index.json` agrees with the metadata files, and that patch, oracle,
+and validation-script references point to existing files.
 
 ## Validate one instance
 
