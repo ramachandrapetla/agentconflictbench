@@ -1,0 +1,16 @@
+Command:
+python -m pytest oracle/test_composition.py -q
+
+Runner result:
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_uppercase_prefix_does_not_transitively_resolve_command __________
+
+>       assert result.exit_code != 0
+E       assert 0 != 0
+E        +  where 0 = <Result okay>.exit_code
+
+1 failed in 0.03s
+
+Runner summary:
+PASS: instance reproduces expected silent semantic conflict.

@@ -1,0 +1,27 @@
+diff --git a/typer/core.py b/typer/core.py
+index 51cd733..e8d09d3 100644
+--- a/typer/core.py
++++ b/typer/core.py
+@@ -1048,7 +1048,21 @@ class TyperGroup(_click.Command):
+         self.commands[name] = cmd
+ 
+     def get_command(self, ctx: _click.Context, cmd_name: str) -> _click.Command | None:
+-        return self.commands.get(cmd_name)
++        cmd = self.commands.get(cmd_name)
++
++        if cmd is not None:
++            return cmd
++
++        matches = [
++            command
++            for name, command in self.commands.items()
++            if name.startswith(cmd_name)
++        ]
++
++        if len(matches) == 1:
++            return matches[0]
++
++        return None
+ 
+     def collect_usage_pieces(self, ctx: _click.Context) -> list[str]:
+         rv = super().collect_usage_pieces(ctx)

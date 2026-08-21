@@ -1,0 +1,6 @@
+Command:
+python -m pytest oracle/test_patch_a.py -q
+
+Runner result:
+.                                                                        [100%]
+1 passed in 0.02s
