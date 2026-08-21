@@ -1,0 +1,9 @@
+Command:
+python -m pytest oracle/test_composition.py -q
+
+Runner result:
+FAILED oracle/test_composition.py::test_loopback_alias_https_upgrade_strips_authorization
+AssertionError: assert 'Authorization' not in Headers(...)
+
+Runner summary:
+PASS: instance reproduces expected silent semantic conflict.
