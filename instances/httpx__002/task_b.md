@@ -1,7 +1,21 @@
-# Task B
+# Task B: Treat localhost aliases as same-origin
 
-Treat localhost and 127.0.0.1 as same-origin aliases when scheme and port match.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task A is present.
+Loopback services may use `localhost` and `127.0.0.1` interchangeably, but
+origin checks can treat them as unrelated hosts.
 
-Reference implementation: `patch_b.patch`.
+## Desired behavior
+
+Treat `localhost` and `127.0.0.1` as same-origin aliases when scheme and port
+match.
+
+## Constraints
+
+The alias should only apply to loopback names and addresses. Scheme and port
+must still be considered.
+
+## Success criteria
+
+`http://localhost:8000` and `http://127.0.0.1:8000` are considered same-origin,
+while different schemes or ports are not.

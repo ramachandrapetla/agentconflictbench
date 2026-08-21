@@ -1,7 +1,20 @@
-# Task A
+# Task A: Preserve original header casing in keys
 
-Preserve original header casing when exposing Headers.keys().
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task B is present.
+HTTP header lookup is case-insensitive, but callers sometimes need to inspect
+the original casing used when headers were provided.
 
-Reference implementation: `patch_a.patch`.
+## Desired behavior
+
+Expose original header casing from `Headers.keys()`.
+
+## Constraints
+
+Case-insensitive lookup behavior should remain unchanged. The change should
+affect the public key view, not header normalization for lookup.
+
+## Success criteria
+
+If headers are created with `X-Trace`, iterating `headers.keys()` includes
+`X-Trace`.

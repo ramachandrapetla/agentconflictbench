@@ -1,6 +1,20 @@
-Improve right-padding behavior for styled `Text` segments.
+# Task A: Extend trailing inline style spans during right padding
 
-When a `Text` object has an inline style span that ends at the current end of
-the string, `pad_right()` should extend that span over the added padding
-characters. This keeps styled cells visually continuous when padding is used to
-align content.
+## Problem
+
+When right-padding a Rich `Text` object, added spaces can appear unstyled even
+when they conceptually extend styled inline content.
+
+## Desired behavior
+
+Extend trailing inline style spans when right-padding `Text`.
+
+## Constraints
+
+Only trailing inline spans should be extended over added padding. Existing text
+content and non-trailing spans should remain unchanged.
+
+## Success criteria
+
+Right-padding styled text extends the final inline style over the inserted
+spaces.

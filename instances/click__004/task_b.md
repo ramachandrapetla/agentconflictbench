@@ -1,7 +1,21 @@
-# Task B
+# Task B: Lowercase fallback for Click command lookup
 
-Allow command lookup to fall back to lowercase command names when an uppercase or mixed-case command invocation is not found exactly.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task A is present.
+Command invocations with accidental uppercase spelling fail even when the
+registered command has a clear lowercase equivalent.
 
-Reference implementation: `patch_b.patch`.
+## Desired behavior
+
+When exact lookup fails, retry lookup using the lowercase form of the invoked
+command name.
+
+## Constraints
+
+Exact matches must still take priority. The fallback should not make command
+registration case-insensitive globally.
+
+## Success criteria
+
+A group containing `status` can resolve `STATUS` to `status` when no exact
+`STATUS` command exists.

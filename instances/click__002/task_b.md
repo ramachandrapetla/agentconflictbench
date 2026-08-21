@@ -1,7 +1,21 @@
-# Task B
+# Task B: Lowercase fallback for command lookup
 
-Allow command lookup to fall back to lowercase command names when a mixed-case or uppercase command invocation is not found exactly.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task A is present.
+Users may invoke commands with accidental uppercase or mixed-case spelling even
+when the registered command name is lowercase.
 
-Reference implementation: `patch_b.patch`.
+## Desired behavior
+
+Allow command lookup to fall back to a lowercase command name when the original
+invocation is not found exactly.
+
+## Constraints
+
+Exact case-sensitive matches must continue to win. The fallback should not
+change command registration or display names.
+
+## Success criteria
+
+A group containing `status` can resolve an invocation of `STATUS` to the
+registered command.

@@ -1,5 +1,19 @@
-Refactor array `.nonempty()` so it delegates to `.min(1)` instead of duplicating
-minimum-length check construction.
+# Task B: Delegate array nonempty through min
 
-The refactor should preserve other existing array cardinality constraints, such
-as maximum length checks.
+## Problem
+
+Array `.nonempty()` duplicates the minimum-length check created by `.min(1)`.
+
+## Desired behavior
+
+Refactor array `.nonempty()` to delegate to `.min(1)`.
+
+## Constraints
+
+The refactor should preserve other existing cardinality constraints on the
+schema, including maximum length checks.
+
+## Success criteria
+
+`z.array(z.string()).max(1).nonempty()` rejects both empty arrays and arrays
+with more than one element.

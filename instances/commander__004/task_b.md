@@ -1,6 +1,23 @@
-Allow `Command.addArgument()` to accept a prepared required `Argument` with a
-default value by treating that argument as optional instead of throwing during
-registration.
+# Task B: Accept prepared required arguments with defaults
 
-The default should still be used as the fallback value when the argument is not
-provided on the command line.
+## Problem
+
+`Command.addArgument()` rejects a prepared required `Argument` that has a
+default value, even though applications may want to interpret that default as a
+fallback for omitted input.
+
+## Desired behavior
+
+Allow `Command.addArgument()` to treat such prepared arguments as optional
+fallback arguments instead of throwing during registration.
+
+## Constraints
+
+The configured default should still be used when the argument is omitted.
+Argument registration should continue to reject unrelated invalid argument
+shapes.
+
+## Success criteria
+
+Adding `new Argument("<file>").default("fallback")` succeeds, and parsing with
+no positional value passes `"fallback"` to the action.
