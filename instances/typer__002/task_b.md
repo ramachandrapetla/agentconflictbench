@@ -4,4 +4,4 @@ Allow Typer command lookup to fall back to lowercase command names when an upper
 
 Implement this as a standalone change from the pinned base commit. Do not assume Task A is present.
 
-Reference implementation: `patch_b.diff`.
+Reference implementation: `patch_b.patch`.

@@ -52,8 +52,8 @@ raises.
 
 ## Files
 
-- `patch_a.diff`: case-insensitive `QueryParams.__contains__`.
-- `patch_b.diff`: `QueryParams.get` delegates via mapping protocol.
+- `patch_a.patch`: case-insensitive `QueryParams.__contains__`.
+- `patch_b.patch`: `QueryParams.get` delegates via mapping protocol.
 - `oracle/test_patch_a.py`: Patch A validation oracle.
 - `oracle/test_patch_b.py`: Patch B validation oracle.
 - `oracle/test_composition.py`: composition failure oracle.

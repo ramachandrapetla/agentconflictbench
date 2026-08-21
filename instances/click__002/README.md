@@ -44,8 +44,8 @@ Instead, the composed program succeeds and invokes `foo-bar`.
 
 ## Files
 
-- `patch_a.diff`: underscore-to-dash command alias lookup.
-- `patch_b.diff`: lowercase command lookup fallback.
+- `patch_a.patch`: underscore-to-dash command alias lookup.
+- `patch_b.patch`: lowercase command lookup fallback.
 - `oracle/test_patch_a.py`: Patch A validation oracle.
 - `oracle/test_patch_b.py`: Patch B validation oracle.
 - `oracle/test_composition.py`: composition failure oracle.

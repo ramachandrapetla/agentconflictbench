@@ -48,8 +48,8 @@ Instead, the composed Commander program succeeds and invokes `status`.
 
 ## Files
 
-- `patch_a.diff`: unique-prefix subcommand lookup.
-- `patch_b.diff`: lowercase subcommand dispatch fallback.
+- `patch_a.patch`: unique-prefix subcommand lookup.
+- `patch_b.patch`: lowercase subcommand dispatch fallback.
 - `oracle/test_patch_a.mjs`: Patch A validation oracle.
 - `oracle/test_patch_b.mjs`: Patch B validation oracle.
 - `oracle/test_composition.mjs`: composition failure oracle.

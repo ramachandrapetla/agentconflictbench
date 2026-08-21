@@ -48,8 +48,8 @@ Instead, the composed Typer app succeeds and invokes `status`.
 
 ## Files
 
-- `patch_a.diff`: unique-prefix Typer command lookup.
-- `patch_b.diff`: lowercase Typer command lookup fallback.
+- `patch_a.patch`: unique-prefix Typer command lookup.
+- `patch_b.patch`: lowercase Typer command lookup fallback.
 - `oracle/test_patch_a.py`: Patch A validation oracle.
 - `oracle/test_patch_b.py`: Patch B validation oracle.
 - `oracle/test_composition.py`: composition failure oracle.

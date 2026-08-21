@@ -91,8 +91,8 @@ def check_metadata_references(
     metadata: dict[str, Any],
 ) -> None:
     expected = {
-        "patch_a": "patch_a.diff",
-        "patch_b": "patch_b.diff",
+        "patch_a": "patch_a.patch",
+        "patch_b": "patch_b.patch",
         "validation_a": "scripts/validate_a.sh",
         "validation_b": "scripts/validate_b.sh",
     }
@@ -147,8 +147,8 @@ def check_reproduced_instance(
         "metadata.json",
         "task_a.md",
         "task_b.md",
-        "patch_a.diff",
-        "patch_b.diff",
+        "patch_a.patch",
+        "patch_b.patch",
         "combined.patch",
         *REQUIRED_SCRIPTS,
         *REQUIRED_LOGS,

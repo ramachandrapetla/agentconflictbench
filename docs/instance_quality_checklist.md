@@ -15,8 +15,8 @@ Each accepted instance must include:
 - `README.md`
 - `task_a.md`
 - `task_b.md`
-- `patch_a.diff`
-- `patch_b.diff`
+- `patch_a.patch`
+- `patch_b.patch`
 - `combined.patch`
 - `oracle/test_patch_a.*`
 - `oracle/test_patch_b.*`

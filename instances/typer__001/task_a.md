@@ -4,4 +4,4 @@ Allow TyperGroup command lookup to treat underscores in an invoked command name 
 
 Implement this as a standalone change from the pinned base commit. Do not assume Task B is present.
 
-Reference implementation: `patch_a.diff`.
+Reference implementation: `patch_a.patch`.

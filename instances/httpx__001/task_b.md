@@ -4,4 +4,4 @@ Refactor QueryParams.get to delegate through the mapping protocol so get, contai
 
 Implement this as a standalone change from the pinned base commit. Do not assume Task A is present.
 
-Reference implementation: `patch_b.diff`.
+Reference implementation: `patch_b.patch`.
