@@ -1,0 +1,19 @@
+diff --git a/httpx/_urls.py b/httpx/_urls.py
+index 8f261c7..7c91581 100644
+--- a/httpx/_urls.py
++++ b/httpx/_urls.py
+@@ -601,7 +601,13 @@ class QueryParams(typing.Mapping[str, str]):
+         return self._dict[key][0]
+ 
+     def __contains__(self, key: typing.Any) -> bool:
+-        return key in self._dict
++        if key in self._dict:
++            return True
++
++        if isinstance(key, str):
++            return any(existing.lower() == key.lower() for existing in self._dict)
++
++        return False
+ 
+     def __iter__(self) -> typing.Iterator[typing.Any]:
+         return iter(self.keys())

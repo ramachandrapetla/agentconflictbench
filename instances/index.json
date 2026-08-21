@@ -70,6 +70,16 @@
       "source": "researcher_constructed",
       "status": "reproduced",
       "path": "instances/commander__001"
+    },
+    {
+      "id": "httpx__001",
+      "repo": "https://github.com/encode/httpx",
+      "base_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "language": "Python",
+      "conflict_type": "api_contract",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/httpx__001"
     }
   ]
 }

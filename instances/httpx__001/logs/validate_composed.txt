@@ -1,0 +1,9 @@
+Command:
+python -m pytest oracle/test_composition.py -q
+
+Runner result:
+FAILED oracle/test_composition.py::test_case_insensitive_contains_does_not_break_get_default
+KeyError: 'token'
+
+Runner summary:
+PASS: instance reproduces expected silent semantic conflict.
