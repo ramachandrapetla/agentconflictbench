@@ -50,10 +50,11 @@ Define silent semantic patch interference as a patch pair where:
 
 Current seed benchmark:
 
-- 10 reproduced instances.
+- 12 reproduced instances.
 - 5 upstream repositories.
 - 3 languages.
-- 3 conflict categories.
+- 5 conflict categories.
+- Paper-facing instance table generated in `paper/dataset_table.md`.
 
 Planned submission benchmark:
 
@@ -69,13 +70,13 @@ Initial categories:
 - behavioral
 - API contract
 - configuration
+- security policy
+- state invariant
 
 Planned categories:
 
-- security policy
 - test assumption
 - dependency
-- state invariant
 - performance/resource
 - architectural
 - database schema
