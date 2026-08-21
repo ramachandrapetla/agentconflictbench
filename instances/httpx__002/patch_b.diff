@@ -1,0 +1,24 @@
+diff --git a/httpx/_client.py b/httpx/_client.py
+index 13cd933..8fb223c 100644
+--- a/httpx/_client.py
++++ b/httpx/_client.py
+@@ -86,11 +86,18 @@ def _same_origin(url: URL, other: URL) -> bool:
+     """
+     return (
+         url.scheme == other.scheme
+-        and url.host == other.host
++        and _same_host_or_loopback_alias(url, other)
+         and _port_or_default(url) == _port_or_default(other)
+     )
+ 
+ 
++def _same_host_or_loopback_alias(url: URL, other: URL) -> bool:
++    if url.host == other.host:
++        return True
++
++    return {url.host, other.host} == {"localhost", "127.0.0.1"}
++
++
+ class UseClientDefault:
+     """
+     For some parameters such as `auth=...` and `timeout=...` we need to be able

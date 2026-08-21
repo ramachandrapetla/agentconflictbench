@@ -80,6 +80,7 @@ Instances:
 
 ```bash
 python scripts/run_instance.py instances/httpx__001 --repo-dir /tmp/httpx
+python scripts/run_instance.py instances/httpx__002 --repo-dir /tmp/httpx
 ```
 
 ### Zod

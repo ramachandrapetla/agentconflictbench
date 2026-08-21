@@ -92,6 +92,16 @@
       "path": "instances/httpx__001"
     },
     {
+      "id": "httpx__002",
+      "repo": "https://github.com/encode/httpx",
+      "base_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "language": "Python",
+      "conflict_type": "security_policy",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/httpx__002"
+    },
+    {
       "id": "zod__001",
       "repo": "https://github.com/colinhacks/zod",
       "base_commit": "e516c3baf22615e20934116abebfed6c000222c2",
