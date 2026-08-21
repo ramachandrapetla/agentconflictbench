@@ -1,0 +1,17 @@
+diff --git a/lib/option.js b/lib/option.js
+index 4b4daaf..6d7754d 100644
+--- a/lib/option.js
++++ b/lib/option.js
+@@ -103,6 +103,12 @@ export class Option {
+       // string is not documented, but easy mistake and we can do what user probably intended.
+       newImplied = { [impliedOptionValues]: true };
+     }
++    newImplied = Object.fromEntries(
++      Object.entries(newImplied).map(([key, value]) => [
++        key.startsWith('--') ? camelcase(key.replace(/^--(?:no-)?/, '')) : key,
++        value,
++      ]),
++    );
+     this.implied = Object.assign(this.implied || {}, newImplied);
+     return this;
+   }

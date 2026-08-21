@@ -1,0 +1,33 @@
+TAP version 13
+# error: option '--offline' cannot be used with option '--cache-dir <path>'
+# Subtest: self-implied option value does not trigger a user-facing conflict
+not ok 1 - self-implied option value does not trigger a user-facing conflict
+  ---
+  duration_ms: 1.548625
+  type: 'test'
+  location: '/Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__003/oracle/test_composition.mjs:7:1'
+  failureType: 'testCodeFailure'
+  error: "error: option '--offline' cannot be used with option '--cache-dir <path>'"
+  code: 'commander.conflictingOption'
+  name: 'CommanderError'
+  stack: |-
+    Command._exit (file:///private/tmp/agentconflictbench-commander/lib/command.js:536:26)
+    Command.error (file:///private/tmp/agentconflictbench-commander/lib/command.js:1969:10)
+    Command._conflictingOption (file:///private/tmp/agentconflictbench-commander/lib/command.js:2116:10)
+    file:///private/tmp/agentconflictbench-commander/lib/command.js:1724:14
+    Array.forEach (<anonymous>)
+    Command._checkForConflictingLocalOptions (file:///private/tmp/agentconflictbench-commander/lib/command.js:1719:28)
+    file:///private/tmp/agentconflictbench-commander/lib/command.js:1738:11
+    Array.forEach (<anonymous>)
+    Command._checkForConflictingOptions (file:///private/tmp/agentconflictbench-commander/lib/command.js:1737:36)
+    Command._parseCommand (file:///private/tmp/agentconflictbench-commander/lib/command.js:1599:10)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 49.812791

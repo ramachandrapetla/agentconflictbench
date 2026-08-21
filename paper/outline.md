@@ -50,7 +50,7 @@ Define silent semantic patch interference as a patch pair where:
 
 Current seed benchmark:
 
-- 12 reproduced instances.
+- 13 reproduced instances.
 - 5 upstream repositories.
 - 3 languages.
 - 5 conflict categories.
