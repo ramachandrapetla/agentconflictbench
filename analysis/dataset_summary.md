@@ -6,12 +6,12 @@
 
 | Metric | Value |
 | --- | --- |
-| Total instances | 25 |
+| Total instances | 28 |
 | Upstream repositories | 7 |
 | Languages | 3 |
-| Conflict categories | 6 |
-| Researcher-constructed instances | 25 |
-| Reproduced instances | 25 |
+| Conflict categories | 7 |
+| Researcher-constructed instances | 28 |
+| Reproduced instances | 28 |
 
 ## Instances
 
@@ -28,9 +28,11 @@
 | `commander__003` | `tj/commander.js` | JavaScript | api_contract | researcher_constructed | reproduced |
 | `commander__004` | `tj/commander.js` | JavaScript | api_contract | researcher_constructed | reproduced |
 | `commander__005` | `tj/commander.js` | JavaScript | behavioral | researcher_constructed | reproduced |
+| `commander_control__001` | `tj/commander.js` | JavaScript | control | researcher_constructed | reproduced |
 | `httpx__001` | `encode/httpx` | Python | api_contract | researcher_constructed | reproduced |
 | `httpx__002` | `encode/httpx` | Python | security_policy | researcher_constructed | reproduced |
 | `httpx__003` | `encode/httpx` | Python | state_invariant | researcher_constructed | reproduced |
+| `httpx_control__001` | `encode/httpx` | Python | control | researcher_constructed | reproduced |
 | `markupsafe__001` | `pallets/markupsafe` | Python | test_assumption | researcher_constructed | reproduced |
 | `markupsafe__002` | `pallets/markupsafe` | Python | api_contract | researcher_constructed | reproduced |
 | `markupsafe__003` | `pallets/markupsafe` | Python | api_contract | researcher_constructed | reproduced |
@@ -42,26 +44,27 @@
 | `zod__002` | `colinhacks/zod` | TypeScript | state_invariant | researcher_constructed | reproduced |
 | `zod__003` | `colinhacks/zod` | TypeScript | state_invariant | researcher_constructed | reproduced |
 | `zod__004` | `colinhacks/zod` | TypeScript | state_invariant | researcher_constructed | reproduced |
+| `zod_control__001` | `colinhacks/zod` | TypeScript | control | researcher_constructed | reproduced |
 
 ## By Repository
 
 | Value | Instances |
 | --- | --- |
 | `Textualize/rich` | 4 |
-| `colinhacks/zod` | 4 |
-| `encode/httpx` | 3 |
+| `colinhacks/zod` | 5 |
+| `encode/httpx` | 4 |
 | `fastapi/typer` | 2 |
 | `pallets/click` | 4 |
 | `pallets/markupsafe` | 3 |
-| `tj/commander.js` | 5 |
+| `tj/commander.js` | 6 |
 
 ## By Language
 
 | Value | Instances |
 | --- | --- |
-| `JavaScript` | 5 |
-| `Python` | 16 |
-| `TypeScript` | 4 |
+| `JavaScript` | 6 |
+| `Python` | 17 |
+| `TypeScript` | 5 |
 
 ## By Conflict Type
 
@@ -70,6 +73,7 @@
 | `api_contract` | 8 |
 | `behavioral` | 8 |
 | `configuration` | 2 |
+| `control` | 3 |
 | `security_policy` | 1 |
 | `state_invariant` | 5 |
 | `test_assumption` | 1 |
@@ -79,14 +83,15 @@
 | Value | Instances |
 | --- | --- |
 | `fail` | 25 |
+| `pass` | 3 |
 
 ## Notes
 
-All current seed instances satisfy the AgentConflictBench acceptance rule:
+All reproduced instances satisfy the AgentConflictBench acceptance rule:
 
 1. Patch A passes independently.
 2. Patch B passes independently.
 3. Patch A and Patch B apply cleanly to the same base commit.
-4. The composed patch pair fails a composition-level oracle.
+4. The composed patch pair matches its `composition_expected` label: `fail` for positive conflict instances and `pass` for controls.
 
-The next target is stronger JavaScript/TypeScript coverage, more test-assumption examples, and first dependency or performance/resource instances.
+The next target is broader matched-control coverage, more test-assumption examples, and first dependency or performance/resource instances.

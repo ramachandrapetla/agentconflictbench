@@ -1,0 +1,21 @@
+diff --git a/httpx/_urls.py b/httpx/_urls.py
+index 301d087..c9be7a2 100644
+--- a/httpx/_urls.py
++++ b/httpx/_urls.py
+@@ -521,10 +521,16 @@ class QueryParams(typing.Mapping[str, str]):
+         """
+         if key in self._dict:
+             return self._dict[str(key)][0]
+         return default
+ 
++    def has_key(self, key: typing.Any) -> bool:
++        """
++        Return `True` if the query parameter key is present.
++        """
++        return str(key) in self._dict
++
+     def get_list(self, key: str) -> list[str]:
+         """
+         Get all values from the query param for a given key.
+ 
+         Usage:

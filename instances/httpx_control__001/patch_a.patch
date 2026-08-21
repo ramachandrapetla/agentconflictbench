@@ -1,0 +1,21 @@
+diff --git a/httpx/_models.py b/httpx/_models.py
+index 2cc8632..61f23a1 100644
+--- a/httpx/_models.py
++++ b/httpx/_models.py
+@@ -247,10 +247,16 @@ class Headers(typing.MutableMapping[str, str]):
+         try:
+             return self[key]
+         except KeyError:
+             return default
+ 
++    def has_multiple(self, key: str) -> bool:
++        """
++        Return `True` if a header has multiple stored values.
++        """
++        return len(self.get_list(key)) > 1
++
+     def get_list(self, key: str, split_commas: bool = False) -> list[str]:
+         """
+         Return a list of all header values for a given key.
+         If `split_commas=True` is passed, then any comma separated header
+         values are split into multiple return strings.

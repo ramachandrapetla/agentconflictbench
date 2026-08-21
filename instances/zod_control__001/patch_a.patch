@@ -1,0 +1,18 @@
+diff --git a/packages/zod/src/v4/classic/schemas.ts b/packages/zod/src/v4/classic/schemas.ts
+index e4ab7a7f..0c3ef955 100644
+--- a/packages/zod/src/v4/classic/schemas.ts
++++ b/packages/zod/src/v4/classic/schemas.ts
+@@ -435,10 +435,13 @@ function _zodStringBaseMethods(): _LazyMethodsOf<_ZodString> {
+       return this.check(checks.toUpperCase());
+     },
+     slugify() {
+       return this.check(checks.slugify());
+     },
++    isEmailFormat() {
++      return this.format === "email";
++    },
+   };
+ }
+ 
+ export interface ZodString extends _ZodString<core.$ZodStringInternals<string>> {
+   // string format checks

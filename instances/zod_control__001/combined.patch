@@ -1,0 +1,32 @@
+diff --git a/packages/zod/src/v4/classic/schemas.ts b/packages/zod/src/v4/classic/schemas.ts
+index e4ab7a7f..31788e24 100644
+--- a/packages/zod/src/v4/classic/schemas.ts
++++ b/packages/zod/src/v4/classic/schemas.ts
+@@ -435,10 +435,13 @@ function _zodStringBaseMethods(): _LazyMethodsOf<_ZodString> {
+       return this.check(checks.toUpperCase());
+     },
+     slugify() {
+       return this.check(checks.slugify());
+     },
++    isEmailFormat() {
++      return this.format === "email";
++    },
+   };
+ }
+ 
+ export interface ZodString extends _ZodString<core.$ZodStringInternals<string>> {
+   // string format checks
+@@ -1185,10 +1188,13 @@ function _zodNumberMethods(): _LazyMethodsOf<ZodNumber> {
+       return this.check(checks.multipleOf(value, params));
+     },
+     finite() {
+       return this;
+     },
++    isIntegerFormat() {
++      return this.isInt;
++    },
+   };
+ }
+ 
+ export function number(params?: string | core.$ZodNumberParams): ZodNumber {
+   return core._number(ZodNumber, params);

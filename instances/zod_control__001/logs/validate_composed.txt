@@ -1,0 +1,4 @@
+$ /Users/ramachandrapetla/Desktop/agentconflictbench/instances/zod_control__001/scripts/validate_composed.sh /private/tmp/agentconflictbench-zod
+zod_control__001 composition ok
+
+exit_code=0
