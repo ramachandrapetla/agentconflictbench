@@ -1,0 +1,13 @@
+diff --git a/httpx/_models.py b/httpx/_models.py
+index 2cc8632..80bfb65 100644
+--- a/httpx/_models.py
++++ b/httpx/_models.py
+@@ -200,7 +200,7 @@ class Headers(typing.MutableMapping[str, str]):
+         return [(raw_key, value) for raw_key, _, value in self._list]
+ 
+     def keys(self) -> typing.KeysView[str]:
+-        return {key.decode(self.encoding): None for _, key, value in self._list}.keys()
++        return {raw_key.decode(self.encoding): None for raw_key, _, value in self._list}.keys()
+ 
+     def values(self) -> typing.ValuesView[str]:
+         values_dict: dict[str, str] = {}

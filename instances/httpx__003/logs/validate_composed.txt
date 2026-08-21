@@ -1,0 +1,9 @@
+Command:
+python -m pytest oracle/test_composition.py -q
+
+Runner result:
+FAILED oracle/test_composition.py::test_update_preserves_single_logical_header_after_case_change
+AssertionError: assert ['old', 'new'] == ['new']
+
+Runner summary:
+PASS: instance reproduces expected silent semantic conflict.
