@@ -83,6 +83,7 @@ schema/      Metadata schema for benchmark instances
 scripts/     Reproduction and validation scripts
 analysis/    Evaluation notebooks and result summaries
 docs/        Roadmap and project documentation
+templates/   Copyable scaffolds for new benchmark instances
 ```
 
 ## Citation
