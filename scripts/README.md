@@ -19,6 +19,9 @@ This check is intentionally dependency-free. It verifies that every
 `instances/index.json` agrees with the metadata files, and that patch, oracle,
 and validation-script references point to existing files.
 
+GitHub Actions runs this check automatically on pull requests and pushes to
+`main`.
+
 ## Validate one instance
 
 ```bash
