@@ -1,7 +1,21 @@
-# Task A
+# Task A: Case-insensitive QueryParams membership
 
-Allow QueryParams membership checks to treat query parameter names case-insensitively.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task B is present.
+Some query parameter checks use membership tests, and callers may expect
+parameter names to match regardless of casing.
 
-Reference implementation: `patch_a.patch`.
+## Desired behavior
+
+Allow `QueryParams.__contains__` membership checks to treat parameter names
+case-insensitively.
+
+## Constraints
+
+The change should only affect membership checks. Existing item access and
+serialization behavior should remain unchanged unless explicitly updated.
+
+## Success criteria
+
+For query params containing `token=abc`, the expression `"TOKEN" in params`
+returns true.

@@ -1,7 +1,21 @@
-# Task B
+# Task B: Lowercase fallback for Typer invocations
 
-Allow Typer command lookup to fall back to lowercase command names when an uppercase or mixed-case command invocation is not found exactly.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task A is present.
+Case mistakes in command invocations are common, especially in scripts and
+documentation examples.
 
-Reference implementation: `patch_b.patch`.
+## Desired behavior
+
+When exact Typer command lookup fails, retry lookup using the lowercase invoked
+name.
+
+## Constraints
+
+The fallback should not rewrite registered command names or affect exact
+case-sensitive matches.
+
+## Success criteria
+
+A command registered as `status` can be invoked as `STATUS` when no exact
+uppercase command exists.

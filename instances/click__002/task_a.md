@@ -1,7 +1,21 @@
-# Task A
+# Task A: Underscore aliases for dashed command names
 
-Allow command lookup to treat underscores in an invoked command name as aliases for dashes in registered command names.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task B is present.
+Click commands are commonly registered with dashed names, but users sometimes
+type underscores when invoking command names from scripts or generated tools.
 
-Reference implementation: `patch_a.patch`.
+## Desired behavior
+
+Allow command lookup to treat underscores in an invoked command name as aliases
+for dashes in registered command names.
+
+## Constraints
+
+Exact command-name matches should keep their current behavior. The alias should
+only be used as a fallback when the invoked name is not found directly.
+
+## Success criteria
+
+A group containing `foo-bar` can resolve an invocation of `foo_bar` to the same
+command.

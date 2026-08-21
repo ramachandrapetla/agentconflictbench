@@ -1,7 +1,21 @@
-# Task B
+# Task B: Reject duplicate public command names
 
-Reject registering a distinct command object when its public command name is already registered on the same group.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task A is present.
+A group can become ambiguous if two distinct command objects expose the same
+public command name.
 
-Reference implementation: `patch_b.patch`.
+## Desired behavior
+
+Reject registration of a distinct command object when its public command name is
+already registered on the same group.
+
+## Constraints
+
+Re-registering the same command object should not be treated as a distinct-name
+collision unless existing Click behavior already rejects it.
+
+## Success criteria
+
+Attempting to add two different command objects with the same public name raises
+a registration error.

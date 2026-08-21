@@ -1,7 +1,22 @@
-# Task A
+# Task A: False-like environment values for booleans
 
-Treat common false-like environment values for boolean options as false.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task B is present.
+Boolean options sourced from environment variables often receive string values
+such as `false`, `0`, or `no`, which should be interpreted as false rather than
+truthy strings.
 
-Reference implementation: `patch_a.patch`.
+## Desired behavior
+
+Treat common false-like environment values for boolean options as boolean
+`false`.
+
+## Constraints
+
+The change should apply to boolean options loaded from environment values and
+should not alter parsing of non-boolean option values.
+
+## Success criteria
+
+An environment variable such as `DEBUG=false` produces `debug: false` for a
+boolean option.

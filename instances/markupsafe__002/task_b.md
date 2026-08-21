@@ -1,5 +1,21 @@
-Refactor `escape()` to use `soft_str()` for non-string fallback conversion.
+# Task B: Use soft_str for escape fallback conversion
 
-The fallback branch of `escape()` currently calls `str()` directly. Delegate
-that conversion to `soft_str()` so Markup-preserving string conversion behavior
-is centralized.
+## Problem
+
+`escape` and `soft_str` can diverge when converting non-string values before
+HTML escaping.
+
+## Desired behavior
+
+Refactor `escape` so its non-string fallback conversion goes through
+`soft_str`.
+
+## Constraints
+
+HTML-aware objects and existing Markup values should keep their specialized
+handling. The refactor should preserve escaping of unsafe characters.
+
+## Success criteria
+
+Escaping an ordinary non-string value converts it through the shared soft string
+path and still escapes HTML-sensitive characters.

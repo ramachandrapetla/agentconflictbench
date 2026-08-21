@@ -1,5 +1,19 @@
-Refactor set `.nonempty()` so it delegates to `.min(1)` instead of duplicating
-minimum-size check construction.
+# Task B: Delegate set nonempty through min
 
-The refactor should preserve other existing set cardinality constraints, such
-as maximum size checks.
+## Problem
+
+Set `.nonempty()` duplicates the minimum-size check created by `.min(1)`.
+
+## Desired behavior
+
+Refactor set `.nonempty()` to delegate to `.min(1)`.
+
+## Constraints
+
+The refactor should preserve other existing cardinality constraints on the
+schema, including maximum size checks.
+
+## Success criteria
+
+`z.set(z.string()).max(1).nonempty()` rejects both empty sets and sets with more
+than one value.

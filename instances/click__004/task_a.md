@@ -1,7 +1,21 @@
-# Task A
+# Task A: Unique command-prefix lookup
 
-Allow a command invocation to resolve a uniquely matching command-name prefix.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task B is present.
+Long command names are inconvenient to type, and some CLIs allow users to invoke
+a command by an unambiguous prefix.
 
-Reference implementation: `patch_a.patch`.
+## Desired behavior
+
+Allow command lookup to resolve a command-name prefix when it uniquely matches a
+registered command.
+
+## Constraints
+
+Ambiguous prefixes must not resolve silently. Exact command names should keep
+their current behavior.
+
+## Success criteria
+
+If only `status` matches the prefix `sta`, invoking `sta` runs `status`; if more
+than one command matches, lookup remains unresolved or reports ambiguity.

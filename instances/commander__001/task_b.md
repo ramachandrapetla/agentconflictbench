@@ -1,7 +1,21 @@
-# Task B
+# Task B: Lowercase fallback for Commander subcommands
 
-Allow Commander subcommand dispatch to fall back to lowercase command names when an uppercase or mixed-case invocation is not found exactly.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task A is present.
+Users may type Commander subcommands with uppercase or mixed-case spelling even
+when the registered subcommand is lowercase.
 
-Reference implementation: `patch_b.patch`.
+## Desired behavior
+
+When exact subcommand dispatch fails, retry lookup with the lowercase invoked
+subcommand name.
+
+## Constraints
+
+Exact matches should still take priority. The fallback should not change
+registered command names or help output.
+
+## Success criteria
+
+A program containing a `status` subcommand can dispatch an invocation of
+`STATUS` to `status`.

@@ -1,7 +1,23 @@
-# Task B
+# Task B: Default-map precedence over auto envvars
 
-Allow Context.default_map values to override automatically derived environment variable values during option resolution.
+## Problem
 
-Implement this as a standalone change from the pinned base commit. Do not assume Task A is present.
+When both automatic environment variables and `default_map` are available,
+applications may need explicit configuration-map values to override ambient
+environment settings.
 
-Reference implementation: `patch_b.patch`.
+## Desired behavior
+
+Update option resolution so a value from `Context.default_map` takes precedence
+over an automatically derived environment variable value.
+
+## Constraints
+
+Explicit command-line arguments must still have the highest precedence. The
+change should apply to automatically derived envvars, not necessarily every
+custom envvar path.
+
+## Success criteria
+
+If `APP_API_KEY` is set and `default_map` also provides `api_key`, the command
+uses the `default_map` value when no CLI argument is supplied.
