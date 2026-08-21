@@ -1,0 +1,57 @@
+diff --git a/httpx/_client.py b/httpx/_client.py
+index 13cd933..dc8cc58 100644
+--- a/httpx/_client.py
++++ b/httpx/_client.py
+@@ -74,6 +74,21 @@ def _is_https_redirect(url: URL, location: URL) -> bool:
+     )
+ 
+ 
++def _is_loopback_https_redirect(url: URL, location: URL) -> bool:
++    """
++    Return 'True' for HTTPS upgrades between loopback URLs.
++    """
++    loopback_hosts = {"localhost", "127.0.0.1"}
++    if url.host not in loopback_hosts or location.host not in loopback_hosts:
++        return False
++
++    return (
++        url.scheme == "http"
++        and location.scheme == "https"
++        and _same_origin(url.copy_with(scheme="https"), location)
++    )
++
++
+ def _port_or_default(url: URL) -> int | None:
+     if url.port is not None:
+         return url.port
+@@ -86,11 +101,18 @@ def _same_origin(url: URL, other: URL) -> bool:
+     """
+     return (
+         url.scheme == other.scheme
+-        and url.host == other.host
++        and _same_host_or_loopback_alias(url, other)
+         and _port_or_default(url) == _port_or_default(other)
+     )
+ 
+ 
++def _same_host_or_loopback_alias(url: URL, other: URL) -> bool:
++    if url.host == other.host:
++        return True
++
++    return {url.host, other.host} == {"localhost", "127.0.0.1"}
++
++
+ class UseClientDefault:
+     """
+     For some parameters such as `auth=...` and `timeout=...` we need to be able
+@@ -550,7 +572,9 @@ class BaseClient:
+         headers = Headers(request.headers)
+ 
+         if not _same_origin(url, request.url):
+-            if not _is_https_redirect(request.url, url):
++            if not _is_https_redirect(
++                request.url, url
++            ) and not _is_loopback_https_redirect(request.url, url):
+                 # Strip Authorization headers when responses are redirected
+                 # away from the origin. (Except for direct HTTP to HTTPS redirects.)
+                 headers.pop("Authorization", None)

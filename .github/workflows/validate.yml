@@ -21,7 +21,7 @@ jobs:
           python-version: "3.11"
 
       - name: Compile validation scripts
-        run: python -m py_compile scripts/validate_metadata.py scripts/validate_dataset.py scripts/run_instance.py scripts/dataset_stats.py scripts/check_instance_completeness.py
+        run: python -m py_compile scripts/validate_metadata.py scripts/validate_dataset.py scripts/run_instance.py scripts/dataset_stats.py scripts/bootstrap_repos.py scripts/check_instance_completeness.py
 
       - name: Validate metadata
         run: python scripts/validate_metadata.py

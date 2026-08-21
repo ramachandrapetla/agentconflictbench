@@ -145,8 +145,11 @@ def check_reproduced_instance(
     for relative_path in [
         "README.md",
         "metadata.json",
+        "task_a.md",
+        "task_b.md",
         "patch_a.diff",
         "patch_b.diff",
+        "combined.patch",
         *REQUIRED_SCRIPTS,
         *REQUIRED_LOGS,
     ]:

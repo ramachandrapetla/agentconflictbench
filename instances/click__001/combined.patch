@@ -1,0 +1,54 @@
+diff --git a/src/click/core.py b/src/click/core.py
+index de129ec..049be89 100644
+--- a/src/click/core.py
++++ b/src/click/core.py
+@@ -765,6 +765,13 @@ class Context:
+         ``name`` is ``None``, or the stored value is the internal
+         :data:`UNSET` sentinel.
+         """
++        if (
++            name is not None
++            and self.default_map is not None
++            and name not in self.default_map
++        ):
++            name = name.replace("_", "-")
++
+         return (
+             name is not None
+             and self.default_map is not None
+@@ -797,6 +804,9 @@ class Context:
+ 
+         # Assert to make the type checker happy.
+         assert self.default_map is not None
++        if name not in self.default_map:
++            name = name.replace("_", "-")
++
+         value = self.default_map[name]
+ 
+         if call and callable(value):
+@@ -2501,12 +2511,6 @@ class Parameter(ABC):
+             else ParameterSource.DEFAULT
+         )
+ 
+-        if value is UNSET:
+-            envvar_value = self.value_from_envvar(ctx)
+-            if envvar_value is not None:
+-                value = envvar_value
+-                source = ParameterSource.ENVIRONMENT
+-
+         if value is UNSET:
+             default_map_value = ctx.lookup_default(self.name)
+             if default_map_value is not None or ctx._default_map_has(self.name):
+@@ -2518,6 +2522,12 @@ class Parameter(ABC):
+                 if isinstance(value, str) and self.nargs != 1:
+                     value = self.type.split_envvar_value(value)
+ 
++        if value is UNSET:
++            envvar_value = self.value_from_envvar(ctx)
++            if envvar_value is not None:
++                value = envvar_value
++                source = ParameterSource.ENVIRONMENT
++
+         if value is UNSET:
+             default_value = self.get_default(ctx)
+             if default_value is not UNSET:

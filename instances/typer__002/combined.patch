@@ -1,0 +1,41 @@
+diff --git a/typer/core.py b/typer/core.py
+index 1bfc399..30d71a0 100644
+--- a/typer/core.py
++++ b/typer/core.py
+@@ -1048,7 +1048,21 @@ class TyperGroup(_click.Command):
+         self.commands[name] = cmd
+ 
+     def get_command(self, ctx: _click.Context, cmd_name: str) -> _click.Command | None:
+-        return self.commands.get(cmd_name)
++        cmd = self.commands.get(cmd_name)
++
++        if cmd is not None:
++            return cmd
++
++        matches = [
++            command
++            for name, command in self.commands.items()
++            if name.startswith(cmd_name)
++        ]
++
++        if len(matches) == 1:
++            return matches[0]
++
++        return None
+ 
+     def collect_usage_pieces(self, ctx: _click.Context) -> list[str]:
+         rv = super().collect_usage_pieces(ctx)
+@@ -1168,6 +1182,13 @@ class TyperGroup(_click.Command):
+             cmd_name = ctx.token_normalize_func(cmd_name)
+             cmd = self.get_command(ctx, cmd_name)
+ 
++        if cmd is None:
++            lower_cmd_name = cmd_name.lower()
++
++            if lower_cmd_name != cmd_name:
++                cmd_name = lower_cmd_name
++                cmd = self.get_command(ctx, cmd_name)
++
+         if cmd is None and not ctx.resilient_parsing:
+             if _split_opt(cmd_name)[0]:
+                 self.parse_args(ctx, args)

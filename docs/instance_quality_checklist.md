@@ -13,8 +13,11 @@ Each accepted instance must include:
 
 - `metadata.json`
 - `README.md`
+- `task_a.md`
+- `task_b.md`
 - `patch_a.diff`
 - `patch_b.diff`
+- `combined.patch`
 - `oracle/test_patch_a.*`
 - `oracle/test_patch_b.*`
 - `oracle/test_composition.*`
@@ -80,6 +83,7 @@ Check that:
 - `repo`, `language`, `conflict_type`, `source`, and `status` match
   `instances/index.json`;
 - referenced patch, oracle, and validation-script files exist;
+- convention-based task files and `combined.patch` exist;
 - `failure_summary` explains the interaction, not just the symptom.
 
 ## Documentation Boundaries
