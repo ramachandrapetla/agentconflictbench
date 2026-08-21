@@ -80,6 +80,16 @@
       "source": "researcher_constructed",
       "status": "reproduced",
       "path": "instances/httpx__001"
+    },
+    {
+      "id": "zod__001",
+      "repo": "https://github.com/colinhacks/zod",
+      "base_commit": "e516c3baf22615e20934116abebfed6c000222c2",
+      "language": "TypeScript",
+      "conflict_type": "api_contract",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/zod__001"
     }
   ]
 }

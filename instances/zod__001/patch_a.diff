@@ -1,0 +1,12 @@
+diff --git a/packages/zod/src/v4/core/registries.ts b/packages/zod/src/v4/core/registries.ts
+index cdd19e79..6a456b8e 100644
+--- a/packages/zod/src/v4/core/registries.ts
++++ b/packages/zod/src/v4/core/registries.ts
+@@ -64,7 +64,6 @@ export class $ZodRegistry<Meta extends MetadataType = MetadataType, Schema exten
+     const p = schema._zod.parent as Schema;
+     if (p) {
+       const pm: any = { ...(this.get(p) ?? {}) };
+-      delete pm.id; // do not inherit id
+       const f = { ...pm, ...this._map.get(schema) } as any;
+       return Object.keys(f).length ? f : undefined;
+     }

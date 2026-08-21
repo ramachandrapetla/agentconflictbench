@@ -1,0 +1,5 @@
+Command:
+node --import ./node_modules/tsx/dist/loader.mjs --conditions @zod/source oracle/test_patch_b.ts
+
+Result:
+Patch B oracle completed successfully.
