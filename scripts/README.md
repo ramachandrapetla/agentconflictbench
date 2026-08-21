@@ -30,6 +30,9 @@ python scripts/run_instance.py instances/click__001 --repo-dir /tmp/click
 
 ## Validate the seed dataset
 
+See `../docs/reproduction.md` for the current per-repository setup commands
+and complete dataset-validation examples.
+
 ```bash
 python scripts/validate_dataset.py \
   --repo click=/tmp/click \
@@ -54,4 +57,5 @@ A dataset validation pass means each included instance reproduces the expected A
 4. The composition oracle fails as expected.
 
 Python oracles are run with `pytest`. JavaScript oracles using `.js`, `.mjs`,
-or `.cjs` are run with Node's built-in `node --test` runner.
+or `.cjs` are run with Node's built-in `node --test` runner. TypeScript
+oracles using `.ts` or `.tsx` are run with a repo-local `tsx` loader.
