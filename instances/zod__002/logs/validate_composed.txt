@@ -1,12 +1,12 @@
 Command:
-/Users/ramachandrapetla/Desktop/agentconflictbench/instances/zod__002/scripts/validate_composed.sh /private/tmp/agentconflictbench-zod
+<agentconflictbench>/instances/zod__002/scripts/validate_composed.sh <upstream-checkout>
 
 Runner result:
 AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
 
 true !== false
 
-    at main (/Users/ramachandrapetla/Desktop/agentconflictbench/instances/zod__002/oracle/test_composition.ts:9:10) {
+    at main (<agentconflictbench>/instances/zod__002/oracle/test_composition.ts:9:10) {
   generatedMessage: true,
   code: 'ERR_ASSERTION',
   actual: true,

@@ -1,4 +1,4 @@
-$ /Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander_control__001/scripts/validate_b.sh /private/tmp/agentconflictbench-commander
+$ <agentconflictbench>/instances/commander_control__001/scripts/validate_b.sh <upstream-checkout>
 TAP version 13
 # Subtest: Option.isNegated exposes negated option state
 ok 1 - Option.isNegated exposes negated option state

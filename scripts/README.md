@@ -12,6 +12,7 @@ This directory contains setup, validation, composition, and benchmark-running sc
 - `generate_dataset_table.py`: generate a paper-facing instance table from `instances/index.json` and per-instance metadata.
 - `validate_generated_artifacts.py`: regenerate generated CSV/Markdown artifacts and fail if they are stale.
 - `validate_metadata.py`: validate instance metadata, index consistency, enum values, and referenced files.
+- `validate_public_artifacts.py`: scan tracked files for local absolute paths and obvious credential-shaped strings before public release.
 - `validate_dataset.py`: validate every reproduced instance listed in `instances/index.json` and write `analysis/validation_report.md`.
 
 ## Validate metadata
@@ -56,6 +57,16 @@ python scripts/validate_generated_artifacts.py
 This regenerates `analysis/baseline_features.csv`,
 `analysis/dataset_summary.md`, and `paper/dataset_table.md`, then fails if any
 of those generated files differ from the committed versions.
+
+## Validate public artifacts
+
+```bash
+python scripts/validate_public_artifacts.py
+```
+
+This checks tracked repository files for machine-specific absolute paths and
+obvious credential-shaped strings. It is meant as a release/publication hygiene
+guard, not as a replacement for manual review.
 
 ## Bootstrap upstream repositories
 

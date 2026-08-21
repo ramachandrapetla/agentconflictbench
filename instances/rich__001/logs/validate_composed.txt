@@ -14,7 +14,7 @@ E
 E         At index 0 diff: Span(0, 3, 'red') != Span(0, 1, 'red')
 E         Use -v to get more diff
 
-/Users/ramachandrapetla/Desktop/agentconflictbench/instances/rich__001/oracle/test_composition.py:10: AssertionError
+<agentconflictbench>/instances/rich__001/oracle/test_composition.py:10: AssertionError
 =========================== short test summary info ============================
-FAILED ../../../Users/ramachandrapetla/Desktop/agentconflictbench/instances/rich__001/oracle/test_composition.py::test_truncate_padding_does_not_inherit_content_style
+FAILED ../../..<agentconflictbench>/instances/rich__001/oracle/test_composition.py::test_truncate_padding_does_not_inherit_content_style
 1 failed in 0.03s
