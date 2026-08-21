@@ -1,0 +1,17 @@
+diff --git a/lib/option.js b/lib/option.js
+index 4b4daaf..d80d923 100644
+--- a/lib/option.js
++++ b/lib/option.js
+@@ -252,11 +252,11 @@ export class Option {
+    * @return {boolean}
+    * @package
+    */
+ 
+   isBoolean() {
+-    return !this.required && !this.optional && !this.negate;
++    return !this.required && !this.optional;
+   }
+ }
+ 
+ /**
+  * This class is to make it easier to work with dual options, without changing the existing

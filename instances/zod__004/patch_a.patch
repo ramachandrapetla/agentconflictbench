@@ -1,0 +1,12 @@
+diff --git a/packages/zod/src/v4/classic/schemas.ts b/packages/zod/src/v4/classic/schemas.ts
+index 2f73146f..997ef3de 100644
+--- a/packages/zod/src/v4/classic/schemas.ts
++++ b/packages/zod/src/v4/classic/schemas.ts
+@@ -2015,6 +2015,6 @@ export const ZodSet: core.$constructor<ZodSet> = /*@__PURE__*/ core.$constructo
+   inst._zod.processJSONSchema = (ctx, json, params) => processors.setProcessor(inst, ctx, json, params);
+ 
+-  inst.min = (...args) => inst.check(core._minSize(...args));
++  inst.min = (...args) => inst.clone({ ...inst._zod.def, checks: [] }).check(core._minSize(...args));
+   inst.nonempty = (params) => inst.check(core._minSize(1, params));
+   inst.max = (...args) => inst.check(core._maxSize(...args));
+   inst.size = (...args) => inst.check(core._size(...args));

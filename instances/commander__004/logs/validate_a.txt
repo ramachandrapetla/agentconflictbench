@@ -1,0 +1,23 @@
+Command:
+/Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__004/scripts/validate_a.sh /private/tmp/agentconflictbench-commander
+
+Runner result:
+TAP version 13
+# Subtest: argOptional clears default values when changing required arguments
+ok 1 - argOptional clears default values when changing required arguments
+  ---
+  duration_ms: 0.701583
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 66.616083
+
+Runner summary:
+pass

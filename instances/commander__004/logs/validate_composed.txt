@@ -1,0 +1,42 @@
+Command:
+/Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__004/scripts/validate_composed.sh /private/tmp/agentconflictbench-commander
+
+Runner result:
+TAP version 13
+# Subtest: required argument defaults survive the optionalization path
+not ok 1 - required argument defaults survive the optionalization path
+  ---
+  duration_ms: 2.200375
+  type: 'test'
+  location: '/Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__004/oracle/test_composition.mjs:7:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - 'fallback'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'fallback'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__004/oracle/test_composition.mjs:16:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 50.092583
+
+Runner summary:
+expected failure

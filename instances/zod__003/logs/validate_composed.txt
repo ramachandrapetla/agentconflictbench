@@ -1,0 +1,18 @@
+Command:
+/Users/ramachandrapetla/Desktop/agentconflictbench/instances/zod__003/scripts/validate_composed.sh /private/tmp/agentconflictbench-zod
+
+Runner result:
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+true !== false
+
+    at main (/Users/ramachandrapetla/Desktop/agentconflictbench/instances/zod__003/oracle/test_composition.ts:9:10) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: true,
+  expected: false,
+  operator: 'strictEqual'
+}
+
+Runner summary:
+expected failure

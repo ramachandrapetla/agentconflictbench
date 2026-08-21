@@ -1,0 +1,16 @@
+diff --git a/lib/argument.js b/lib/argument.js
+index 6da521d..a168149 100644
+--- a/lib/argument.js
++++ b/lib/argument.js
+@@ -126,10 +126,11 @@ export class Argument {
+    *
+    * @returns {Argument}
+    */
+   argOptional() {
+     this.required = false;
++    this.defaultValue = undefined;
+     return this;
+   }
+ }
+ 
+ /**

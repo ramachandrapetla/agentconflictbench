@@ -1,0 +1,21 @@
+{
+  "id": "zod__002",
+  "repo": "https://github.com/colinhacks/zod",
+  "base_commit": "e516c3baf22615e20934116abebfed6c000222c2",
+  "language": "TypeScript",
+  "task_a": "Clear object-level refinements when creating a catchall object-schema variant.",
+  "task_b": "Refactor object .loose() to delegate to .catchall(z.unknown()) while preserving object refinements.",
+  "patch_a": "patch_a.patch",
+  "patch_b": "patch_b.patch",
+  "validation_a": "scripts/validate_a.sh",
+  "validation_b": "scripts/validate_b.sh",
+  "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
+  "composition_oracle": "oracle/test_composition.ts",
+  "conflict_type": "state_invariant",
+  "failure_summary": "Patch A changes catchall() so object-level checks are cleared. Patch B refactors loose() to delegate through catchall(). Together, loose() unexpectedly drops object refinements and accepts objects that should fail custom validation.",
+  "difficulty": "easy",
+  "source": "researcher_constructed",
+  "agent_or_model": "Codex",
+  "human_modified": true,
+  "notes": "Zod object-schema interaction between helper semantics and a public API refactor."
+}
