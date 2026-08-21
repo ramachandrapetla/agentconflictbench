@@ -71,6 +71,7 @@ Run:
 
 ```bash
 python scripts/validate_metadata.py
+python scripts/check_instance_completeness.py
 ```
 
 Check that:
