@@ -43,7 +43,7 @@ Planned first milestone:
 - at least 5 semantic conflict categories
 - reproducible scripts or containers for every instance
 
-## Reproducing An Instance
+## Reproducing One Instance
 
 Clone the relevant upstream project and install its local test dependencies.
 
@@ -78,6 +78,30 @@ python scripts/run_instance.py instances/typer__001 --repo-dir /tmp/typer
 ```
 
 A successful benchmark reproduction means Patch A passes alone, Patch B passes alone, and the composed oracle fails as expected.
+
+## Validating The Dataset
+
+Use `scripts/validate_dataset.py` to run every reproduced instance listed in `instances/index.json` and write a compact Markdown report.
+
+If the upstream projects share the same Python environment:
+
+```bash
+python scripts/validate_dataset.py \
+  --repo click=/tmp/click \
+  --repo typer=/tmp/typer
+```
+
+If each upstream checkout has its own virtual environment, pass the Python executable for each repo:
+
+```bash
+python scripts/validate_dataset.py \
+  --repo click=/tmp/click \
+  --repo typer=/tmp/typer \
+  --python click=/tmp/click/.venv/bin/python \
+  --python typer=/tmp/typer/.venv/bin/python
+```
+
+Repository keys may be the repo name (`click`), owner/name (`pallets/click`), or full GitHub URL.
 
 ## Structure
 
