@@ -10,7 +10,7 @@
 ## Milestone 2: Seeded Micro-Benchmark
 
 - Build 10 to 20 controlled benchmark instances. The repository currently has
-  13 reproduced instances.
+  15 reproduced instances.
 - Cover at least 5 conflict categories.
 - Package each instance with patches, scripts, logs, and oracle.
 - Validate instance reproducibility.
@@ -19,9 +19,9 @@
 
 - Add the first `test_assumption` instance.
 - Expand TypeScript coverage beyond one Zod seed.
-- Grow from 13 to 15 reproduced instances while keeping the root README clean.
-- Add at least one additional upstream repository before growing beyond 20
-  instances.
+- Grow from 15 to 20 reproduced instances while keeping the root README clean.
+- Add at least one additional upstream repository before or during the next
+  five-instance expansion.
 - Maintain a near-duplicate rejection record for every new accepted instance.
 
 ## Milestone 3: Real Repository Benchmark

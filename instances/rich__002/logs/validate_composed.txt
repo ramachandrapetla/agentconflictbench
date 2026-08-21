@@ -1,0 +1,22 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_public_append_does_not_inherit_appended_end_metadata ___________
+
+    def test_public_append_does_not_inherit_appended_end_metadata() -> None:
+        left = Text("left", end="!")
+        right = Text("right", style="bold", end="?")
+    
+        left.append(right)
+    
+        assert left.plain == "leftright"
+        assert left.spans == [Span(4, 9, "bold")]
+>       assert left.end == "!"
+E       AssertionError: assert '?' == '!'
+E         
+E         - !
+E         + ?
+
+/Users/ramachandrapetla/Desktop/agentconflictbench/instances/rich__002/oracle/test_composition.py:12: AssertionError
+=========================== short test summary info ============================
+FAILED ../../../Users/ramachandrapetla/Desktop/agentconflictbench/instances/rich__002/oracle/test_composition.py::test_public_append_does_not_inherit_appended_end_metadata
+1 failed in 0.03s

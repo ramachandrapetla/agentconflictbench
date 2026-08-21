@@ -84,6 +84,21 @@ python scripts/run_instance.py instances/httpx__002 --repo-dir /tmp/httpx
 python scripts/run_instance.py instances/httpx__003 --repo-dir /tmp/httpx
 ```
 
+### Rich
+
+```bash
+git clone https://github.com/Textualize/rich.git /tmp/rich
+cd /tmp/rich
+python -m pip install -e . pytest
+```
+
+Instances:
+
+```bash
+python scripts/run_instance.py instances/rich__001 --repo-dir /tmp/rich
+python scripts/run_instance.py instances/rich__002 --repo-dir /tmp/rich
+```
+
 ### Zod
 
 ```bash
@@ -109,6 +124,7 @@ python scripts/validate_dataset.py \
   --repo typer=/tmp/typer \
   --repo commander.js=/tmp/commander \
   --repo httpx=/tmp/httpx \
+  --repo rich=/tmp/rich \
   --repo zod=/tmp/zod
 ```
 
@@ -124,7 +140,8 @@ python scripts/validate_dataset.py \
   --repo zod=/tmp/zod \
   --python click=/tmp/click/.venv/bin/python \
   --python typer=/tmp/typer/.venv/bin/python \
-  --python httpx=/tmp/httpx/.venv/bin/python
+  --python httpx=/tmp/httpx/.venv/bin/python \
+  --python rich=/tmp/rich/.venv/bin/python
 ```
 
 Repository keys may be the repo name (`click`), owner/name (`pallets/click`),

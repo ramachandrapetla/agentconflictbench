@@ -122,6 +122,26 @@
       "path": "instances/httpx__003"
     },
     {
+      "id": "rich__001",
+      "repo": "https://github.com/Textualize/rich",
+      "base_commit": "9d8f9a372cc5916fd4781fec207ced7ddac2f08f",
+      "language": "Python",
+      "conflict_type": "behavioral",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/rich__001"
+    },
+    {
+      "id": "rich__002",
+      "repo": "https://github.com/Textualize/rich",
+      "base_commit": "9d8f9a372cc5916fd4781fec207ced7ddac2f08f",
+      "language": "Python",
+      "conflict_type": "api_contract",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/rich__002"
+    },
+    {
       "id": "zod__001",
       "repo": "https://github.com/colinhacks/zod",
       "base_commit": "e516c3baf22615e20934116abebfed6c000222c2",
