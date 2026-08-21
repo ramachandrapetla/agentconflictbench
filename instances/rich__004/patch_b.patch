@@ -1,0 +1,14 @@
+diff --git a/rich/text.py b/rich/text.py
+index 7e087a4e..810c7ed4 100644
+--- a/rich/text.py
++++ b/rich/text.py
+@@ -1073,7 +1073,7 @@ class Text(JupyterMixin):
+         assert separator, "separator must not be empty"
+ 
+         text = self.plain
+         if separator not in text:
+-            return Lines([self.copy()])
++            return self.divide([])
+ 
+         if include_separator:
+             lines = self.divide(

@@ -1,0 +1,13 @@
+diff --git a/src/markupsafe/__init__.py b/src/markupsafe/__init__.py
+index f8a0d58..4883345 100644
+--- a/src/markupsafe/__init__.py
++++ b/src/markupsafe/__init__.py
+@@ -122,7 +122,7 @@ class Markup(str):
+         cls, object: t.Any = "", encoding: str | None = None, errors: str = "strict"
+     ) -> te.Self:
+         if hasattr(object, "__html__"):
+-            object = object.__html__()
++            object = escape(object)
+ 
+         if encoding is None:
+             return super().__new__(cls, object)

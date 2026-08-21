@@ -50,9 +50,22 @@ same repository subsystem, same hidden contract, same conflict type, and same
 oracle shape. These candidates are useful during exploration, but counting them
 as separate benchmark items would overstate dataset diversity.
 
+Rejected or held candidates are recorded in `docs/rejected_candidates.md`.
+This creates an audit trail for negative selection decisions and makes the
+benchmark construction process more reviewable.
+
 ## Composition Oracle
 
 A composition-level oracle may be a unit test, integration test, property-based test, regression test, static policy check, controlled performance threshold, or manually reviewed behavioral oracle. Automated oracles are preferred.
+
+## Baseline Features
+
+The seed artifact includes a simple baseline feature extractor rather than a
+full model claim. `scripts/baseline_features.py` computes patch/task overlap
+features such as changed-file overlap, changed-line counts, changed-token
+Jaccard similarity, and task-token Jaccard similarity. These features provide
+transparent first baselines for same-file, patch-size, and task-similarity risk
+heuristics.
 
 ## Quality Control
 

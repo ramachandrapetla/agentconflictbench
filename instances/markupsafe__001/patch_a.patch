@@ -1,0 +1,13 @@
+diff --git a/src/markupsafe/__init__.py b/src/markupsafe/__init__.py
+index f8a0d58..01cd222 100644
+--- a/src/markupsafe/__init__.py
++++ b/src/markupsafe/__init__.py
+@@ -367,7 +367,7 @@ class _MarkupEscapeHelper:
+         return self.__class__(self.obj[key], self.escape)
+ 
+     def __str__(self, /) -> str:
+-        return str(self.escape(self.obj))
++        return str(escape_silent(self.obj))
+ 
+     def __repr__(self, /) -> str:
+         return str(self.escape(repr(self.obj)))

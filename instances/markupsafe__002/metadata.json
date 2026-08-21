@@ -1,0 +1,21 @@
+{
+  "id": "markupsafe__002",
+  "repo": "https://github.com/pallets/markupsafe",
+  "base_commit": "b2e4d9c7687be25695fffbe93a37622302b24fb1",
+  "language": "Python",
+  "task_a": "Teach soft_str to decode byte strings as UTF-8 text.",
+  "task_b": "Refactor escape to use soft_str for non-string fallback conversion.",
+  "patch_a": "patch_a.patch",
+  "patch_b": "patch_b.patch",
+  "validation_a": "scripts/validate_a.sh",
+  "validation_b": "scripts/validate_b.sh",
+  "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
+  "composition_oracle": "oracle/test_composition.py",
+  "conflict_type": "api_contract",
+  "failure_summary": "Patch A makes soft_str decode bytes to text. Patch B makes escape use soft_str for fallback conversion. Together, escape(bytes) stops escaping Python's bytes representation and instead escapes decoded byte content, changing a public conversion contract.",
+  "difficulty": "easy",
+  "source": "researcher_constructed",
+  "agent_or_model": "Codex",
+  "human_modified": true,
+  "notes": "Second MarkupSafe seed instance. It targets conversion and escaping semantics, distinct from markupsafe__001 formatting-helper assumptions."
+}

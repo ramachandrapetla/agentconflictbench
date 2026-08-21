@@ -53,10 +53,10 @@ Define silent semantic patch interference as a patch pair where:
 
 Current seed benchmark:
 
-- 15 reproduced instances.
-- 6 upstream repositories.
+- 20 reproduced instances.
+- 7 upstream repositories.
 - 3 languages.
-- 5 conflict categories.
+- 6 conflict categories.
 - Paper-facing instance table generated in `paper/dataset_table.md`.
 
 Planned submission benchmark:
@@ -93,6 +93,7 @@ Evaluate whether the following detect or predict composition failure:
 - touched-symbol overlap;
 - patch size and changed-file counts;
 - task-description similarity;
+- generated baseline feature table;
 - repository test suite;
 - generated composition tests;
 - static/type checks;

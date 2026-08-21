@@ -84,6 +84,22 @@ python scripts/run_instance.py instances/httpx__002 --repo-dir /tmp/httpx
 python scripts/run_instance.py instances/httpx__003 --repo-dir /tmp/httpx
 ```
 
+### MarkupSafe
+
+```bash
+git clone https://github.com/pallets/markupsafe.git /tmp/markupsafe
+cd /tmp/markupsafe
+python -m pip install pytest
+```
+
+Instances:
+
+```bash
+python scripts/run_instance.py instances/markupsafe__001 --repo-dir /tmp/markupsafe
+python scripts/run_instance.py instances/markupsafe__002 --repo-dir /tmp/markupsafe
+python scripts/run_instance.py instances/markupsafe__003 --repo-dir /tmp/markupsafe
+```
+
 ### Rich
 
 ```bash
@@ -124,6 +140,7 @@ python scripts/validate_dataset.py \
   --repo typer=/tmp/typer \
   --repo commander.js=/tmp/commander \
   --repo httpx=/tmp/httpx \
+  --repo markupsafe=/tmp/markupsafe \
   --repo rich=/tmp/rich \
   --repo zod=/tmp/zod
 ```
@@ -141,6 +158,7 @@ python scripts/validate_dataset.py \
   --python click=/tmp/click/.venv/bin/python \
   --python typer=/tmp/typer/.venv/bin/python \
   --python httpx=/tmp/httpx/.venv/bin/python \
+  --python markupsafe=/tmp/markupsafe/.venv/bin/python \
   --python rich=/tmp/rich/.venv/bin/python
 ```
 

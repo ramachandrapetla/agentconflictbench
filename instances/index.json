@@ -122,6 +122,36 @@
       "path": "instances/httpx__003"
     },
     {
+      "id": "markupsafe__001",
+      "repo": "https://github.com/pallets/markupsafe",
+      "base_commit": "b2e4d9c7687be25695fffbe93a37622302b24fb1",
+      "language": "Python",
+      "conflict_type": "test_assumption",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/markupsafe__001"
+    },
+    {
+      "id": "markupsafe__002",
+      "repo": "https://github.com/pallets/markupsafe",
+      "base_commit": "b2e4d9c7687be25695fffbe93a37622302b24fb1",
+      "language": "Python",
+      "conflict_type": "api_contract",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/markupsafe__002"
+    },
+    {
+      "id": "markupsafe__003",
+      "repo": "https://github.com/pallets/markupsafe",
+      "base_commit": "b2e4d9c7687be25695fffbe93a37622302b24fb1",
+      "language": "Python",
+      "conflict_type": "api_contract",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/markupsafe__003"
+    },
+    {
       "id": "rich__001",
       "repo": "https://github.com/Textualize/rich",
       "base_commit": "9d8f9a372cc5916fd4781fec207ced7ddac2f08f",
@@ -140,6 +170,26 @@
       "source": "researcher_constructed",
       "status": "reproduced",
       "path": "instances/rich__002"
+    },
+    {
+      "id": "rich__003",
+      "repo": "https://github.com/Textualize/rich",
+      "base_commit": "9d8f9a372cc5916fd4781fec207ced7ddac2f08f",
+      "language": "Python",
+      "conflict_type": "state_invariant",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/rich__003"
+    },
+    {
+      "id": "rich__004",
+      "repo": "https://github.com/Textualize/rich",
+      "base_commit": "9d8f9a372cc5916fd4781fec207ced7ddac2f08f",
+      "language": "Python",
+      "conflict_type": "behavioral",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/rich__004"
     },
     {
       "id": "zod__001",

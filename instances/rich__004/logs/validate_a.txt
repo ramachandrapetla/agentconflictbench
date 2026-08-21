@@ -1,0 +1,15 @@
+
+==================================== ERRORS ====================================
+_________ ERROR collecting instances/rich__004/oracle/test_patch_a.py __________
+ImportError while importing test module '/Users/ramachandrapetla/Desktop/agentconflictbench/instances/rich__004/oracle/test_patch_a.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+instances/rich__004/oracle/test_patch_a.py:1: in <module>
+    from rich.text import Text
+E   ModuleNotFoundError: No module named 'rich'
+=========================== short test summary info ============================
+ERROR instances/rich__004/oracle/test_patch_a.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.07s

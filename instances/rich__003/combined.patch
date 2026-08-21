@@ -1,0 +1,29 @@
+diff --git a/rich/text.py b/rich/text.py
+index 7e087a4e..98e2a52f 100644
+--- a/rich/text.py
++++ b/rich/text.py
+@@ -438,20 +438,14 @@ class Text(JupyterMixin):
+             end=self.end,
+             tab_size=self.tab_size,
+         )
++        if plain:
++            copy_self._spans[:] = self._spans
+         return copy_self
+ 
+     def copy(self) -> "Text":
+         """Return a copy of this instance."""
+-        copy_self = Text(
+-            self.plain,
+-            style=self.style,
+-            justify=self.justify,
+-            overflow=self.overflow,
+-            no_wrap=self.no_wrap,
+-            end=self.end,
+-            tab_size=self.tab_size,
+-        )
+-        copy_self._spans[:] = self._spans
++        copy_self = self.blank_copy(self.plain)
++        copy_self.copy_styles(self)
+         return copy_self
+ 
+     def stylize(

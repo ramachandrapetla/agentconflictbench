@@ -42,6 +42,7 @@ The pilot gate is how we make sure a repository fits the benchmark, instead of a
 | pallets/click | Python | 5 | 5 | 5 | 5 | 5 | BSD-3-Clause | 5 | Primary |
 | fastapi/typer | Python | 4 | 4 | 5 | 5 | 4 | MIT | 5 | Primary |
 | encode/httpx | Python | 5 | 4 | 5 | 5 | 4 | BSD-3-Clause | 5 | Primary |
+| pallets/markupsafe | Python | 5 | 5 | 5 | 5 | 5 | BSD-3-Clause | 5 | Primary |
 | Textualize/rich | Python | 5 | 5 | 5 | 5 | 5 | MIT | 5 | Primary |
 | colinhacks/zod | TypeScript | 5 | 4 | 5 | 5 | 4 | MIT | 5 | Primary |
 | tj/commander.js | TypeScript/JavaScript | 5 | 5 | 5 | 5 | 5 | MIT | 5 | Primary |
@@ -116,6 +117,22 @@ Example conflict directions:
   public API to that helper.
 - Patch A changes markup escaping while Patch B changes emoji or tag parsing.
 
+### 7. pallets/markupsafe
+
+MarkupSafe is a Python HTML-safe string library. It is a strong fit because it
+has compact code, low setup cost, and subtle protocol contracts around
+escaping, `Markup` construction, old-style formatting, new-style formatting,
+bytes conversion, and `__html__` / `__html_format__` precedence.
+
+Example conflict directions:
+
+- Patch A changes optional-value handling in one formatting helper while Patch
+  B reuses that helper from another formatting path.
+- Patch A changes byte-string conversion while Patch B delegates escaping
+  through the conversion helper.
+- Patch A changes HTML protocol precedence while Patch B centralizes
+  constructor behavior through the escape helper.
+
 ## Why These Fit AgentConflictBench
 
 These repositories share the properties we need:
@@ -136,12 +153,13 @@ additional repositories that pass the pilot gate:
 | pallets/click | 2 | configuration, behavioral |
 | fastapi/typer | 2 | API-contract, behavioral |
 | encode/httpx | 2 | behavioral, security-policy |
+| pallets/markupsafe | 3 | API-contract, test-assumption |
 | Textualize/rich | 2 | behavioral, API-contract |
 | colinhacks/zod | 2 | schema, API-contract |
 | tj/commander.js | 2 | configuration, test-assumption |
 
 The initial five-repository plan provided 10 target instances. The current seed
-dataset has expanded to 15 reproduced instances across 6 repositories while
+dataset has expanded to 20 reproduced instances across 7 repositories while
 preserving the same inclusion gate.
 
 ## Validation Before Inclusion

@@ -1,0 +1,13 @@
+diff --git a/src/markupsafe/__init__.py b/src/markupsafe/__init__.py
+index f8a0d58..03ac53a 100644
+--- a/src/markupsafe/__init__.py
++++ b/src/markupsafe/__init__.py
+@@ -42,7 +42,7 @@ def escape(s: t.Any, /) -> Markup:
+     if hasattr(s, "__html__"):
+         return Markup(s.__html__())
+ 
+-    return Markup(_escape_inner(str(s)))
++    return Markup(_escape_inner(soft_str(s)))
+ 
+ 
+ def escape_silent(s: t.Any | None, /) -> Markup:

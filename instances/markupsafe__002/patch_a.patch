@@ -1,0 +1,14 @@
+diff --git a/src/markupsafe/__init__.py b/src/markupsafe/__init__.py
+index f8a0d58..761b61a 100644
+--- a/src/markupsafe/__init__.py
++++ b/src/markupsafe/__init__.py
+@@ -75,6 +75,9 @@ def soft_str(s: t.Any, /) -> str:
+     >>> escape(soft_str(value))
+     Markup('&lt;User 1&gt;')
+     """
++    if isinstance(s, bytes):
++        return s.decode()
++
+     if not isinstance(s, str):
+         return str(s)
+ 
