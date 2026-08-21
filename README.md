@@ -43,115 +43,21 @@ Planned first milestone:
 - at least 5 semantic conflict categories
 - reproducible scripts or containers for every instance
 
-## Reproducing One Instance
+## Reproduction
 
-Clone the relevant upstream project and install its local test dependencies.
+Each benchmark instance is reproduced against a pinned upstream commit. A
+successful reproduction means Patch A passes alone, Patch B passes alone, the
+patches apply together without textual conflict, and the composed oracle fails
+as expected.
 
-For the Click seeds:
-
-```bash
-git clone https://github.com/pallets/click.git /tmp/click
-cd /tmp/click
-python -m pip install -e . pytest
-```
-
-Then run:
+After setting up the relevant upstream checkout:
 
 ```bash
 python scripts/run_instance.py instances/click__001 --repo-dir /tmp/click
-python scripts/run_instance.py instances/click__002 --repo-dir /tmp/click
-python scripts/run_instance.py instances/click__003 --repo-dir /tmp/click
-python scripts/run_instance.py instances/click__004 --repo-dir /tmp/click
 ```
 
-For the Typer seed:
-
-```bash
-git clone https://github.com/fastapi/typer.git /tmp/typer
-cd /tmp/typer
-python -m pip install -e . pytest rich shellingham
-```
-
-Then run:
-
-```bash
-python scripts/run_instance.py instances/typer__001 --repo-dir /tmp/typer
-python scripts/run_instance.py instances/typer__002 --repo-dir /tmp/typer
-```
-
-For the Commander seed:
-
-```bash
-git clone https://github.com/tj/commander.js.git /tmp/commander
-cd /tmp/commander
-```
-
-Then run:
-
-```bash
-python scripts/run_instance.py instances/commander__001 --repo-dir /tmp/commander
-```
-
-For the HTTPX seed:
-
-```bash
-git clone https://github.com/encode/httpx.git /tmp/httpx
-cd /tmp/httpx
-python -m pip install -e . pytest
-```
-
-Then run:
-
-```bash
-python scripts/run_instance.py instances/httpx__001 --repo-dir /tmp/httpx
-```
-
-For the Zod seed:
-
-```bash
-git clone https://github.com/colinhacks/zod.git /tmp/zod
-cd /tmp/zod
-npx pnpm@10.12.1 install --frozen-lockfile
-```
-
-Then run:
-
-```bash
-python scripts/run_instance.py instances/zod__001 --repo-dir /tmp/zod
-```
-
-A successful benchmark reproduction means Patch A passes alone, Patch B passes alone, and the composed oracle fails as expected.
-
-## Validating The Dataset
-
-Use `scripts/validate_dataset.py` to run every reproduced instance listed in `instances/index.json` and write a compact Markdown report.
-
-If the upstream projects share the same Python environment:
-
-```bash
-python scripts/validate_dataset.py \
-  --repo click=/tmp/click \
-  --repo typer=/tmp/typer \
-  --repo commander.js=/tmp/commander \
-  --repo httpx=/tmp/httpx \
-  --repo zod=/tmp/zod
-```
-
-If each upstream checkout has its own virtual environment, pass the Python executable for each repo:
-
-```bash
-python scripts/validate_dataset.py \
-  --repo click=/tmp/click \
-  --repo typer=/tmp/typer \
-  --repo commander.js=/tmp/commander \
-  --repo httpx=/tmp/httpx \
-  --repo zod=/tmp/zod \
-  --python click=/tmp/click/.venv/bin/python \
-  --python typer=/tmp/typer/.venv/bin/python \
-  --python httpx=/tmp/httpx/.venv/bin/python
-```
-
-Repository keys may be the repo name (`click`), owner/name (`pallets/click`), or full GitHub URL.
+For upstream setup commands, per-repository dependency notes, and full-dataset
+validation examples, see [docs/reproduction.md](docs/reproduction.md).
 
 ## Validating Metadata
 
