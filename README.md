@@ -30,10 +30,10 @@ This repository is an early research artifact. The initial goal is to build a sm
 
 Current seed dataset:
 
-- 4 benchmark instances
+- 6 benchmark instances
 - 2 upstream repositories: `pallets/click`, `fastapi/typer`
 - 3 conflict categories: `configuration`, `behavioral`, `api_contract`
-- 4 reproduced clean-merge semantic failures
+- 6 reproduced clean-merge semantic failures
 
 Planned first milestone:
 
@@ -61,6 +61,7 @@ Then run:
 python scripts/run_instance.py instances/click__001 --repo-dir /tmp/click
 python scripts/run_instance.py instances/click__002 --repo-dir /tmp/click
 python scripts/run_instance.py instances/click__003 --repo-dir /tmp/click
+python scripts/run_instance.py instances/click__004 --repo-dir /tmp/click
 ```
 
 For the Typer seed:
@@ -75,6 +76,7 @@ Then run:
 
 ```bash
 python scripts/run_instance.py instances/typer__001 --repo-dir /tmp/typer
+python scripts/run_instance.py instances/typer__002 --repo-dir /tmp/typer
 ```
 
 A successful benchmark reproduction means Patch A passes alone, Patch B passes alone, and the composed oracle fails as expected.
