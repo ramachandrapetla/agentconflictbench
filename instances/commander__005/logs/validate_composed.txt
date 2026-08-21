@@ -1,5 +1,5 @@
 Command:
-/Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__005/scripts/validate_composed.sh /private/tmp/agentconflictbench-commander
+<agentconflictbench>/instances/commander__005/scripts/validate_composed.sh <upstream-checkout>
 
 Runner result:
 TAP version 13
@@ -8,7 +8,7 @@ not ok 1 - negated options still resolve to false after boolean classification c
   ---
   duration_ms: 2.417166
   type: 'test'
-  location: '/Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__005/oracle/test_composition.mjs:7:1'
+  location: '<agentconflictbench>/instances/commander__005/oracle/test_composition.mjs:7:1'
   failureType: 'testCodeFailure'
   error: |-
     Expected values to be strictly equal:
@@ -21,7 +21,7 @@ not ok 1 - negated options still resolve to false after boolean classification c
   actual: true
   operator: 'strictEqual'
   stack: |-
-    TestContext.<anonymous> (file:///Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__005/oracle/test_composition.mjs:12:10)
+    TestContext.<anonymous> (file://<agentconflictbench>/instances/commander__005/oracle/test_composition.mjs:12:10)
     Test.runInAsyncScope (node:async_hooks:214:14)
     Test.run (node:internal/test_runner/test:1047:25)
     Test.start (node:internal/test_runner/test:944:17)

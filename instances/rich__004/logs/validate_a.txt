@@ -1,7 +1,7 @@
 
 ==================================== ERRORS ====================================
 _________ ERROR collecting instances/rich__004/oracle/test_patch_a.py __________
-ImportError while importing test module '/Users/ramachandrapetla/Desktop/agentconflictbench/instances/rich__004/oracle/test_patch_a.py'.
+ImportError while importing test module '<agentconflictbench>/instances/rich__004/oracle/test_patch_a.py'.
 Hint: make sure your test modules/packages have valid Python names.
 Traceback:
 /opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py:126: in import_module

@@ -1,5 +1,5 @@
 Command:
-/Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__004/scripts/validate_composed.sh /private/tmp/agentconflictbench-commander
+<agentconflictbench>/instances/commander__004/scripts/validate_composed.sh <upstream-checkout>
 
 Runner result:
 TAP version 13
@@ -8,7 +8,7 @@ not ok 1 - required argument defaults survive the optionalization path
   ---
   duration_ms: 2.200375
   type: 'test'
-  location: '/Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__004/oracle/test_composition.mjs:7:1'
+  location: '<agentconflictbench>/instances/commander__004/oracle/test_composition.mjs:7:1'
   failureType: 'testCodeFailure'
   error: |-
     Expected values to be strictly equal:
@@ -22,7 +22,7 @@ not ok 1 - required argument defaults survive the optionalization path
   expected: 'fallback'
   operator: 'strictEqual'
   stack: |-
-    TestContext.<anonymous> (file:///Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__004/oracle/test_composition.mjs:16:10)
+    TestContext.<anonymous> (file://<agentconflictbench>/instances/commander__004/oracle/test_composition.mjs:16:10)
     Test.runInAsyncScope (node:async_hooks:214:14)
     Test.run (node:internal/test_runner/test:1047:25)
     Test.start (node:internal/test_runner/test:944:17)

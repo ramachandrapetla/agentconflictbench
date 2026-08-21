@@ -16,7 +16,8 @@ We define **silent semantic patch interference** as a conflict between two or mo
 
 ## Benchmark Instance Rule
 
-An instance belongs in AgentConflictBench only if:
+AgentConflictBench includes positive conflict instances and clean-composition
+controls. A positive conflict instance belongs in the benchmark only if:
 
 1. Patch A applies to the base commit and passes independently.
 2. Patch B applies to the same base commit and passes independently.
@@ -24,16 +25,21 @@ An instance belongs in AgentConflictBench only if:
 4. Patch A + Patch B fail a composition-level oracle.
 5. The failure is attributable to interaction between the patches.
 
+A control instance follows the same structure, but its composed oracle is
+expected to pass. Controls are labeled with `composition_expected = "pass"` and
+`conflict_type = "control"`.
+
 ## Repository Status
 
 This repository is an early research artifact. The initial goal is to build a small, reproducible benchmark before scaling.
 
 Current seed dataset:
 
-- 20 benchmark instances
+- 28 reproduced benchmark instances
+- 25 positive conflict instances and 3 clean-composition controls
 - 7 upstream repositories: `pallets/click`, `fastapi/typer`, `tj/commander.js`, `encode/httpx`, `pallets/markupsafe`, `Textualize/rich`, `colinhacks/zod`
-- 6 conflict categories: `configuration`, `behavioral`, `api_contract`, `security_policy`, `state_invariant`, `test_assumption`
-- 20 reproduced clean-merge semantic failures
+- 7 categories: `configuration`, `behavioral`, `api_contract`, `security_policy`, `state_invariant`, `test_assumption`, `control`
+- 25 reproduced clean-merge semantic failures
 
 Planned first milestone:
 

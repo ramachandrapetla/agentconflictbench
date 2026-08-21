@@ -1,5 +1,5 @@
 Command:
-/Users/ramachandrapetla/Desktop/agentconflictbench/instances/zod__004/scripts/validate_a.sh /private/tmp/agentconflictbench-zod
+<agentconflictbench>/instances/zod__004/scripts/validate_a.sh <upstream-checkout>
 
 Runner result:
 zod__004 patch_a ok

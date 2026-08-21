@@ -16,7 +16,7 @@ E
 E         - !
 E         + ?
 
-/Users/ramachandrapetla/Desktop/agentconflictbench/instances/rich__002/oracle/test_composition.py:12: AssertionError
+<agentconflictbench>/instances/rich__002/oracle/test_composition.py:12: AssertionError
 =========================== short test summary info ============================
-FAILED ../../../Users/ramachandrapetla/Desktop/agentconflictbench/instances/rich__002/oracle/test_composition.py::test_public_append_does_not_inherit_appended_end_metadata
+FAILED ../../..<agentconflictbench>/instances/rich__002/oracle/test_composition.py::test_public_append_does_not_inherit_appended_end_metadata
 1 failed in 0.03s

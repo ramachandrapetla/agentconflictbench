@@ -1,5 +1,5 @@
 Command:
-/Users/ramachandrapetla/Desktop/agentconflictbench/instances/zod__003/scripts/validate_b.sh /private/tmp/agentconflictbench-zod
+<agentconflictbench>/instances/zod__003/scripts/validate_b.sh <upstream-checkout>
 
 Runner result:
 zod__003 patch_b ok

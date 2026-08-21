@@ -1,5 +1,5 @@
 Command:
-/Users/ramachandrapetla/Desktop/agentconflictbench/instances/commander__005/scripts/validate_a.sh /private/tmp/agentconflictbench-commander
+<agentconflictbench>/instances/commander__005/scripts/validate_a.sh <upstream-checkout>
 
 Runner result:
 TAP version 13
