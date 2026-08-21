@@ -1,0 +1,40 @@
+diff --git a/lib/command.js b/lib/command.js
+index 9a3d03e..6d5ff84 100644
+--- a/lib/command.js
++++ b/lib/command.js
+@@ -695,14 +695,14 @@ Expecting one of '${allowedValues.join("', '")}'`);
+         val = option._collectValue(val, oldValue);
+       }
+ 
+       // Fill-in appropriate missing values. Long winded but easy to follow.
+       if (val == null) {
+-        if (option.negate) {
+-          val = false;
+-        } else if (option.isBoolean() || option.optional) {
++        if (option.isBoolean() || option.optional) {
+           val = true;
++        } else if (option.negate) {
++          val = false;
+         } else {
+           val = ''; // not normal, parseArg might have failed or be a mock function for testing
+         }
+       }
+       this.setOptionValueWithSource(name, val, valueSource);
+     };
+diff --git a/lib/option.js b/lib/option.js
+index 4b4daaf..d80d923 100644
+--- a/lib/option.js
++++ b/lib/option.js
+@@ -252,11 +252,11 @@ export class Option {
+    * @return {boolean}
+    * @package
+    */
+ 
+   isBoolean() {
+-    return !this.required && !this.optional && !this.negate;
++    return !this.required && !this.optional;
+   }
+ }
+ 
+ /**
+  * This class is to make it easier to work with dual options, without changing the existing

@@ -6,12 +6,12 @@
 
 | Metric | Value |
 | --- | --- |
-| Total instances | 20 |
+| Total instances | 25 |
 | Upstream repositories | 7 |
 | Languages | 3 |
 | Conflict categories | 6 |
-| Researcher-constructed instances | 20 |
-| Reproduced instances | 20 |
+| Researcher-constructed instances | 25 |
+| Reproduced instances | 25 |
 
 ## Instances
 
@@ -26,6 +26,8 @@
 | `commander__001` | `tj/commander.js` | JavaScript | behavioral | researcher_constructed | reproduced |
 | `commander__002` | `tj/commander.js` | JavaScript | configuration | researcher_constructed | reproduced |
 | `commander__003` | `tj/commander.js` | JavaScript | api_contract | researcher_constructed | reproduced |
+| `commander__004` | `tj/commander.js` | JavaScript | api_contract | researcher_constructed | reproduced |
+| `commander__005` | `tj/commander.js` | JavaScript | behavioral | researcher_constructed | reproduced |
 | `httpx__001` | `encode/httpx` | Python | api_contract | researcher_constructed | reproduced |
 | `httpx__002` | `encode/httpx` | Python | security_policy | researcher_constructed | reproduced |
 | `httpx__003` | `encode/httpx` | Python | state_invariant | researcher_constructed | reproduced |
@@ -37,36 +39,39 @@
 | `rich__003` | `Textualize/rich` | Python | state_invariant | researcher_constructed | reproduced |
 | `rich__004` | `Textualize/rich` | Python | behavioral | researcher_constructed | reproduced |
 | `zod__001` | `colinhacks/zod` | TypeScript | api_contract | researcher_constructed | reproduced |
+| `zod__002` | `colinhacks/zod` | TypeScript | state_invariant | researcher_constructed | reproduced |
+| `zod__003` | `colinhacks/zod` | TypeScript | state_invariant | researcher_constructed | reproduced |
+| `zod__004` | `colinhacks/zod` | TypeScript | state_invariant | researcher_constructed | reproduced |
 
 ## By Repository
 
 | Value | Instances |
 | --- | --- |
 | `Textualize/rich` | 4 |
-| `colinhacks/zod` | 1 |
+| `colinhacks/zod` | 4 |
 | `encode/httpx` | 3 |
 | `fastapi/typer` | 2 |
 | `pallets/click` | 4 |
 | `pallets/markupsafe` | 3 |
-| `tj/commander.js` | 3 |
+| `tj/commander.js` | 5 |
 
 ## By Language
 
 | Value | Instances |
 | --- | --- |
-| `JavaScript` | 3 |
+| `JavaScript` | 5 |
 | `Python` | 16 |
-| `TypeScript` | 1 |
+| `TypeScript` | 4 |
 
 ## By Conflict Type
 
 | Value | Instances |
 | --- | --- |
-| `api_contract` | 7 |
-| `behavioral` | 7 |
+| `api_contract` | 8 |
+| `behavioral` | 8 |
 | `configuration` | 2 |
 | `security_policy` | 1 |
-| `state_invariant` | 2 |
+| `state_invariant` | 5 |
 | `test_assumption` | 1 |
 
 ## Notes

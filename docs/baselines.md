@@ -33,6 +33,9 @@ python scripts/baseline_features.py --output analysis/baseline_features.csv
 The script does not run models or make statistical claims. It prepares the
 feature table that later experiments can consume.
 
+The current descriptive snapshot is summarized in
+`analysis/baseline_results.md`.
+
 ## Next Baselines
 
 - touched-symbol overlap;

@@ -1,0 +1,20 @@
+diff --git a/packages/zod/src/v4/classic/schemas.ts b/packages/zod/src/v4/classic/schemas.ts
+index 2f73146f..da4333b4 100644
+--- a/packages/zod/src/v4/classic/schemas.ts
++++ b/packages/zod/src/v4/classic/schemas.ts
+@@ -1650,12 +1650,12 @@ function _zodObjectMethods(): _LazyMethodsOf<ZodObject> {
+       return _enum(Object.keys(this._zod.def.shape));
+     },
+     catchall(catchall) {
+-      return this.clone({ ...this._zod.def, catchall: catchall as any });
++      return this.clone({ ...this._zod.def, checks: [], catchall: catchall as any });
+     },
+     passthrough() {
+       return this.clone({ ...this._zod.def, catchall: unknown() });
+     },
+     loose() {
+-      return this.clone({ ...this._zod.def, catchall: unknown() });
++      return this.catchall(unknown());
+     },
+     strict() {
+       return this.clone({ ...this._zod.def, catchall: never() });

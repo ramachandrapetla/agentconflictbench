@@ -1,0 +1,35 @@
+diff --git a/lib/argument.js b/lib/argument.js
+index 6da521d..a168149 100644
+--- a/lib/argument.js
++++ b/lib/argument.js
+@@ -126,10 +126,11 @@ export class Argument {
+    *
+    * @returns {Argument}
+    */
+   argOptional() {
+     this.required = false;
++    this.defaultValue = undefined;
+     return this;
+   }
+ }
+ 
+ /**
+diff --git a/lib/command.js b/lib/command.js
+index 9a3d03e..36d458e 100644
+--- a/lib/command.js
++++ b/lib/command.js
+@@ -383,13 +383,11 @@ export class Command extends EventEmitter {
+     if (
+       argument.required &&
+       argument.defaultValue !== undefined &&
+       argument.parseArg === undefined
+     ) {
+-      throw new Error(
+-        `a default value for a required argument is never used: '${argument.name()}'`,
+-      );
++      argument.argOptional();
+     }
+     this.registeredArguments.push(argument);
+     return this;
+   }
+ 

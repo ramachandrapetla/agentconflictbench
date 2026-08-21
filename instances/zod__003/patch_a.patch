@@ -1,0 +1,13 @@
+diff --git a/packages/zod/src/v4/classic/schemas.ts b/packages/zod/src/v4/classic/schemas.ts
+index 2f73146f..f90acbcc 100644
+--- a/packages/zod/src/v4/classic/schemas.ts
++++ b/packages/zod/src/v4/classic/schemas.ts
+@@ -1496,7 +1496,7 @@ function _zodArrayMethods(): _LazyMethodsOf<ZodArray> {
+   return {
+     min(n, params) {
+-      return this.check(checks.minLength(n, params));
++      return this.clone({ ...this._zod.def, checks: [] }).check(checks.minLength(n, params));
+     },
+     nonempty(params) {
+       return this.check(checks.minLength(1, params));
+     },

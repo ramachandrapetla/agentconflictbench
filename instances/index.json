@@ -92,6 +92,26 @@
       "path": "instances/commander__003"
     },
     {
+      "id": "commander__004",
+      "repo": "https://github.com/tj/commander.js",
+      "base_commit": "ba6d13ddb4243e5913367734f8c159089ffe7834",
+      "language": "JavaScript",
+      "conflict_type": "api_contract",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/commander__004"
+    },
+    {
+      "id": "commander__005",
+      "repo": "https://github.com/tj/commander.js",
+      "base_commit": "ba6d13ddb4243e5913367734f8c159089ffe7834",
+      "language": "JavaScript",
+      "conflict_type": "behavioral",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/commander__005"
+    },
+    {
       "id": "httpx__001",
       "repo": "https://github.com/encode/httpx",
       "base_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
@@ -200,6 +220,36 @@
       "source": "researcher_constructed",
       "status": "reproduced",
       "path": "instances/zod__001"
+    },
+    {
+      "id": "zod__002",
+      "repo": "https://github.com/colinhacks/zod",
+      "base_commit": "e516c3baf22615e20934116abebfed6c000222c2",
+      "language": "TypeScript",
+      "conflict_type": "state_invariant",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/zod__002"
+    },
+    {
+      "id": "zod__003",
+      "repo": "https://github.com/colinhacks/zod",
+      "base_commit": "e516c3baf22615e20934116abebfed6c000222c2",
+      "language": "TypeScript",
+      "conflict_type": "state_invariant",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/zod__003"
+    },
+    {
+      "id": "zod__004",
+      "repo": "https://github.com/colinhacks/zod",
+      "base_commit": "e516c3baf22615e20934116abebfed6c000222c2",
+      "language": "TypeScript",
+      "conflict_type": "state_invariant",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/zod__004"
     }
   ]
 }
