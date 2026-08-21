@@ -1,0 +1,26 @@
+diff --git a/lib/option.js b/lib/option.js
+index 4b4daaf..d7ed57f 100644
+--- a/lib/option.js
++++ b/lib/option.js
+@@ -254,10 +254,21 @@ export class Option {
+    */
+ 
+   isBoolean() {
+     return !this.required && !this.optional && !this.negate;
+   }
++
++  /**
++   * Return whether option is a negated option.
++   *
++   * @returns {boolean}
++   * @package
++   */
++
++  isNegated() {
++    return this.negate;
++  }
+ }
+ 
+ /**
+  * This class is to make it easier to work with dual options, without changing the existing
+  * implementation. We support separate dual options for separate positive and negative options,

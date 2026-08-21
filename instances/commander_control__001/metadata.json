@@ -1,0 +1,22 @@
+{
+  "id": "commander_control__001",
+  "repo": "https://github.com/tj/commander.js",
+  "base_commit": "ba6d13ddb4243e5913367734f8c159089ffe7834",
+  "language": "JavaScript",
+  "task_a": "Add Argument.isRequired() so tooling can inspect whether a positional argument is required.",
+  "task_b": "Add Option.isNegated() so tooling can inspect whether an option was declared as --no-*.",
+  "patch_a": "patch_a.patch",
+  "patch_b": "patch_b.patch",
+  "validation_a": "scripts/validate_a.sh",
+  "validation_b": "scripts/validate_b.sh",
+  "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
+  "composition_oracle": "oracle/test_composition.mjs",
+  "composition_expected": "pass",
+  "conflict_type": "control",
+  "failure_summary": "Patch A and Patch B add independent introspection helpers on separate Commander classes, and the composition oracle confirms both APIs work together.",
+  "difficulty": "easy",
+  "source": "researcher_constructed",
+  "agent_or_model": "Codex",
+  "human_modified": true,
+  "notes": "Initial matched control instance for clean composition in Commander.js."
+}

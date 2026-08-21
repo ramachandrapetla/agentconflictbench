@@ -112,6 +112,16 @@
       "path": "instances/commander__005"
     },
     {
+      "id": "commander_control__001",
+      "repo": "https://github.com/tj/commander.js",
+      "base_commit": "ba6d13ddb4243e5913367734f8c159089ffe7834",
+      "language": "JavaScript",
+      "conflict_type": "control",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/commander_control__001"
+    },
+    {
       "id": "httpx__001",
       "repo": "https://github.com/encode/httpx",
       "base_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
@@ -140,6 +150,16 @@
       "source": "researcher_constructed",
       "status": "reproduced",
       "path": "instances/httpx__003"
+    },
+    {
+      "id": "httpx_control__001",
+      "repo": "https://github.com/encode/httpx",
+      "base_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "language": "Python",
+      "conflict_type": "control",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/httpx_control__001"
     },
     {
       "id": "markupsafe__001",
@@ -250,6 +270,16 @@
       "source": "researcher_constructed",
       "status": "reproduced",
       "path": "instances/zod__004"
+    },
+    {
+      "id": "zod_control__001",
+      "repo": "https://github.com/colinhacks/zod",
+      "base_commit": "e516c3baf22615e20934116abebfed6c000222c2",
+      "language": "TypeScript",
+      "conflict_type": "control",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/zod_control__001"
     }
   ]
 }

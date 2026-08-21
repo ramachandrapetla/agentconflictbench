@@ -1,10 +1,9 @@
 # Control Instance Design
 
-AgentConflictBench is currently a positive-conflict benchmark: each reproduced
-instance is expected to pass Patch A alone, pass Patch B alone, and fail under
-the clean A+B composition. Control instances should add matched negative
-examples where two independent changes compose cleanly and the composition
-oracle passes.
+AgentConflictBench contains positive-conflict instances and clean-composition
+controls. Positive instances pass Patch A alone, pass Patch B alone, and fail
+under the clean A+B composition. Control instances are matched negative examples
+where two independent changes compose cleanly and the composition oracle passes.
 
 ## Purpose
 
@@ -41,7 +40,7 @@ All instances use one canonical metadata schema. The `composition_expected`
 field declares whether the composition oracle should pass or fail:
 
 ```json
-"composition_expected": "fail"
+"composition_expected": "pass"
 ```
 
 Allowed values should be:
@@ -50,9 +49,9 @@ Allowed values should be:
 - `pass`: a control instance with clean semantic composition.
 
 This is cleaner than maintaining a separate control schema because all artifacts
-and validation logic remain shared. Existing conflict instances use
-`composition_expected = "fail"`; future controls should use
-`composition_expected = "pass"`.
+and validation logic remain shared. Conflict instances use
+`composition_expected = "fail"` and controls use
+`composition_expected = "pass"` with `conflict_type = "control"`.
 
 ## Selection Criteria
 
@@ -66,16 +65,18 @@ A control should be matched to a conflict instance or repository slice on:
 - clean textual composition;
 - passing composition oracle.
 
-## Initial Control Targets
+## Initial Controls
 
-Prioritize JS/TS controls next because the positive set has just expanded in
-that direction:
+The first controls are deliberately matched to repositories already represented
+in the positive set:
 
-1. Commander.js: independent option-formatting and help-text behavior.
-2. Commander.js: independent argument-description and error-message behavior.
-3. Zod: independent metadata and string-format checks.
-4. Zod: independent object-mode and array-size checks that do not share helper
-   semantics.
+1. `commander_control__001`: independent argument and option introspection APIs.
+2. `httpx_control__001`: independent header and query-parameter helpers.
+3. `zod_control__001`: independent string-format and number-format helpers.
+
+The next target is to expand this set to at least 10 controls while keeping
+patch size, task specificity, and touched-file overlap comparable to the
+positive set.
 
 ## Validation Policy
 

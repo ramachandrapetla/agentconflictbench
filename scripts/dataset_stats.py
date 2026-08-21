@@ -113,14 +113,15 @@ def render_summary(instances: list[dict[str, object]]) -> str:
         *render_count_table("By Composition Expected", composition_counts),
         "## Notes",
         "",
-        "All current seed instances satisfy the AgentConflictBench acceptance rule:",
+        "All reproduced instances satisfy the AgentConflictBench acceptance rule:",
         "",
         "1. Patch A passes independently.",
         "2. Patch B passes independently.",
         "3. Patch A and Patch B apply cleanly to the same base commit.",
-        "4. The composed patch pair fails a composition-level oracle.",
+        "4. The composed patch pair matches its `composition_expected` label: "
+        "`fail` for positive conflict instances and `pass` for controls.",
         "",
-        "The next target is stronger JavaScript/TypeScript coverage, more "
+        "The next target is broader matched-control coverage, more "
         "test-assumption examples, and first dependency or performance/resource "
         "instances.",
         "",
