@@ -52,3 +52,6 @@ A dataset validation pass means each included instance reproduces the expected A
 2. Patch B passes alone.
 3. Patch A + Patch B applies cleanly.
 4. The composition oracle fails as expected.
+
+Python oracles are run with `pytest`. JavaScript oracles using `.js`, `.mjs`,
+or `.cjs` are run with Node's built-in `node --test` runner.

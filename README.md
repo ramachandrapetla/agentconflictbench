@@ -30,10 +30,10 @@ This repository is an early research artifact. The initial goal is to build a sm
 
 Current seed dataset:
 
-- 6 benchmark instances
-- 2 upstream repositories: `pallets/click`, `fastapi/typer`
+- 7 benchmark instances
+- 3 upstream repositories: `pallets/click`, `fastapi/typer`, `tj/commander.js`
 - 3 conflict categories: `configuration`, `behavioral`, `api_contract`
-- 6 reproduced clean-merge semantic failures
+- 7 reproduced clean-merge semantic failures
 
 Planned first milestone:
 
@@ -79,6 +79,19 @@ python scripts/run_instance.py instances/typer__001 --repo-dir /tmp/typer
 python scripts/run_instance.py instances/typer__002 --repo-dir /tmp/typer
 ```
 
+For the Commander seed:
+
+```bash
+git clone https://github.com/tj/commander.js.git /tmp/commander
+cd /tmp/commander
+```
+
+Then run:
+
+```bash
+python scripts/run_instance.py instances/commander__001 --repo-dir /tmp/commander
+```
+
 A successful benchmark reproduction means Patch A passes alone, Patch B passes alone, and the composed oracle fails as expected.
 
 ## Validating The Dataset
@@ -90,7 +103,8 @@ If the upstream projects share the same Python environment:
 ```bash
 python scripts/validate_dataset.py \
   --repo click=/tmp/click \
-  --repo typer=/tmp/typer
+  --repo typer=/tmp/typer \
+  --repo commander.js=/tmp/commander
 ```
 
 If each upstream checkout has its own virtual environment, pass the Python executable for each repo:
@@ -99,6 +113,7 @@ If each upstream checkout has its own virtual environment, pass the Python execu
 python scripts/validate_dataset.py \
   --repo click=/tmp/click \
   --repo typer=/tmp/typer \
+  --repo commander.js=/tmp/commander \
   --python click=/tmp/click/.venv/bin/python \
   --python typer=/tmp/typer/.venv/bin/python
 ```

@@ -1,0 +1,8 @@
+Command:
+node --test oracle/test_patch_b.mjs
+
+Runner result:
+ok 1 - uppercase invocation resolves lowercase subcommand
+1..1
+# pass 1
+# fail 0
