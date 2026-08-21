@@ -1,0 +1,62 @@
+name: Instance proposal
+description: Propose a new AgentConflictBench instance.
+title: "[Instance]: "
+labels: ["dataset"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing an AgentConflictBench instance. Please include enough detail for someone else to reproduce or review the candidate.
+  - type: input
+    id: upstream
+    attributes:
+      label: Upstream repository
+      description: GitHub URL for the upstream repository.
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: input
+    id: base_commit
+    attributes:
+      label: Base commit
+      description: Full 40-character commit SHA if known.
+    validations:
+      required: false
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Instance kind
+      options:
+        - Positive conflict
+        - Clean-composition control
+        - Not sure yet
+    validations:
+      required: true
+  - type: textarea
+    id: task_a
+    attributes:
+      label: Patch A intent
+      description: What standalone change does Patch A implement?
+    validations:
+      required: true
+  - type: textarea
+    id: task_b
+    attributes:
+      label: Patch B intent
+      description: What standalone change does Patch B implement?
+    validations:
+      required: true
+  - type: textarea
+    id: composition
+    attributes:
+      label: Composition behavior
+      description: Why should the composed patch pair fail or pass?
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation idea
+      description: What oracle or test would demonstrate the expected behavior?
+    validations:
+      required: false

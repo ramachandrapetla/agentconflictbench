@@ -38,4 +38,7 @@ The task files are convention-based rather than referenced from metadata. This
 keeps the instance shape stable and avoids duplicating canonical filenames in
 `metadata.json`.
 
-An instance is accepted only when both patches pass independently, merge without textual Git conflict, and fail a composition-level oracle when combined.
+Positive conflict instances are accepted when both patches pass independently,
+merge without textual Git conflict, and fail a composition-level oracle when
+combined. Control instances use the same shape but set
+`composition_expected = "pass"` and pass the composition oracle.
