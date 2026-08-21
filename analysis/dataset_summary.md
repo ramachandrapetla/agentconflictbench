@@ -6,12 +6,12 @@
 
 | Metric | Value |
 | --- | --- |
-| Total instances | 15 |
-| Upstream repositories | 6 |
+| Total instances | 20 |
+| Upstream repositories | 7 |
 | Languages | 3 |
-| Conflict categories | 5 |
-| Researcher-constructed instances | 15 |
-| Reproduced instances | 15 |
+| Conflict categories | 6 |
+| Researcher-constructed instances | 20 |
+| Reproduced instances | 20 |
 
 ## Instances
 
@@ -29,19 +29,25 @@
 | `httpx__001` | `encode/httpx` | Python | api_contract | researcher_constructed | reproduced |
 | `httpx__002` | `encode/httpx` | Python | security_policy | researcher_constructed | reproduced |
 | `httpx__003` | `encode/httpx` | Python | state_invariant | researcher_constructed | reproduced |
+| `markupsafe__001` | `pallets/markupsafe` | Python | test_assumption | researcher_constructed | reproduced |
+| `markupsafe__002` | `pallets/markupsafe` | Python | api_contract | researcher_constructed | reproduced |
+| `markupsafe__003` | `pallets/markupsafe` | Python | api_contract | researcher_constructed | reproduced |
 | `rich__001` | `Textualize/rich` | Python | behavioral | researcher_constructed | reproduced |
 | `rich__002` | `Textualize/rich` | Python | api_contract | researcher_constructed | reproduced |
+| `rich__003` | `Textualize/rich` | Python | state_invariant | researcher_constructed | reproduced |
+| `rich__004` | `Textualize/rich` | Python | behavioral | researcher_constructed | reproduced |
 | `zod__001` | `colinhacks/zod` | TypeScript | api_contract | researcher_constructed | reproduced |
 
 ## By Repository
 
 | Value | Instances |
 | --- | --- |
-| `Textualize/rich` | 2 |
+| `Textualize/rich` | 4 |
 | `colinhacks/zod` | 1 |
 | `encode/httpx` | 3 |
 | `fastapi/typer` | 2 |
 | `pallets/click` | 4 |
+| `pallets/markupsafe` | 3 |
 | `tj/commander.js` | 3 |
 
 ## By Language
@@ -49,18 +55,19 @@
 | Value | Instances |
 | --- | --- |
 | `JavaScript` | 3 |
-| `Python` | 11 |
+| `Python` | 16 |
 | `TypeScript` | 1 |
 
 ## By Conflict Type
 
 | Value | Instances |
 | --- | --- |
-| `api_contract` | 5 |
-| `behavioral` | 6 |
+| `api_contract` | 7 |
+| `behavioral` | 7 |
 | `configuration` | 2 |
 | `security_policy` | 1 |
-| `state_invariant` | 1 |
+| `state_invariant` | 2 |
+| `test_assumption` | 1 |
 
 ## Notes
 
@@ -71,4 +78,4 @@ All current seed instances satisfy the AgentConflictBench acceptance rule:
 3. Patch A and Patch B apply cleanly to the same base commit.
 4. The composed patch pair fails a composition-level oracle.
 
-The next target is another JavaScript/TypeScript library or a new conflict category such as security policy, dependency, or performance/resource behavior.
+The next target is stronger JavaScript/TypeScript coverage, more test-assumption examples, and first dependency or performance/resource instances.

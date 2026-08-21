@@ -1,0 +1,21 @@
+{
+  "id": "markupsafe__001",
+  "repo": "https://github.com/pallets/markupsafe",
+  "base_commit": "b2e4d9c7687be25695fffbe93a37622302b24fb1",
+  "language": "Python",
+  "task_a": "Make old-style Markup formatting treat None as an empty optional value.",
+  "task_b": "Reuse the old-style escape helper for simple Markup.format fields.",
+  "patch_a": "patch_a.patch",
+  "patch_b": "patch_b.patch",
+  "validation_a": "scripts/validate_a.sh",
+  "validation_b": "scripts/validate_b.sh",
+  "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
+  "composition_oracle": "oracle/test_composition.py",
+  "conflict_type": "test_assumption",
+  "failure_summary": "Patch A changes the old-style formatting helper so None is silently escaped as an empty string. Patch B routes simple new-style format fields through that helper. Together, Markup.format(None) stops rendering the literal text None, violating an existing formatting assumption that new-style formatting preserves Python's None stringification.",
+  "difficulty": "easy",
+  "source": "researcher_constructed",
+  "agent_or_model": "Codex",
+  "human_modified": true,
+  "notes": "First MarkupSafe seed instance and first test_assumption category instance. The interaction is between formatting-helper reuse and an implicit test expectation around None stringification."
+}

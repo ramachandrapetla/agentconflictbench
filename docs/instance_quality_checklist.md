@@ -111,6 +111,7 @@ Use:
 
 - `instances/<id>/README.md` for instance-specific explanation;
 - `docs/reproduction.md` for upstream setup and reproduction commands;
+- `docs/rejected_candidates.md` for held or rejected near-duplicates;
 - `analysis/dataset_summary.md` for generated dataset counts;
 - `analysis/validation_report.md` for full-dataset validation results.
 - `templates/instance/` as the starting scaffold for new instances.
@@ -137,3 +138,5 @@ Before merging a new instance, record:
 - whether full-dataset validation passed;
 - any setup caveats added to `docs/reproduction.md`.
 - why the candidate is not a near-duplicate of an existing accepted instance.
+- whether a related rejected or held candidate should be recorded in
+  `docs/rejected_candidates.md`.

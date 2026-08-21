@@ -1,0 +1,23 @@
+diff --git a/src/markupsafe/__init__.py b/src/markupsafe/__init__.py
+index f8a0d58..b79d5b3 100644
+--- a/src/markupsafe/__init__.py
++++ b/src/markupsafe/__init__.py
+@@ -348,6 +348,9 @@ class EscapeFormatter(string.Formatter):
+                 )
+             rv = value.__html__()
+         else:
++            if not format_spec:
++                return str(_MarkupEscapeHelper(value, self.escape))
++
+             # We need to make sure the format spec is str here as
+             # otherwise the wrong callback methods are invoked.
+             rv = super().format_field(value, str(format_spec))
+@@ -367,7 +370,7 @@ class _MarkupEscapeHelper:
+         return self.__class__(self.obj[key], self.escape)
+ 
+     def __str__(self, /) -> str:
+-        return str(self.escape(self.obj))
++        return str(escape_silent(self.obj))
+ 
+     def __repr__(self, /) -> str:
+         return str(self.escape(repr(self.obj)))

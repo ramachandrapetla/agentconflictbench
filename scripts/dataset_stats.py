@@ -111,8 +111,9 @@ def render_summary(instances: list[dict[str, object]]) -> str:
         "3. Patch A and Patch B apply cleanly to the same base commit.",
         "4. The composed patch pair fails a composition-level oracle.",
         "",
-        "The next target is another JavaScript/TypeScript library or a new conflict "
-        "category such as security policy, dependency, or performance/resource behavior.",
+        "The next target is stronger JavaScript/TypeScript coverage, more "
+        "test-assumption examples, and first dependency or performance/resource "
+        "instances.",
         "",
     ]
 

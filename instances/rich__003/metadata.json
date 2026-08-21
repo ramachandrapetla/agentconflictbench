@@ -1,0 +1,21 @@
+{
+  "id": "rich__003",
+  "repo": "https://github.com/Textualize/rich",
+  "base_commit": "9d8f9a372cc5916fd4781fec207ced7ddac2f08f",
+  "language": "Python",
+  "task_a": "Allow blank_copy to preserve spans when replacement plain text is provided.",
+  "task_b": "Refactor Text.copy through blank_copy and copy_styles helpers.",
+  "patch_a": "patch_a.patch",
+  "patch_b": "patch_b.patch",
+  "validation_a": "scripts/validate_a.sh",
+  "validation_b": "scripts/validate_b.sh",
+  "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
+  "composition_oracle": "oracle/test_composition.py",
+  "conflict_type": "state_invariant",
+  "failure_summary": "Patch A makes blank_copy preserve spans when plain text is supplied. Patch B refactors copy through blank_copy and then copy_styles. Together, copy duplicates every inline span, violating the invariant that copying preserves spans exactly once.",
+  "difficulty": "easy",
+  "source": "researcher_constructed",
+  "agent_or_model": "Codex",
+  "human_modified": true,
+  "notes": "Third Rich seed instance. It targets object-copy invariants and helper reuse, distinct from padding style propagation and append metadata inheritance."
+}

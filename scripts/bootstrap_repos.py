@@ -25,6 +25,7 @@ INSTALL_NOTES = {
     "fastapi/typer": "python -m pip install -e . pytest rich shellingham",
     "tj/commander.js": "no install required for current node:test oracles",
     "encode/httpx": "python -m pip install -e . pytest",
+    "pallets/markupsafe": "python -m pip install pytest",
     "Textualize/rich": "python -m pip install -e . pytest",
     "colinhacks/zod": "npx pnpm@10.12.1 install --frozen-lockfile",
 }

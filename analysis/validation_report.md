@@ -1,9 +1,9 @@
 # Dataset Validation Report
 
-Generated: `2026-08-21T05:48:23+00:00`
+Generated: `2026-08-21T06:50:06+00:00`
 
-Validated instances: 12
-Passed reproductions: 12
+Validated instances: 20
+Passed reproductions: 20
 Failed reproductions: 0
 
 | Instance | Repository | Status |
@@ -16,9 +16,17 @@ Failed reproductions: 0
 | `typer__002` | `https://github.com/fastapi/typer` | PASS |
 | `commander__001` | `https://github.com/tj/commander.js` | PASS |
 | `commander__002` | `https://github.com/tj/commander.js` | PASS |
+| `commander__003` | `https://github.com/tj/commander.js` | PASS |
 | `httpx__001` | `https://github.com/encode/httpx` | PASS |
 | `httpx__002` | `https://github.com/encode/httpx` | PASS |
 | `httpx__003` | `https://github.com/encode/httpx` | PASS |
+| `markupsafe__001` | `https://github.com/pallets/markupsafe` | PASS |
+| `markupsafe__002` | `https://github.com/pallets/markupsafe` | PASS |
+| `markupsafe__003` | `https://github.com/pallets/markupsafe` | PASS |
+| `rich__001` | `https://github.com/Textualize/rich` | PASS |
+| `rich__002` | `https://github.com/Textualize/rich` | PASS |
+| `rich__003` | `https://github.com/Textualize/rich` | PASS |
+| `rich__004` | `https://github.com/Textualize/rich` | PASS |
 | `zod__001` | `https://github.com/colinhacks/zod` | PASS |
 
 A PASS means Patch A passed alone, Patch B passed alone, and the A+B composition oracle failed as expected.

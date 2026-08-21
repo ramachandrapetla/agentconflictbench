@@ -11,9 +11,14 @@ import sys
 from pathlib import Path
 
 
-def run(cmd: list[str], cwd: Path, expect_failure: bool = False) -> int:
+def run(
+    cmd: list[str],
+    cwd: Path,
+    expect_failure: bool = False,
+    env: dict[str, str] | None = None,
+) -> int:
     print(f"$ {' '.join(cmd)}", flush=True)
-    completed = subprocess.run(cmd, cwd=cwd, text=True)
+    completed = subprocess.run(cmd, cwd=cwd, text=True, env=env)
 
     if expect_failure:
         if completed.returncode == 0:
@@ -53,6 +58,20 @@ def run_oracle(repo_dir: Path, test_path: str, expect_failure: bool = False) -> 
 
     if suffix == ".py":
         cmd = [sys.executable, "-m", "pytest", test_path, "-q"]
+        env = None
+        src_dir = repo_dir / "src"
+        if src_dir.is_dir():
+            import os
+
+            env = os.environ.copy()
+            existing_pythonpath = env.get("PYTHONPATH")
+            env["PYTHONPATH"] = (
+                str(src_dir)
+                if not existing_pythonpath
+                else f"{src_dir}{os.pathsep}{existing_pythonpath}"
+            )
+        run(cmd, cwd=repo_dir, expect_failure=expect_failure, env=env)
+        return
     elif suffix in {".js", ".mjs", ".cjs"}:
         cmd = ["node", "--test", test_path]
     elif suffix in {".ts", ".tsx"}:
