@@ -11,6 +11,23 @@ AgentConflictBench uses a hybrid construction strategy. Pure mining may miss sil
 5. Compose patch pairs and detect clean-merge failures.
 6. Label, audit, and package accepted instances.
 
+## Instance Packaging
+
+Each accepted instance is packaged as a pair of standalone task intents and a
+pair of apply-ready reference implementations:
+
+- `task_a.md` and `task_b.md` describe the independent development intents.
+- `patch_a.patch` and `patch_b.patch` are the reference implementations for
+  those intents.
+- `combined.patch` records the clean textual composition of both patches.
+- `oracle/test_patch_a.*`, `oracle/test_patch_b.*`, and
+  `oracle/test_composition.*` encode the independent and composed acceptance
+  conditions.
+
+This separates what an agent is asked to do from the golden patch artifact used
+for benchmark reproduction. The distinction makes the dataset usable both as a
+patch-composition benchmark and as future task-level agent evaluation input.
+
 ## Inclusion Criteria
 
 Each instance must satisfy:
@@ -27,6 +44,11 @@ Each instance must satisfy:
 ## Exclusion Criteria
 
 Exclude an instance when either patch fails independently, Git reports a textual conflict, the failure is caused by setup or flakiness, the composition failure cannot be reproduced, or the task pair is not realistic.
+
+Also exclude or hold candidates that are near-duplicates of accepted instances:
+same repository subsystem, same hidden contract, same conflict type, and same
+oracle shape. These candidates are useful during exploration, but counting them
+as separate benchmark items would overstate dataset diversity.
 
 ## Composition Oracle
 

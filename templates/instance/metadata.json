@@ -1,0 +1,21 @@
+{
+  "id": "<instance_id>",
+  "repo": "https://github.com/owner/repo",
+  "base_commit": "<40-character-sha>",
+  "language": "<language>",
+  "task_a": "<standalone intent for Patch A>",
+  "task_b": "<standalone intent for Patch B>",
+  "patch_a": "patch_a.patch",
+  "patch_b": "patch_b.patch",
+  "validation_a": "scripts/validate_a.sh",
+  "validation_b": "scripts/validate_b.sh",
+  "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
+  "composition_oracle": "oracle/test_composition.py",
+  "conflict_type": "<conflict_type>",
+  "failure_summary": "<one-to-three sentence explanation of the patch interaction>",
+  "difficulty": "easy",
+  "source": "researcher_constructed",
+  "agent_or_model": "Codex",
+  "human_modified": true,
+  "notes": "<setup caveats, provenance, or rejection-risk notes>"
+}

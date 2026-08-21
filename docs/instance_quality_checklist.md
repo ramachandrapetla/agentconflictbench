@@ -56,6 +56,22 @@ At least one of these should be true for each task:
 Reject instances where either patch is merely contrived to fail when combined
 and has no believable standalone purpose.
 
+## Novelty Gate
+
+Reject or revise a candidate if it is a near-duplicate of an existing instance.
+A candidate is probably too similar when three or more of these are true:
+
+- it uses the same upstream subsystem as an existing instance;
+- it has the same conflict type and same hidden contract;
+- its Patch A and Patch B touch the same functions as an existing instance;
+- the composition oracle asserts the same failure pattern with only renamed
+  symbols or values;
+- its paper-facing explanation would collapse to the same one-sentence summary.
+
+Near-duplicates may still be useful as internal regression tests, but they
+should not inflate the benchmark count unless they add a materially different
+interaction, language/runtime behavior, or conflict category.
+
 ## Oracle Gate
 
 Prefer automated oracles. A composition oracle should:
@@ -97,6 +113,7 @@ Use:
 - `docs/reproduction.md` for upstream setup and reproduction commands;
 - `analysis/dataset_summary.md` for generated dataset counts;
 - `analysis/validation_report.md` for full-dataset validation results.
+- `templates/instance/` as the starting scaffold for new instances.
 
 ## Rejection Criteria
 
@@ -119,3 +136,4 @@ Before merging a new instance, record:
 - the exact validation command;
 - whether full-dataset validation passed;
 - any setup caveats added to `docs/reproduction.md`.
+- why the candidate is not a near-duplicate of an existing accepted instance.

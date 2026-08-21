@@ -20,6 +20,9 @@
 - Add the first `test_assumption` instance.
 - Expand TypeScript coverage beyond one Zod seed.
 - Grow from 13 to 15 reproduced instances while keeping the root README clean.
+- Add at least one additional upstream repository before growing beyond 20
+  instances.
+- Maintain a near-duplicate rejection record for every new accepted instance.
 
 ## Milestone 3: Real Repository Benchmark
 

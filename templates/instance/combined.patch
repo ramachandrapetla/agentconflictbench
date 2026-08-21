@@ -1,0 +1,6 @@
+diff --git a/path/to/file b/path/to/file
+--- a/path/to/file
++++ b/path/to/file
+@@ -1 +1 @@
+-old
++new

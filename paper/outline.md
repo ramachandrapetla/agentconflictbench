@@ -42,8 +42,11 @@ Define silent semantic patch interference as a patch pair where:
 - Repository selection criteria.
 - Task-pair generation and researcher construction.
 - Patch packaging format.
+  - `task_a.md` / `task_b.md` for independent intents.
+  - `patch_a.patch` / `patch_b.patch` for reference implementations.
+  - `combined.patch` for clean textual composition.
 - Oracle design.
-- Quality checklist and rejection criteria.
+- Quality checklist, near-duplicate checks, and rejection criteria.
 - Reproduction scripts and metadata schema.
 
 ## 4. Dataset
