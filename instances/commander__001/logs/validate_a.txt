@@ -1,0 +1,8 @@
+Command:
+node --test oracle/test_patch_a.mjs
+
+Runner result:
+ok 1 - unique prefix invocation resolves subcommand
+1..1
+# pass 1
+# fail 0

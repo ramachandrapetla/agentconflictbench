@@ -48,8 +48,30 @@ def apply_patch(repo_dir: Path, patch_path: Path) -> None:
     run(["git", "apply", str(patch_path)], cwd=repo_dir)
 
 
-def run_pytest(repo_dir: Path, tests: list[str], expect_failure: bool = False) -> None:
-    run([sys.executable, "-m", "pytest", *tests, "-q"], cwd=repo_dir, expect_failure=expect_failure)
+def run_oracle(repo_dir: Path, test_path: str, expect_failure: bool = False) -> None:
+    suffix = Path(test_path).suffix
+
+    if suffix == ".py":
+        cmd = [sys.executable, "-m", "pytest", test_path, "-q"]
+    elif suffix in {".js", ".mjs", ".cjs"}:
+        cmd = ["node", "--test", test_path]
+    else:
+        raise SystemExit(f"Unsupported oracle file extension: {test_path}")
+
+    run(cmd, cwd=repo_dir, expect_failure=expect_failure)
+
+
+def find_oracle(instance_dir: Path, stem: str) -> Path:
+    matches = sorted((instance_dir / "oracle").glob(f"{stem}.*"))
+
+    if not matches:
+        raise SystemExit(f"Missing oracle file: oracle/{stem}.*")
+
+    if len(matches) > 1:
+        names = ", ".join(str(path) for path in matches)
+        raise SystemExit(f"Ambiguous oracle files for {stem}: {names}")
+
+    return matches[0]
 
 
 def main() -> int:
@@ -82,9 +104,11 @@ def main() -> int:
     patch_a = instance_dir / metadata["patch_a"]
     patch_b = instance_dir / metadata["patch_b"]
 
-    patch_a_test = str(instance_dir / "oracle" / "test_patch_a.py")
-    patch_b_test = str(instance_dir / "oracle" / "test_patch_b.py")
+    patch_a_test = str(find_oracle(instance_dir, "test_patch_a"))
+    patch_b_test = str(find_oracle(instance_dir, "test_patch_b"))
     composition_test = str(instance_dir / "oracle" / "test_composition.py")
+    if "composition_oracle" in metadata:
+        composition_test = str(instance_dir / metadata["composition_oracle"])
 
     try:
         print(f"Running {metadata['id']} against {repo_dir}")
@@ -93,18 +117,18 @@ def main() -> int:
 
         print("\n[1/3] Patch A validation")
         apply_patch(repo_dir, patch_a)
-        run_pytest(repo_dir, [patch_a_test])
+        run_oracle(repo_dir, patch_a_test)
         restore_repo(repo_dir)
 
         print("\n[2/3] Patch B validation")
         apply_patch(repo_dir, patch_b)
-        run_pytest(repo_dir, [patch_b_test])
+        run_oracle(repo_dir, patch_b_test)
         restore_repo(repo_dir)
 
         print("\n[3/3] Composition validation")
         apply_patch(repo_dir, patch_a)
         apply_patch(repo_dir, patch_b)
-        run_pytest(repo_dir, [composition_test], expect_failure=True)
+        run_oracle(repo_dir, composition_test, expect_failure=True)
 
         print("\nPASS: instance reproduces expected silent semantic conflict.")
         return 0

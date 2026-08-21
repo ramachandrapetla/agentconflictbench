@@ -1,0 +1,27 @@
+diff --git a/lib/command.js b/lib/command.js
+index e79a5ad..885f7d3 100644
+--- a/lib/command.js
++++ b/lib/command.js
+@@ -1660,10 +1660,20 @@ export class Command extends EventEmitter {
+    * @return {Command | undefined}
+    */
+   _findCommand(name) {
+     if (!name) return undefined;
+-    return this.commands.find(
++    const exact = this.commands.find(
+       (cmd) => cmd._name === name || cmd._aliases.includes(name),
+     );
++    if (exact) return exact;
++
++    const matches = this.commands.filter(
++      (cmd) =>
++        cmd._name.startsWith(name) ||
++        cmd._aliases.some((alias) => alias.startsWith(name)),
++    );
++    if (matches.length === 1) return matches[0];
++
++    return undefined;
+   }
+ 
+   /**
+    * Return an option matching `arg` if any.

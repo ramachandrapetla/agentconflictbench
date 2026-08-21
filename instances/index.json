@@ -60,6 +60,16 @@
       "source": "researcher_constructed",
       "status": "reproduced",
       "path": "instances/typer__002"
+    },
+    {
+      "id": "commander__001",
+      "repo": "https://github.com/tj/commander.js",
+      "base_commit": "ba6d13ddb4243e5913367734f8c159089ffe7834",
+      "language": "JavaScript",
+      "conflict_type": "behavioral",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/commander__001"
     }
   ]
 }
