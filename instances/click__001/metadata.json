@@ -1,0 +1,21 @@
+{
+  "id": "click__001",
+  "repo": "https://github.com/pallets/click",
+  "base_commit": "2c8cd3ac958a7eb316d67f2d316c27086c4c0369",
+  "language": "Python",
+  "task_a": "Allow Context.default_map to use dashed option names, such as api-key, as aliases for Click's internal underscored parameter names, such as api_key.",
+  "task_b": "Allow Context.default_map values to override automatically derived environment variable values during option resolution.",
+  "patch_a": "patch_a.diff",
+  "patch_b": "patch_b.diff",
+  "validation_a": "scripts/validate_a.sh",
+  "validation_b": "scripts/validate_b.sh",
+  "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
+  "composition_oracle": "oracle/test_composition.py",
+  "conflict_type": "configuration",
+  "failure_summary": "Patch A broadens default_map lookup to treat dashed keys as aliases. Patch B gives default_map higher precedence than auto envvars. Together, a dashed default_map alias unexpectedly overrides APP_API_KEY, changing the composed command output from from-env to from-map.",
+  "difficulty": "easy",
+  "source": "researcher_constructed",
+  "agent_or_model": "Codex",
+  "human_modified": true,
+  "notes": "Seed instance used to validate the AgentConflictBench packaging and oracle format. This is a controlled configuration-precedence conflict in Click option resolution."
+}

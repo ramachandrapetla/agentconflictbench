@@ -28,6 +28,13 @@ An instance belongs in AgentConflictBench only if:
 
 This repository is an early research artifact. The initial goal is to build a small, reproducible benchmark before scaling.
 
+Current seed dataset:
+
+- 4 benchmark instances
+- 2 upstream repositories: `pallets/click`, `fastapi/typer`
+- 3 conflict categories: `configuration`, `behavioral`, `api_contract`
+- 4 reproduced clean-merge semantic failures
+
 Planned first milestone:
 
 - 50 to 100 benchmark instances
@@ -35,6 +42,42 @@ Planned first milestone:
 - Python and TypeScript first
 - at least 5 semantic conflict categories
 - reproducible scripts or containers for every instance
+
+## Reproducing An Instance
+
+Clone the relevant upstream project and install its local test dependencies.
+
+For the Click seeds:
+
+```bash
+git clone https://github.com/pallets/click.git /tmp/click
+cd /tmp/click
+python -m pip install -e . pytest
+```
+
+Then run:
+
+```bash
+python scripts/run_instance.py instances/click__001 --repo-dir /tmp/click
+python scripts/run_instance.py instances/click__002 --repo-dir /tmp/click
+python scripts/run_instance.py instances/click__003 --repo-dir /tmp/click
+```
+
+For the Typer seed:
+
+```bash
+git clone https://github.com/fastapi/typer.git /tmp/typer
+cd /tmp/typer
+python -m pip install -e . pytest rich shellingham
+```
+
+Then run:
+
+```bash
+python scripts/run_instance.py instances/typer__001 --repo-dir /tmp/typer
+```
+
+A successful benchmark reproduction means Patch A passes alone, Patch B passes alone, and the composed oracle fails as expected.
 
 ## Structure
 

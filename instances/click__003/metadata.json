@@ -1,0 +1,21 @@
+{
+  "id": "click__003",
+  "repo": "https://github.com/pallets/click",
+  "base_commit": "2c8cd3ac958a7eb316d67f2d316c27086c4c0369",
+  "language": "Python",
+  "task_a": "When a command is registered under an explicit name, update the command object's public name to match the registered API name.",
+  "task_b": "Reject registering a distinct command object when its public command name is already registered on the same group.",
+  "patch_a": "patch_a.diff",
+  "patch_b": "patch_b.diff",
+  "validation_a": "scripts/validate_a.sh",
+  "validation_b": "scripts/validate_b.sh",
+  "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
+  "composition_oracle": "oracle/test_composition.py",
+  "conflict_type": "api_contract",
+  "failure_summary": "Patch A mutates a command object's public name to the explicit registration alias. Patch B rejects duplicate public command names after registration. Together, Patch A changes the name before Patch B checks for duplicates, allowing a duplicate original command name to bypass the new API-contract check.",
+  "difficulty": "easy",
+  "source": "researcher_constructed",
+  "agent_or_model": "Codex",
+  "human_modified": true,
+  "notes": "Third seed instance. This demonstrates an API-contract conflict in Click command registration rather than option precedence or command lookup behavior."
+}

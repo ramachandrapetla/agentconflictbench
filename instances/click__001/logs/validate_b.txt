@@ -1,0 +1,6 @@
+Command:
+python -m pytest ../../seed_instances/click__001/oracle/test_patch_b.py tests/test_options.py::test_toupper_envvar_prefix -q
+
+Result:
+..                                                                       [100%]
+2 passed in 0.03s

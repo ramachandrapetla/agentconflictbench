@@ -1,0 +1,28 @@
+diff --git a/src/click/core.py b/src/click/core.py
+index de129ec..2df26c7 100644
+--- a/src/click/core.py
++++ b/src/click/core.py
+@@ -765,6 +765,13 @@ class Context:
+         ``name`` is ``None``, or the stored value is the internal
+         :data:`UNSET` sentinel.
+         """
++        if (
++            name is not None
++            and self.default_map is not None
++            and name not in self.default_map
++        ):
++            name = name.replace("_", "-")
++
+         return (
+             name is not None
+             and self.default_map is not None
+@@ -797,6 +804,9 @@ class Context:
+ 
+         # Assert to make the type checker happy.
+         assert self.default_map is not None
++        if name not in self.default_map:
++            name = name.replace("_", "-")
++
+         value = self.default_map[name]
+ 
+         if call and callable(value):

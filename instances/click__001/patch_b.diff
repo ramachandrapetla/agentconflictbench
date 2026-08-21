@@ -1,0 +1,30 @@
+diff --git a/src/click/core.py b/src/click/core.py
+index de129ec..d6d4a16 100644
+--- a/src/click/core.py
++++ b/src/click/core.py
+@@ -2501,12 +2501,6 @@ class Parameter(ABC):
+             else ParameterSource.DEFAULT
+         )
+ 
+-        if value is UNSET:
+-            envvar_value = self.value_from_envvar(ctx)
+-            if envvar_value is not None:
+-                value = envvar_value
+-                source = ParameterSource.ENVIRONMENT
+-
+         if value is UNSET:
+             default_map_value = ctx.lookup_default(self.name)
+             if default_map_value is not None or ctx._default_map_has(self.name):
+@@ -2518,6 +2512,12 @@ class Parameter(ABC):
+                 if isinstance(value, str) and self.nargs != 1:
+                     value = self.type.split_envvar_value(value)
+ 
++        if value is UNSET:
++            envvar_value = self.value_from_envvar(ctx)
++            if envvar_value is not None:
++                value = envvar_value
++                source = ParameterSource.ENVIRONMENT
++
+         if value is UNSET:
+             default_value = self.get_default(ctx)
+             if default_value is not UNSET:

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "instances": [
+    {
+      "id": "click__001",
+      "repo": "https://github.com/pallets/click",
+      "base_commit": "2c8cd3ac958a7eb316d67f2d316c27086c4c0369",
+      "language": "Python",
+      "conflict_type": "configuration",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/click__001"
+    },
+    {
+      "id": "click__002",
+      "repo": "https://github.com/pallets/click",
+      "base_commit": "2c8cd3ac958a7eb316d67f2d316c27086c4c0369",
+      "language": "Python",
+      "conflict_type": "behavioral",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/click__002"
+    },
+    {
+      "id": "click__003",
+      "repo": "https://github.com/pallets/click",
+      "base_commit": "2c8cd3ac958a7eb316d67f2d316c27086c4c0369",
+      "language": "Python",
+      "conflict_type": "api_contract",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/click__003"
+    },
+    {
+      "id": "typer__001",
+      "repo": "https://github.com/fastapi/typer",
+      "base_commit": "9a7b2e83f6b62c750d6026b0de9ebf2026a8b8fa",
+      "language": "Python",
+      "conflict_type": "behavioral",
+      "source": "researcher_constructed",
+      "status": "reproduced",
+      "path": "instances/typer__001"
+    }
+  ]
+}

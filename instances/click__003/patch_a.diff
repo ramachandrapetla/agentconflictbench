@@ -1,0 +1,14 @@
+diff --git a/src/click/core.py b/src/click/core.py
+index de129ec..e2a68f7 100644
+--- a/src/click/core.py
++++ b/src/click/core.py
+@@ -1785,6 +1785,9 @@ class Group(Command):
+         name = name or cmd.name
+         if name is None:
+             raise TypeError("Command has no name.")
++        if cmd.name != name:
++            cmd.name = name
++
+         _check_nested_chain(self, name, cmd, register=True)
+         self.commands[name] = cmd
+ 

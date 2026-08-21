@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Run from the root of a pallets/click checkout after applying patch_a.diff.
+INSTANCE_DIR="${AGENTCONFLICT_INSTANCE_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+
+python -m pytest "$INSTANCE_DIR/oracle/test_patch_a.py" tests/test_commands.py::test_unknown_command -q

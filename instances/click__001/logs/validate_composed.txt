@@ -1,0 +1,15 @@
+Command:
+python -m pytest ../../seed_instances/click__001/oracle/test_composition.py -q
+
+Result:
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_dashed_default_map_alias_does_not_override_auto_envvar __________
+
+>       assert result.output == "from-env\n"
+E       AssertionError: assert 'from-map\n' == 'from-env\n'
+E         
+E         - from-env
+E         + from-map
+
+1 failed in 0.04s

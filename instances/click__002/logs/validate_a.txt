@@ -1,0 +1,6 @@
+Command:
+python -m pytest ../../seed_instances/click__002/oracle/test_patch_a.py tests/test_commands.py::test_unknown_command -q
+
+Result:
+..                                                                       [100%]
+2 passed in 0.01s

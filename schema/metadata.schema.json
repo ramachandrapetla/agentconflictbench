@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AgentConflictBench Instance Metadata",
+  "type": "object",
+  "required": [
+    "id",
+    "repo",
+    "base_commit",
+    "language",
+    "task_a",
+    "task_b",
+    "patch_a",
+    "patch_b",
+    "validation_a",
+    "validation_b",
+    "merge_result",
+    "composition_oracle",
+    "conflict_type",
+    "failure_summary",
+    "source"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "repo": { "type": "string" },
+    "base_commit": { "type": "string" },
+    "language": { "type": "string" },
+    "task_a": { "type": "string" },
+    "task_b": { "type": "string" },
+    "patch_a": { "type": "string" },
+    "patch_b": { "type": "string" },
+    "validation_a": { "type": "string" },
+    "validation_b": { "type": "string" },
+    "merge_result": { "type": "string" },
+    "composition_oracle": { "type": "string" },
+    "conflict_type": {
+      "type": "string",
+      "enum": [
+        "behavioral",
+        "api_contract",
+        "state_invariant",
+        "dependency",
+        "configuration",
+        "database_schema",
+        "security_policy",
+        "performance_resource",
+        "test_assumption",
+        "architectural"
+      ]
+    },
+    "failure_summary": { "type": "string" },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "medium", "hard"]
+    },
+    "source": {
+      "type": "string",
+      "enum": ["mined", "agent_generated", "researcher_constructed", "hybrid"]
+    },
+    "agent_or_model": { "type": "string" },
+    "human_modified": { "type": "boolean" },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

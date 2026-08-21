@@ -1,0 +1,21 @@
+{
+  "id": "click__002",
+  "repo": "https://github.com/pallets/click",
+  "base_commit": "2c8cd3ac958a7eb316d67f2d316c27086c4c0369",
+  "language": "Python",
+  "task_a": "Allow command lookup to treat underscores in an invoked command name as aliases for dashes in registered command names.",
+  "task_b": "Allow command lookup to fall back to lowercase command names when a mixed-case or uppercase command invocation is not found exactly.",
+  "patch_a": "patch_a.diff",
+  "patch_b": "patch_b.diff",
+  "validation_a": "scripts/validate_a.sh",
+  "validation_b": "scripts/validate_b.sh",
+  "merge_result": "Patch A and Patch B apply cleanly to the same base commit with git apply; no textual conflict is reported.",
+  "composition_oracle": "oracle/test_composition.py",
+  "conflict_type": "behavioral",
+  "failure_summary": "Patch A introduces underscore-to-dash command aliasing. Patch B introduces case-insensitive fallback lookup. Together, they create an unintended transitive lookup where FOO_BAR resolves to foo-bar, even though neither patch independently admits that invocation form.",
+  "difficulty": "easy",
+  "source": "researcher_constructed",
+  "agent_or_model": "Codex",
+  "human_modified": true,
+  "notes": "Second seed instance. This demonstrates a behavioral command-resolution conflict rather than a configuration-precedence conflict."
+}
