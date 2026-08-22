@@ -7,6 +7,7 @@ This directory contains setup, validation, composition, and benchmark-running sc
 - `run_instance.py`: validate one benchmark instance against a local upstream checkout.
 - `bootstrap_repos.py`: clone upstream repositories referenced by the instance index.
 - `baseline_features.py`: extract simple patch/task overlap features for baseline experiments.
+- `baseline_classifier.py`: evaluate simple oracle-free conflict/control baselines over `analysis/baseline_features.csv`.
 - `check_instance_completeness.py`: verify reproduced instances include the required tasks, patches, combined patch, oracles, scripts, logs, and docs.
 - `dataset_stats.py`: generate Markdown dataset summary statistics from `instances/index.json`.
 - `generate_dataset_table.py`: generate a paper-facing instance table from `instances/index.json` and per-instance metadata.
@@ -55,8 +56,9 @@ python scripts/validate_generated_artifacts.py
 ```
 
 This regenerates `analysis/baseline_features.csv`,
-`analysis/dataset_summary.md`, and `paper/dataset_table.md`, then fails if any
-of those generated files differ from the committed versions.
+`analysis/dataset_summary.md`, `paper/dataset_table.md`, and
+`analysis/baseline_classifier_results.md`, then fails if any of those generated
+files differ from the committed versions.
 
 ## Validate public artifacts
 
