@@ -36,6 +36,22 @@ feature table that later experiments can consume.
 The current descriptive snapshot is summarized in
 `analysis/baseline_results.md`.
 
+## Classifier-Style Baselines
+
+`scripts/baseline_classifier.py` evaluates simple oracle-free heuristics over
+`analysis/baseline_features.csv`.
+
+```bash
+python scripts/baseline_classifier.py \
+  --features analysis/baseline_features.csv \
+  --output analysis/baseline_classifier_results.md
+```
+
+The current report is written to
+`analysis/baseline_classifier_results.md`. These results are preliminary while
+the control set is small, but they give the paper a concrete first experimental
+baseline.
+
 ## Next Baselines
 
 - touched-symbol overlap;

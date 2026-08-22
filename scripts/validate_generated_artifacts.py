@@ -46,6 +46,17 @@ ARTIFACTS = [
             "paper/dataset_table.md",
         ],
     ),
+    GeneratedArtifact(
+        "analysis/baseline_classifier_results.md",
+        [
+            sys.executable,
+            "scripts/baseline_classifier.py",
+            "--features",
+            "analysis/baseline_features.csv",
+            "--output",
+            "analysis/baseline_classifier_results.md",
+        ],
+    ),
 ]
 
 

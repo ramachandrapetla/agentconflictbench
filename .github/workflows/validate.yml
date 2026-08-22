@@ -21,7 +21,7 @@ jobs:
           python-version: "3.11"
 
       - name: Compile validation scripts
-        run: python -m py_compile scripts/validate_metadata.py scripts/validate_dataset.py scripts/run_instance.py scripts/dataset_stats.py scripts/bootstrap_repos.py scripts/check_instance_completeness.py scripts/generate_dataset_table.py scripts/baseline_features.py scripts/validate_generated_artifacts.py scripts/validate_public_artifacts.py
+        run: python -m py_compile scripts/validate_metadata.py scripts/validate_dataset.py scripts/run_instance.py scripts/dataset_stats.py scripts/bootstrap_repos.py scripts/check_instance_completeness.py scripts/generate_dataset_table.py scripts/baseline_features.py scripts/baseline_classifier.py scripts/validate_generated_artifacts.py scripts/validate_public_artifacts.py
 
       - name: Validate metadata
         run: python scripts/validate_metadata.py
