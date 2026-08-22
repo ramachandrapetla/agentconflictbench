@@ -72,6 +72,8 @@ For upstream setup commands, per-repository dependency notes, and full-dataset
 validation examples, see [docs/reproduction.md](docs/reproduction.md).
 
 For a short walkthrough of one benchmark instance, see [docs/demo.md](docs/demo.md).
+For a quick artifact review path, see
+[docs/artifact_review_checklist.md](docs/artifact_review_checklist.md).
 
 ## Validating Metadata
 
@@ -113,6 +115,9 @@ Contributions are welcome. The easiest places to help are:
 Start with [CONTRIBUTING.md](CONTRIBUTING.md) and
 [docs/contributor_instance_guide.md](docs/contributor_instance_guide.md). Good
 first issues are tracked in GitHub Issues.
+
+If you want to share the project, [`docs/launch_post.md`](docs/launch_post.md)
+has a short public summary you can adapt.
 
 ## Citation
 
