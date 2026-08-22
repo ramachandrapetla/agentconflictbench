@@ -4,6 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Dataset: 28 instances](https://img.shields.io/badge/dataset-28%20instances-blue)](analysis/dataset_summary.md)
 
+[![DOI](https://zenodo.org/badge/1341243470.svg)](https://doi.org/10.5281/zenodo.22055782)
+
 AgentConflictBench is a research benchmark for evaluating **silent semantic conflicts** among independently valid AI-generated code changes.
 
 The core problem: current coding-agent benchmarks usually evaluate whether an agent can solve one software task in isolation. In real development, multiple AI-generated patches may be produced concurrently. Each patch can pass validation alone, Git can merge them without textual conflicts, and the combined system can still be wrong.
