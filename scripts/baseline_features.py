@@ -14,6 +14,25 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 TOKEN_RE = re.compile(r"[A-Za-z0-9_]+")
+BASELINE_FIELDS = [
+    "id",
+    "repo",
+    "language",
+    "conflict_type",
+    "composition_expected",
+    "difficulty",
+    "patch_a_files",
+    "patch_b_files",
+    "shared_files",
+    "same_file",
+    "both_single_file",
+    "patch_a_added_lines",
+    "patch_a_deleted_lines",
+    "patch_b_added_lines",
+    "patch_b_deleted_lines",
+    "changed_token_jaccard",
+    "task_token_jaccard",
+]
 
 
 @dataclass(frozen=True)
@@ -142,7 +161,7 @@ def main() -> int:
     args.output.parent.mkdir(parents=True, exist_ok=True)
 
     with args.output.open("w", newline="") as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=list(rows[0]), lineterminator="\n")
+        writer = csv.DictWriter(csv_file, fieldnames=BASELINE_FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
