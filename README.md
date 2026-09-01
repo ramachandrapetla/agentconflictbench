@@ -76,6 +76,8 @@ validation examples, see [docs/reproduction.md](docs/reproduction.md).
 For a short walkthrough of one benchmark instance, see [docs/demo.md](docs/demo.md).
 For a quick artifact review path, see
 [docs/artifact_review_checklist.md](docs/artifact_review_checklist.md).
+For Hugging Face Dataset packaging, see
+[docs/huggingface.md](docs/huggingface.md).
 
 ## Validating Metadata
 
