@@ -120,9 +120,6 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md) and
 [docs/contributor_instance_guide.md](docs/contributor_instance_guide.md). Good
 first issues are tracked in GitHub Issues.
 
-If you want to share the project, [`docs/launch_post.md`](docs/launch_post.md)
-has a short public summary you can adapt.
-
 ## Citation
 
 A formal citation will be added as the benchmark and paper mature. For now, see `CITATION.cff`.
