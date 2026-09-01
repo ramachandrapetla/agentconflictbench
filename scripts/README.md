@@ -10,6 +10,7 @@ This directory contains setup, validation, composition, and benchmark-running sc
 - `baseline_classifier.py`: evaluate simple oracle-free conflict/control baselines over `analysis/baseline_features.csv`.
 - `check_instance_completeness.py`: verify reproduced instances include the required tasks, patches, combined patch, oracles, scripts, logs, and docs.
 - `dataset_stats.py`: generate Markdown dataset summary statistics from `instances/index.json`.
+- `export_huggingface_dataset.py`: build a Hugging Face Dataset upload folder under `dist/huggingface/`.
 - `generate_dataset_table.py`: generate a paper-facing instance table from `instances/index.json` and per-instance metadata.
 - `validate_generated_artifacts.py`: regenerate generated CSV/Markdown artifacts and fail if they are stale.
 - `validate_metadata.py`: validate instance metadata, index consistency, enum values, and referenced files.
@@ -78,6 +79,16 @@ python scripts/bootstrap_repos.py --target-dir /tmp/agentconflictbench-repos --p
 
 This clones the upstream repositories referenced by `instances/index.json`.
 Dependency installation remains explicit; see `../docs/reproduction.md`.
+
+## Export for Hugging Face
+
+```bash
+python scripts/export_huggingface_dataset.py --output dist/huggingface
+```
+
+This creates a Hugging Face Dataset-ready folder with a dataset card,
+`data/instances.jsonl`, `data/instances.csv`, and a zipped copy of the full
+instance artifacts. See `../docs/huggingface.md`.
 
 ## Validate one instance
 
