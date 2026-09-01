@@ -115,7 +115,7 @@ def zip_instances(path: Path) -> None:
                 archive.write(source, source.relative_to(ROOT))
 
 
-def render_card(rows: list[dict[str, Any]]) -> str:
+def render_card(rows: list[dict[str, Any]], repo_id: str) -> str:
     positives = sum(1 for row in rows if row["composition_expected"] == "fail")
     controls = sum(1 for row in rows if row["composition_expected"] == "pass")
     repositories = sorted({row["repo"] for row in rows})
@@ -125,7 +125,7 @@ def render_card(rows: list[dict[str, Any]]) -> str:
 license: mit
 pretty_name: AgentConflictBench
 language:
-{chr(10).join(f'- {language.lower()}' for language in languages)}
+- code
 tags:
 - code
 - software-engineering
@@ -173,7 +173,7 @@ The full canonical instance folders are also included in
 ```python
 from datasets import load_dataset
 
-dataset = load_dataset("ramachandrapetla/agentconflictbench")
+dataset = load_dataset("{repo_id}")
 print(dataset["train"][0]["id"])
 ```
 
@@ -241,6 +241,11 @@ def main() -> int:
         help="Output folder to populate for Hugging Face upload.",
     )
     parser.add_argument(
+        "--repo-id",
+        default="ramachandra1996/agentconflictbench",
+        help="Hugging Face dataset repo id used in the generated dataset card.",
+    )
+    parser.add_argument(
         "--clean",
         action="store_true",
         help="Remove the output folder before rebuilding it.",
@@ -260,7 +265,7 @@ def main() -> int:
     write_jsonl(rows, data_dir / "instances.jsonl")
     write_csv(rows, data_dir / "instances.csv")
     zip_instances(artifacts_dir / "instances.zip")
-    (output / "README.md").write_text(render_card(rows), encoding="utf-8")
+    (output / "README.md").write_text(render_card(rows, args.repo_id), encoding="utf-8")
     copy_if_exists(ROOT / "LICENSE", output / "LICENSE")
     copy_if_exists(ROOT / "CITATION.cff", output / "CITATION.cff")
 
