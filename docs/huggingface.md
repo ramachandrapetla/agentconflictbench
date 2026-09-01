@@ -12,7 +12,10 @@ dataset-friendly snapshot that people can discover, preview, and load with
 From the repository root:
 
 ```bash
-python scripts/export_huggingface_dataset.py --clean --output dist/huggingface
+python scripts/export_huggingface_dataset.py \
+  --clean \
+  --output dist/huggingface \
+  --repo-id ramachandra1996/agentconflictbench
 ```
 
 This creates:
@@ -41,7 +44,7 @@ want the exact task/patch/oracle/script/log layout.
 Create a Dataset repository on Hugging Face named:
 
 ```text
-ramachandrapetla/agentconflictbench
+ramachandra1996/agentconflictbench
 ```
 
 Use the `dataset` repo type, not `model` or `space`.
@@ -64,7 +67,7 @@ from huggingface_hub import HfApi
 api = HfApi()
 api.upload_folder(
     folder_path="dist/huggingface",
-    repo_id="ramachandrapetla/agentconflictbench",
+    repo_id="ramachandra1996/agentconflictbench",
     repo_type="dataset",
 )
 PY
@@ -80,7 +83,7 @@ After upload:
 ```python
 from datasets import load_dataset
 
-dataset = load_dataset("ramachandrapetla/agentconflictbench")
+dataset = load_dataset("ramachandra1996/agentconflictbench")
 print(dataset["train"][0]["id"])
 ```
 
@@ -102,7 +105,10 @@ python scripts/validate_metadata.py
 python scripts/check_instance_completeness.py
 python scripts/validate_generated_artifacts.py
 python scripts/validate_public_artifacts.py
-python scripts/export_huggingface_dataset.py --clean --output dist/huggingface
+python scripts/export_huggingface_dataset.py \
+  --clean \
+  --output dist/huggingface \
+  --repo-id ramachandra1996/agentconflictbench
 ```
 
 ## Notes
