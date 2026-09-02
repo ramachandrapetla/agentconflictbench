@@ -5,10 +5,20 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
+from dataclasses import dataclass
 from pathlib import Path
+
+
+@dataclass(frozen=True)
+class CheckoutState:
+    """The branch/commit state to restore after an instance run."""
+
+    commit: str
+    branch: str | None
 
 
 def run(
@@ -41,12 +51,39 @@ def require_clean_repo(repo_dir: Path) -> None:
         )
 
 
-def restore_repo(repo_dir: Path) -> None:
-    run(["git", "restore", "."], cwd=repo_dir)
+def get_checkout_state(repo_dir: Path) -> CheckoutState:
+    """Capture the current commit and branch, if HEAD is attached."""
+    commit = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=repo_dir, text=True
+    ).strip()
+    branch_result = subprocess.run(
+        ["git", "symbolic-ref", "--quiet", "--short", "HEAD"],
+        cwd=repo_dir,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+    )
+    branch = branch_result.stdout.strip() if branch_result.returncode == 0 else None
+    return CheckoutState(commit=commit, branch=branch)
+
+
+def reset_repo(repo_dir: Path) -> None:
+    """Discard changes made by a benchmark phase while preserving ignored deps."""
+    run(["git", "reset", "--hard", "HEAD"], cwd=repo_dir)
+    run(["git", "clean", "-fd"], cwd=repo_dir)
 
 
 def checkout_base(repo_dir: Path, base_commit: str) -> None:
     run(["git", "checkout", "--detach", base_commit], cwd=repo_dir)
+
+
+def restore_checkout(repo_dir: Path, state: CheckoutState) -> None:
+    """Return a clean repository to the branch/commit it started on."""
+    reset_repo(repo_dir)
+    if state.branch is not None:
+        run(["git", "switch", state.branch], cwd=repo_dir)
+    else:
+        checkout_base(repo_dir, state.commit)
 
 
 def apply_patch(repo_dir: Path, patch_path: Path) -> None:
@@ -61,8 +98,6 @@ def run_oracle(repo_dir: Path, test_path: str, expect_failure: bool = False) -> 
         env = None
         src_dir = repo_dir / "src"
         if src_dir.is_dir():
-            import os
-
             env = os.environ.copy()
             existing_pythonpath = env.get("PYTHONPATH")
             env["PYTHONPATH"] = (
@@ -117,7 +152,10 @@ def main() -> int:
     parser.add_argument(
         "--skip-clean-check",
         action="store_true",
-        help="Skip checking that the repository checkout is clean before running.",
+        help=(
+            "Skip checking that the repository checkout is clean before running. "
+            "Warning: benchmark cleanup discards tracked and untracked changes."
+        ),
     )
     args = parser.parse_args()
 
@@ -134,6 +172,7 @@ def main() -> int:
     if not args.skip_clean_check:
         require_clean_repo(repo_dir)
 
+    original_checkout = get_checkout_state(repo_dir)
     base_commit = metadata["base_commit"]
     patch_a = instance_dir / metadata["patch_a"]
     patch_b = instance_dir / metadata["patch_b"]
@@ -157,12 +196,12 @@ def main() -> int:
         print("\n[1/3] Patch A validation")
         apply_patch(repo_dir, patch_a)
         run_oracle(repo_dir, patch_a_test)
-        restore_repo(repo_dir)
+        reset_repo(repo_dir)
 
         print("\n[2/3] Patch B validation")
         apply_patch(repo_dir, patch_b)
         run_oracle(repo_dir, patch_b_test)
-        restore_repo(repo_dir)
+        reset_repo(repo_dir)
 
         print("\n[3/3] Composition validation")
         apply_patch(repo_dir, patch_a)
@@ -179,7 +218,7 @@ def main() -> int:
             print("\nPASS: instance reproduces expected clean composition control.")
         return 0
     finally:
-        restore_repo(repo_dir)
+        restore_checkout(repo_dir, original_checkout)
 
 
 if __name__ == "__main__":
